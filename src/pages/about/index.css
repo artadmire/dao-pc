@@ -1,0 +1,73 @@
+
+.my-about {
+  background: #fff;
+}
+.my-about .h1title {
+  font-size: 24px;
+  line-height: 30px;
+  margin-bottom: 56px;
+  font-weight: 600;
+}
+.my-about .content .title {
+  font-size: 16px;
+  font-family: Poppins-Regular, Poppins;
+  font-weight: 500;
+  color: #1F2931;
+  line-height: 24px;
+}
+.my-about .content .desc {
+  font-size: 14px;
+  font-family: Poppins-Regular, Poppins;
+  color: #1F2931;
+  line-height: 24px;
+  margin-bottom: 24px;
+}
+.my-about .content .titleW {
+  font-size: 16px;
+  font-family: Poppins-Bold, Poppins;
+  font-weight: bold;
+  color: #1F2931;
+  line-height: 24px;
+  margin-bottom: 16px;
+}
+.my-about-mddle .card {
+  width: 274px;
+  height: 180px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px 5px rgba(0, 0, 0, 0.05);
+  margin-bottom: 10px;
+}
+.my-about-mddle .card-grids {
+  width: 580px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.my-about-mddle .top-aside {
+  display: flex;
+  justify-content: space-between;
+}
+.my-about-mddle .top-aside .logs {
+  width: 545px;
+  height: 455px;
+}
+.my-about-mddle .imgWrap {
+  width: 580px;
+  height: 370px;
+  background: url('https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/pic2.png') no-repeat left bottom/contain;
+  display: flex;
+  justify-content: flex-end;
+}
+.my-about-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 120px;
+}
+.myBottom.my-about-bottom .contact {
+  color: #1F2931;
+}
+.myBottom.my-about-bottom .copy {
+  color: #4A4A4A;
+}

@@ -1,0 +1,70 @@
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  min-height: 100vmin;
+  background: #FFF;
+  width: 100%;
+  height: 100%;  
+}
+.appBg {
+  background-image: url('https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/hbj%402x.png'), url('https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/hbg3%402x.png'), url('https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/bg%402.png');
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: right top, right 390px, center bottom;
+  background-size: 100% 200px, 100% 500px, 106% 100%;
+  background-attachment:fixed;
+}
+.aboutBg {
+  background: url('https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/background%402x.png') #fff no-repeat center 100px;
+  background-size: 1770px auto;
+}
+.content {
+  width: 1220px;
+  display: flex;
+  flex-direction: column;
+}
+.content>header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 37px;
+}
+.content>header>h2 {
+  width: 164px;
+  height: 45px;
+  background: url('https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/logo%402x%202.png');
+  background-size: 164px 45px;
+}
+.content>header> .logoH2 {
+  width: 164px;
+  height: 45px;
+  background: url('https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/blogo%402x.png') no-repeat center;
+  background-size: 164px 45px;
+
+}
+.ant-tabs-top > .ant-tabs-nav::before, .ant-tabs-bottom > .ant-tabs-nav::before, .ant-tabs-top > div > .ant-tabs-nav::before, .ant-tabs-bottom > div > .ant-tabs-nav::before {
+  border: 0 !important
+}
+.ant-tabs-tab.ant-tabs-tab-active {
+  border: 0 !important
+}
+.ant-tabs-ink-bar{
+  background: none !important;
+}
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+  color: #EFBB24 !important;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+.my-logo {
+  
+}
+
+
+

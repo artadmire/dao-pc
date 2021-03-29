@@ -1,0 +1,31 @@
+.home {
+  margin-top: 190px;
+}
+.des p {
+  font-size: 64px;
+  font-family: PlayfairDisplay-Black, PlayfairDisplay;
+  font-weight: 900;
+  color: #EFBB24;
+  line-height: 70px;
+  margin: 0;
+  padding: 0;
+}
+.des .title {
+  color: #FFFFFF;
+}
+.home .des {
+  margin-bottom: 56px;
+}
+.home .about {
+  font-size: 20px;
+  font-family: Poppins-Medium, Poppins;
+  font-weight: 500;
+  color: #EFBB24;
+  line-height: 40px;
+  display: inline-block;
+  border-bottom: 2px solid #EFBB24;
+  cursor:pointer;
+}
+.home-bottom {
+  margin-top: 124px;
+}

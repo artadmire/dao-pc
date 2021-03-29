@@ -1,0 +1,26 @@
+.icon {
+  display: flex;
+}
+.icon img{
+  width: 42px;
+  height: 42px;
+  margin-right: 10px;
+}
+.myBottom .contact{
+  height: 20px;
+  font-size: 14px;
+  font-family: Poppins-Medium, Poppins;
+  font-weight: 500;
+  color: #FFFFFF;
+  line-height: 21px;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+.myBottom .copy{
+  height: 20px;
+  font-size: 14px;
+  font-family: Poppins-Regular, Poppins;
+  color: #FFFFFF;
+  line-height: 21px;
+  opacity: 0.4;
+}
