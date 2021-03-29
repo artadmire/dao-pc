@@ -11,7 +11,7 @@ p {
   width: 100%;
   height: 100%;  
 }
-.appBg {
+/* .appBg {
   background-image: url('https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/hbj%402x.png'), url('https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/hbg3%402x.png'), url('https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/bg%402.png');
   background-repeat: no-repeat, no-repeat, no-repeat;
   background-position: right top, right 390px, center bottom;
@@ -21,28 +21,37 @@ p {
 .aboutBg {
   background: url('https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/background%402x.png') #fff no-repeat center 100px;
   background-size: 1770px auto;
+} */
+.appBg {
+  background-image: url('./assets/img/background@2x.png'),url('./assets/img/pic@2x.png'),url('./assets/img/background3@2x.png');
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: right top ,right 100px  top 200px,right bottom 175px;
+  background-size:1099px 1304px ,800px 800px,100% 800px;
+}
+.aboutBg {
+  background: url('https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/background%402x.png') #fff no-repeat center 100px;
+  background-size: 1770px auto;
 }
 .content {
-  width: 1220px;
+  width: 1420px;
   display: flex;
   flex-direction: column;
 }
 .content>header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 37px;
+  width: 1420px;
+height: 88px;
+background: #FFFFFF;
+box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.1);
+border-radius: 4px;
 }
-.content>header>h2 {
-  width: 164px;
-  height: 45px;
-  background: url('https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/logo%402x%202.png');
-  background-size: 164px 45px;
-}
-.content>header> .logoH2 {
-  width: 164px;
-  height: 45px;
-  background: url('https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/blogo%402x.png') no-repeat center;
-  background-size: 164px 45px;
+.content>header .logo {
+  width: 173px;
+  height: 36px;
+  margin-left: 77px;
 
 }
 .ant-tabs-top > .ant-tabs-nav::before, .ant-tabs-bottom > .ant-tabs-nav::before, .ant-tabs-top > div > .ant-tabs-nav::before, .ant-tabs-bottom > div > .ant-tabs-nav::before {
@@ -54,8 +63,28 @@ p {
 .ant-tabs-ink-bar{
   background: none !important;
 }
+.unlock-wallet{
+  width: 147px;
+  height: 52px;
+  background: linear-gradient(135deg, #3023AE 0%, #C86DD7 100%);
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  border: 2px solid #F5F5F5;
+  font-size: 16px;
+font-family: TwCenMT-Bold, TwCenMT;
+font-weight: bold;
+color: #FFFFFF;
+line-height: 52px;
+text-align: center;
+margin-right: 99px;
+}
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
-  color: #EFBB24 !important;
+  
+ 
+  font-size: 16px;
+  font-family: TwCenMT-Bold, TwCenMT;
+  font-weight: bold;
+  color: #B2B7CC;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

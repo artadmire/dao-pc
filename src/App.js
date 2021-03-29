@@ -5,7 +5,9 @@ import Home from './pages/home'
 import About from './pages/about'
 import Fud from './pages/fud'
 import Contact from './pages/contact'
+import Account from './pages/account'
 import 'antd/dist/antd.css';
+import logo from '../src/assets/img/logo@2x.png'
 
 const { TabPane } = Tabs;
 
@@ -22,23 +24,27 @@ function App() {
     <div className={`App ${tabKey === '1' && 'appBg'} ${tabKey === '2' && 'aboutBg'}`}>
         <div className="content">
         <header>
-          <h2 className={tabKey !== '1' && 'logoH2'}></h2>
+          <h2>
+            <img src={logo} className="logo"/>
+          </h2>
           <div>
             <Tabs 
             defaultActiveKey={tabKey}
             onChange={callback}
             activeKey={tabKey}
-            tabBarStyle={tabKey === '1' ? {color: '#FFF'} : {color: 'black'}}
+            tabBarStyle={ {color: '#B2B7CC'}}
             >
-              <TabPane tab="HOME" key="1"/>
               <TabPane tab="ABOUT" key="2"/>
+              <TabPane tab="ACCOUNT" key="5" />
               <TabPane tab="INVESTMENTS" key="3" />
               <TabPane tab="CONTACT US" key="4" />
             </Tabs>
           </div>
+          <a className="unlock-wallet" href="javacsript:;">Unlock Wallet</a>
         </header>
         {tabKey === '1' && <Home onHandleClick={handleClick} />}
         {tabKey === '2' && <About />}
+        {tabKey === '5' && <Account />}
         {tabKey === '3' && <Fud />}
         {tabKey === '4' && <Contact />}
       </div>
