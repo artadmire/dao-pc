@@ -1,0 +1,21 @@
+.previous-projects-title{
+    display: flex;
+    justify-content: space-between;
+font-size: 13px;
+font-family: Poppins-Medium, Poppins;
+font-weight: 500;
+color: #4A4A4A;
+line-height: 20px;
+}
+.previous-projects-title img{
+    width:16px;
+    height: 16px;
+}
+.previous-projects-content{
+    margin-top: 50px;
+}
+
+.previous-projects-content-bottom{
+    margin-left: 167px;
+    margin-top: 58px;
+}

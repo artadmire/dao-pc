@@ -1,0 +1,9 @@
+.upcoming-projects-content .other-items{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.upcoming-projects-content{
+    margin-top: 48px;
+}
+
