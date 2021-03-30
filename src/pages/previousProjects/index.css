@@ -1,0 +1,15 @@
+.previous-projects-list{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.previous-projects-list .title{
+    margin-top:80px;
+    margin-bottom: 49px;
+}
+.previous-projects-list-content{
+    width: 1087px;
+   display: flex;
+   flex-wrap: wrap;
+
+}

@@ -3,7 +3,6 @@ import './index.css'
 import MyBottom from '../../components/myBottom'
 import UpcomingProject from './components/upcomingProjects/index.js'
 import PreviousProject from './components/previousProjects/index.js'
-
 function Home(props) {
   function handleClick() {
     const { onHandleClick } = props

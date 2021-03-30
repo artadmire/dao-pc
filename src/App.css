@@ -29,8 +29,10 @@ p {
   background-size:1099px 1304px ,800px 800px,100% 800px;
 }
 .aboutBg {
-  background: url('https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/background%402x.png') #fff no-repeat center 100px;
-  background-size: 1770px auto;
+  background: url('./assets/img/background4@2x.png');
+    background-position: center bottom 162px;
+    background-repeat: no-repeat;
+    background-size: 100% 80%;
 }
 .content {
   width: 1420px;

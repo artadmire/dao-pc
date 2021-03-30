@@ -16,12 +16,12 @@ export default function PreviousProject() {
          <div className="previous-projects-content">
              <div style={{display:"flex"}} className="previous-projects-content-top">
                 {
-                   PreviousProjects.length&& PreviousProjects.slice(3,6).map((index,item)=>  <PreviousProjectItem key={index}/>)
+                   PreviousProjects.length&& PreviousProjects.slice(3,6).map((index,item)=>  <PreviousProjectItem key={index} styles={{"marginRight":"16px"}}/>)
                 }
              </div>
              <div style={{display:"flex"}} className="previous-projects-content-bottom">
                 {
-                    PreviousProjects.length>=3 && PreviousProjects.slice(3,6).map((index,item)=>  <PreviousProjectItem key={index}/>)
+                    PreviousProjects.length>=3 && PreviousProjects.slice(3,6).map((index,item)=>  <PreviousProjectItem key={index} styles={{"marginRight":"16px"}}/>)
                 }
              </div>
          </div>

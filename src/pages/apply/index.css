@@ -1,0 +1,60 @@
+.appBg{
+  background:#000;
+}
+.apply{
+    width: 744px;
+    margin:0 auto
+}
+.apply .title{
+    text-align: center;
+    font-size: 32px;
+    font-family: Poppins-Bold, Poppins;
+    font-weight: bold;
+    color: #FFFFFF;
+    line-height: 48px;
+    margin:64px 0
+}
+.apply  .input-controller1{
+    height: 40px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    border: 1px solid #D2D2D2
+}
+.apply  .input-controller2{
+    height: 40px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    border: 1px solid #D2D2D2;
+}
+.ant-form-item-label > label {
+    color:#fff
+}
+.form-item-title{
+    color: #fff;
+}
+.form-item-content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.aa #radio-group{
+    display: flex !important;
+    flex-direction: column !important;
+}
+.aa #radio-group  .ant-radio-wrapper span{
+    color: #fff !important;
+}
+.apply .ant-form-item-label>label{
+    color:#fff !important;
+}
+.ant-btn.ant-btn-primary.get-start{
+    width: 242px;
+height: 52px;
+background: linear-gradient(135deg, #3023AE 0%, #C86DD7 100%);
+box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
+border-radius: 4px;
+border: 2px solid #F5F5F5;
+font-size: 16px;
+font-family: TwCenMT-Bold, TwCenMT;
+font-weight: bold;
+}

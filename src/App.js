@@ -6,6 +6,8 @@ import About from './pages/about'
 import Fud from './pages/fud'
 import Contact from './pages/contact'
 import Account from './pages/account'
+import PreviousProjects from './pages/previousProjects'
+import Apply from './pages/apply'
 import 'antd/dist/antd.css';
 import logo from '../src/assets/img/logo@2x.png'
 
@@ -42,11 +44,12 @@ function App() {
           </div>
           <a className="unlock-wallet" href="javacsript:;">Unlock Wallet</a>
         </header>
-        {tabKey === '1' && <Home onHandleClick={handleClick} />}
+        {tabKey === '1' && <Apply onHandleClick={handleClick} />}
         {tabKey === '2' && <About />}
         {tabKey === '5' && <Account />}
         {tabKey === '3' && <Fud />}
         {tabKey === '4' && <Contact />}
+      
       </div>
     </div>
   );

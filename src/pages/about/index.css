@@ -1,73 +1,89 @@
 
-.my-about {
-  background: #fff;
+.my-about .title{
+  text-align: center;
 }
-.my-about .h1title {
-  font-size: 24px;
-  line-height: 30px;
-  margin-bottom: 56px;
-  font-weight: 600;
+.my-about .info{
+font-size: 20px;
+font-family: Poppins-Medium, Poppins;
+font-weight: 500;
+color: #000000;
+line-height: 30px;
 }
-.my-about .content .title {
-  font-size: 16px;
-  font-family: Poppins-Regular, Poppins;
-  font-weight: 500;
-  color: #1F2931;
-  line-height: 24px;
+.my-about .introduce{
+  line-height: 50px;
 }
-.my-about .content .desc {
-  font-size: 14px;
-  font-family: Poppins-Regular, Poppins;
-  color: #1F2931;
-  line-height: 24px;
-  margin-bottom: 24px;
+.my-about .introduce div:nth-of-type(1){
+  text-align: center;
 }
-.my-about .content .titleW {
-  font-size: 16px;
-  font-family: Poppins-Bold, Poppins;
-  font-weight: bold;
-  color: #1F2931;
-  line-height: 24px;
-  margin-bottom: 16px;
+.my-about .content{
+  padding-left: 142px;
 }
-.my-about-mddle .card {
-  width: 274px;
-  height: 180px;
-  background: #FFFFFF;
-  box-shadow: 0px 4px 20px 5px rgba(0, 0, 0, 0.05);
-  margin-bottom: 10px;
+.my-about .character{
+    width: 900px;
+    display: flex;
+    flex-wrap: wrap;
 }
-.my-about-mddle .card-grids {
-  width: 580px;
+.my-about .character-item{
+  width: 366px;
+height: 160px;
+border-radius: 10px;
+border: 3px solid #F7F4FC;
+margin-right: 20px;
+margin-bottom: 40px;
+display: flex;
+align-items: center;
+}
+.my-about .character-item img{
+  width:100px;
+  height: 100px;
+  margin: 30px 50px;
+}
+.my-about .investors{
+  margin-top: 280px;
+  margin-bottom: 325px;
+  padding-left: 80px;
+}
+
+.my-about .investors .title{
+font-size: 32px;
+font-family: Poppins-Bold, Poppins;
+font-weight: bold;
+color: #000000;
+line-height: 48px;
+text-align: center;
+margin-bottom: 56px;
+}
+
+.my-about .investors-item{
+  display: flex;
+  width: 292px;
+height: 121px;
+background: #FFFFFF;
+box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.1);
+border-radius: 10px;
+}
+.my-about .investors-content{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
-.my-about-mddle .top-aside {
+.my-about .investors-item{
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+.my-about .level{
+  margin-top: 40px;
+  margin-bottom: 126px;
+}
+.my-about .level-bottom{
   display: flex;
-  justify-content: space-between;
 }
-.my-about-mddle .top-aside .logs {
-  width: 545px;
-  height: 455px;
-}
-.my-about-mddle .imgWrap {
-  width: 580px;
-  height: 370px;
-  background: url('https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/pic2.png') no-repeat left bottom/contain;
-  display: flex;
-  justify-content: flex-end;
-}
-.my-about-bottom {
+.my-about .level-bottom li{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin-top: 120px;
+  margin-right: 94px;
 }
-.myBottom.my-about-bottom .contact {
-  color: #1F2931;
-}
-.myBottom.my-about-bottom .copy {
-  color: #4A4A4A;
+.my-about .level-bottom li img{
+  width:48px;
+  height:50px
 }
