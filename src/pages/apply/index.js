@@ -1,6 +1,8 @@
 import React ,{useState }from 'react'
 import './index.css'
-import { Form, Input, Button, Radio } from 'antd';
+import { Form, Input, Button, Radio,Upload } from 'antd';
+import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
+
 export default function Apply() {
     const [form] = Form.useForm();
     const { TextArea } = Input;
@@ -14,6 +16,16 @@ export default function Apply() {
           labelCol: { span:24 },
           wrapperCol: { span: 24 },
         }
+
+        const normFile = (e) => {
+            console.log('Upload event:', e);
+          
+            if (Array.isArray(e)) {
+              return e;
+            }
+          
+            return e && e.fileList;
+          };
     return (
         <div className="apply">
            <div className="title">
@@ -23,6 +35,7 @@ export default function Apply() {
            <Form
                 form={form}
               {...formItemLayout}
+              getValueFromEvent={normFile}
                 layout="vertical"
                 >
                     <div>
@@ -58,19 +71,74 @@ export default function Apply() {
                             <TextArea
                                     placeholder="Controlled autosize"
                                     autoSize={{ minRows: 3, maxRows: 5 }}
-                />
+                    />
                     </Form.Item>
                     <Form.Item name="radio-group" label="On which Blockchain do you want to launch? "  className="aa">
                         <Radio.Group>
-                        <Radio value="a">Ethereum</Radio>
-                        <Radio value="b">Binance Smart Chain</Radio>
-                        <Radio value="c">Polkadot</Radio>
-                        <Radio value="d">More than one</Radio>
-
+                            <Radio value="a">Ethereum</Radio>
+                            <Radio value="b">Binance Smart Chain</Radio>
+                            <Radio value="c">Polkadot</Radio>
+                            <Radio value="d">More than one</Radio>
                         </Radio.Group>
                     </Form.Item>
-                    <Form.Item label="EmaWhen would you like to do a Token Launch on DuckStarter? il " {...formItemLayout}>
+                    <Form.Item label="When would you like to do a Token Launch on DuckStarter? " {...formItemLayout}>
                           <Input placeholder="input placeholder" className="input-controller1"/>
+                    </Form.Item>
+                    <Form.Item label="Do you have a Roadmap?" {...formItemLayout2}>
+                        <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
+                            <Upload.Dragger name="files" action="/upload.do">
+                                <p className="ant-upload-drag-icon">
+                                <InboxOutlined />
+                                </p>
+                                <p className="ant-upload-text">Click or drag file to this area to upload</p>
+                                <p className="ant-upload-hint">Support for a single or bulk upload.</p>
+                            </Upload.Dragger>
+                        </Form.Item>
+                    </Form.Item>
+                    <Form.Item label="Your Website" {...formItemLayout2}>
+                          <Input placeholder="input placeholder" className="input-controller2"/>
+                     </Form.Item>
+                    <Form.Item label="Do you have a Token Distribution and Tokenomics File?" {...formItemLayout2}>
+                        <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
+                            <Upload.Dragger name="files" action="/upload.do">
+                                <p className="ant-upload-drag-icon">
+                                <InboxOutlined />
+                                </p>
+                                <p className="ant-upload-text">Click or drag file to this area to upload</p>
+                                <p className="ant-upload-hint">Support for a single or bulk upload.</p>
+                            </Upload.Dragger>
+                        </Form.Item>
+                    </Form.Item>
+                    <Form.Item label="Your Project Telegram Channel" {...formItemLayout}>
+                          <Input placeholder="input placeholder" className="input-controller2"/>
+                    </Form.Item>
+                    <Form.Item label="Your Project Twitter URL" {...formItemLayout}>
+                          <Input placeholder="input placeholder" className="input-controller2"/>
+                    </Form.Item>
+                    <Form.Item label="Additional Files you would like to share with us" {...formItemLayout2}>
+                        <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
+                            <Upload.Dragger name="files" action="/upload.do">
+                                <p className="ant-upload-drag-icon">
+                                <InboxOutlined />
+                                </p>
+                                <p className="ant-upload-text">Click or drag file to this area to upload</p>
+                                <p className="ant-upload-hint">Support for a single or bulk upload.</p>
+                            </Upload.Dragger>
+                        </Form.Item>
+                    </Form.Item>
+                    <Form.Item label="Additional Information you would like to share with us" {...formItemLayout2}>
+                        <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
+                            <Upload.Dragger name="files" action="/upload.do">
+                                <p className="ant-upload-drag-icon">
+                                <InboxOutlined />
+                                </p>
+                                <p className="ant-upload-text">Click or drag file to this area to upload</p>
+                                <p className="ant-upload-hint">Support for a single or bulk upload.</p>
+                            </Upload.Dragger>
+                        </Form.Item>
+                    </Form.Item>
+                    <Form.Item label="Where did you hear about Duckstarter? " {...formItemLayout}>
+                            <Input placeholder="input placeholder" className="input-controller2"/>
                     </Form.Item>
                     <Form.Item>
                         <Button type="primary" className="get-start">GET STARTED</Button>
