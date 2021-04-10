@@ -3,13 +3,12 @@ p{
   padding: 0;
 }
 .home {
-  margin-top: 190px;
+  margin-top: 118px;
   padding-left: 95px;
 }
 
 .home .des {
-  margin-top: 219px;
-  margin-bottom: 296px;
+  margin-bottom: 148px;
 }
 
 .des .title {
@@ -44,14 +43,13 @@ p{
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
   border: 2px solid #F5F5F5;
-
-font-size: 24px;
-font-family: TwCenMT-Bold, TwCenMT;
-font-weight: bold;
-color: #FFFFFF;
-line-height: 72px;
-text-align: center;
-margin-top: 50px;
+  font-size: 24px;
+  font-family: TwCenMT-Bold, TwCenMT;
+  font-weight: bold;
+  color: #FFFFFF;
+  line-height: 72px;
+  text-align: center;
+  margin-top: 50px;
 }
 .home-bottom {
   margin-top: 124px;

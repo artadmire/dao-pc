@@ -7,16 +7,15 @@ export default function PreviousProject() {
     return (
         <div className="previous-projects">
          <div className="previous-projects-title">
-              <img src style={{width:'385px',height:'43px',background:'red'}}/>
-              <div>
-                   <span>Show all previous projects</span><img src={arrow}/>
-                     
-              </div>
+            <span className="mainTitle">Previous Projects</span>
+            <div>
+                <span className="left">Show all previous projects</span><img src={arrow}/>
+            </div>
          </div>
          <div className="previous-projects-content">
              <div style={{display:"flex"}} className="previous-projects-content-top">
                 {
-                   PreviousProjects.length&& PreviousProjects.slice(3,6).map((index,item)=>  <PreviousProjectItem key={index} styles={{"marginRight":"16px"}}/>)
+                   PreviousProjects.length && PreviousProjects.slice(3,6).map((index,item)=>  <PreviousProjectItem key={index} styles={{"marginRight":"16px"}}/>)
                 }
              </div>
              <div style={{display:"flex"}} className="previous-projects-content-bottom">

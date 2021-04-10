@@ -3,24 +3,18 @@ import './App.css';
 import { Tabs } from 'antd';
 import Home from './pages/home'
 import About from './pages/about'
-import Fud from './pages/fud'
-import Contact from './pages/contact'
-import Account from './pages/account'
 import PreviousProjects from './pages/previousProjects'
+import Account from './pages/account'
 import Apply from './pages/apply'
 import 'antd/dist/antd.css';
 import logo from '../src/assets/img/logo@2x.png'
-
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 const { TabPane } = Tabs;
 
 function App() {
-  const [tabKey, setTabkey] = useState('1');
+  const [tabKey, setTabkey] = useState('/');
   function callback(key) {
     setTabkey(key)
-  }
-  function handleClick() {
-    console.log(2)
-    setTabkey("2")
   }
   return (
     <div className={`App ${tabKey === '1' && 'appBg'} ${tabKey === '2' && 'aboutBg'}`}>
@@ -29,27 +23,28 @@ function App() {
           <h2>
             <img src={logo} className="logo"/>
           </h2>
-          <div>
-            <Tabs 
+          <Tabs 
             defaultActiveKey={tabKey}
             onChange={callback}
             activeKey={tabKey}
             tabBarStyle={ {color: '#B2B7CC'}}
-            >
-              <TabPane tab="ABOUT" key="2"/>
-              <TabPane tab="ACCOUNT" key="5" />
-              <TabPane tab="INVESTMENTS" key="3" />
-              <TabPane tab="CONTACT US" key="4" />
-            </Tabs>
-          </div>
+          >
+            <TabPane tab="ABOUT" key="/"/>
+            <TabPane tab="ACCOUNT" key="/about" />
+            <TabPane tab="INVESTMENTS" key="/previous" />
+            <TabPane tab="CONTACT US" key="/apply" />
+          </Tabs>
           <a className="unlock-wallet" href="javacsript:;">Unlock Wallet</a>
         </header>
-        {tabKey === '1' && <Apply onHandleClick={handleClick} />}
-        {tabKey === '2' && <About />}
-        {tabKey === '5' && <Account />}
-        {tabKey === '3' && <Fud />}
-        {tabKey === '4' && <Contact />}
-      
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={Home}></Route>
+            <Route path="/about" component={About}></Route>
+            <Route path="/previous" component={PreviousProjects}></Route>
+            <Route path="/apply" component={Apply}></Route>
+            <Route path="/account" component={Account}></Route>
+          </Switch>
+        </BrowserRouter>
       </div>
     </div>
   );

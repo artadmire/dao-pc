@@ -4,12 +4,14 @@ ul{
 }
 li{
     list-style: none;
+    margin-bottom: 20px;
 }
 .previous-project-item{
    width:325px;
    padding:32px;
    box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.1);
    border-radius: 10px;
+   box-sizing: border-box;
 }
 .previous-project-item:nth-of-type(3n){
     margin-right: 0 !important;
@@ -18,8 +20,10 @@ li{
     display: flex;
     justify-content: space-between;
 }
+.section2, .section3 {
+    margin-top: 20px;
+}
 .section2 li>div:nth-of-type(1),.section3 li>div:nth-of-type(1){
-
     font-size: 13px;
     font-family: Poppins-Medium, Poppins;
     font-weight: 500;
@@ -34,13 +38,16 @@ li{
     color: #000000;
     line-height: 20px;
 }
-.section2,.section3{
-  
-
-}
 .section1{
     align-items: center;
-    margin-bottom: 31px;
+    justify-content: flex-start;
+    padding-bottom: 31px;
+}
+.border {
+    height: 2px;
+    background: linear-gradient(135deg, #3023AE 0%, #C86DD7 100%);
+}
+.section1 span {
     font-size: 18px;
     font-family: Poppins-SemiBold, Poppins;
     font-weight: 600;
@@ -48,7 +55,9 @@ li{
     line-height: 27px;
 }
 .section1 img{
-    margin-right: 26px;;
+    width: 64px;
+    height: 64px;
+    margin-right: 20px;
 }
 .section4 .unlock-wallet{
     display: block;

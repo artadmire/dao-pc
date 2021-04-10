@@ -1,13 +1,23 @@
 
-.my-about .title{
+
+.my-about .desc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about-title {
+  margin: 120px 0 57px 0;
+}
+.about-DAo {
   text-align: center;
 }
 .my-about .info{
-font-size: 20px;
-font-family: Poppins-Medium, Poppins;
-font-weight: 500;
-color: #000000;
-line-height: 30px;
+  font-size: 20px;
+  font-family: Poppins-Medium, Poppins;
+  font-weight: 500;
+  color: #000000;
+  line-height: 30px;
+  width: 100%;
 }
 .my-about .introduce{
   line-height: 50px;
@@ -15,9 +25,7 @@ line-height: 30px;
 .my-about .introduce div:nth-of-type(1){
   text-align: center;
 }
-.my-about .content{
-  padding-left: 142px;
-}
+
 .my-about .character{
     width: 900px;
     display: flex;

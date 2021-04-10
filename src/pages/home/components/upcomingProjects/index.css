@@ -6,4 +6,14 @@
 .upcoming-projects-content{
     margin-top: 48px;
 }
+.mainTitle {
+  background: linear-gradient(to right, #3023AE, #C86DD7);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 46px;
+}
+
+
 

@@ -9,19 +9,8 @@ p {
   min-height: 100vmin;
   background: #FFF;
   width: 100%;
-  height: 100%;  
 }
-/* .appBg {
-  background-image: url('https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/hbj%402x.png'), url('https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/hbg3%402x.png'), url('https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/bg%402.png');
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: right top, right 390px, center bottom;
-  background-size: 100% 200px, 100% 500px, 106% 100%;
-  background-attachment:fixed;
-}
-.aboutBg {
-  background: url('https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/background%402x.png') #fff no-repeat center 100px;
-  background-size: 1770px auto;
-} */
+
 .appBg {
   background-image: url('./assets/img/background@2x.png'),url('./assets/img/pic@2x.png'),url('./assets/img/background3@2x.png');
   background-repeat: no-repeat, no-repeat, no-repeat;
