@@ -3,11 +3,18 @@ import './index.css'
 import MyBottom from '../../components/myBottom'
 import UpcomingProject from './components/upcomingProjects/index.js'
 import PreviousProject from './components/previousProjects/index.js'
+import ctx from '../../events';
+
 function Home(props) {
   function handleClick() {
-    const { onHandleClick } = props
-    typeof onHandleClick === 'function' && onHandleClick()
+    // const { onHandleClick } = props
+    // typeof onHandleClick === 'function' && onHandleClick()
+    const { chainAccount } = ctx.data;
+    console.log(chainAccount, 'chainAccount')
   }
+  
+  ctx.event.emit('connectWallet');
+
   return (
     <div className="home">
       <div className="des">

@@ -48,7 +48,6 @@ align-items: center;
 }
 .my-about .investors{
   margin-top: 280px;
-  margin-bottom: 325px;
   padding-left: 80px;
 }
 
@@ -94,4 +93,12 @@ border-radius: 10px;
 .my-about .level-bottom li img{
   width:48px;
   height:50px
+}
+
+.about-bottom{
+  margin-top:325px;
+  margin-left: 81px;
+}
+.character,.level,.my-about .introduce p:nth-of-type(2),.introduce2{
+  margin-left: 142px;
 }

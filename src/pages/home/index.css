@@ -3,12 +3,12 @@ p{
   padding: 0;
 }
 .home {
-  margin-top: 118px;
+  margin-top: 236px;
   padding-left: 95px;
 }
 
 .home .des {
-  margin-bottom: 148px;
+  margin-bottom: 296px;
 }
 
 .des .title {
@@ -32,7 +32,7 @@ p{
   font-family: Poppins-Regular, Poppins;
   font-weight: 400;
   color: #B1B7CE;
-  line-height: 30p
+  line-height: 30px;
 }
 
 .home .start {

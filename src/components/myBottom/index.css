@@ -1,26 +1,59 @@
-.icon {
+.myBottom{
+  display: flex;
+  margin-bottom: 56px;
+}
+.bottom-left{
+  flex:1;
+}
+.bottom-right{
   display: flex;
 }
+.icon {
+  display: flex;
+  align-items: center;
+}
 .icon img{
-  width: 42px;
-  height: 42px;
-  margin-right: 10px;
+  width: 23px;
+  height: 19px;
+  margin-right: 15px;
 }
-.myBottom .contact{
-  height: 20px;
-  font-size: 14px;
-  font-family: Poppins-Medium, Poppins;
-  font-weight: 500;
-  color: #FFFFFF;
-  line-height: 21px;
-  margin-top: 16px;
-  margin-bottom: 24px;
+.bottom-logo>span:nth-of-type(1){
+
+  background: linear-gradient(to right, #3023AE, #C86DD7);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 0.208333rem;
+  font-weight: 800;
+  line-height: 0.239583rem;
+  margin-right: 6px;;
 }
-.myBottom .copy{
-  height: 20px;
-  font-size: 14px;
-  font-family: Poppins-Regular, Poppins;
-  color: #FFFFFF;
-  line-height: 21px;
-  opacity: 0.4;
+.bottom-logo>span:nth-of-type(2){
+  
+font-size: 30px;
+font-family: TwCenMT-Bold, TwCenMT;
+font-weight: bold;
+color: #000000;
+line-height: 33px;
+}
+.copy{
+font-size: 13px;
+font-family: Poppins-Medium, Poppins;
+font-weight: 500;
+color: #B1B7CE;
+line-height: 20px;
+margin-top: 17px;
+}
+
+.bottom-right{
+  display: flex;
+  align-items: center;
+}
+
+.term-privacy  a{
+  margin-right: 48px;
+font-size: 20px;
+font-family: Poppins-Medium, Poppins;
+font-weight: 500;
+color: #000000;
+line-height: 30px;
 }

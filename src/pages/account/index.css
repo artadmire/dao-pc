@@ -1,0 +1,149 @@
+p,li{
+  margin:0;
+  padding:0;
+}
+.account{
+  margin-top: 116px;
+}
+.account-content{
+  padding-left: 145px;
+}
+
+.wallet  label{
+font-size: 16px;
+font-family: Poppins-Bold, Poppins;
+font-weight: bold;
+color: #000000;
+line-height: 25px;
+}
+.wallet span{
+font-size: 16px;
+font-family: Poppins-Regular, Poppins;
+font-weight: Regular;
+color: #000000;
+line-height: 25px;
+}
+.verified{
+font-size: 16px;
+font-family: Poppins-Regular, Poppins;
+font-weight: 400;
+color: #000000;
+line-height: 25px;
+margin-top: 16px;
+}
+
+.daos-count{
+  margin-top: 32px;
+  width: 626px;
+  height: 119px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-family: Poppins-Medium, Poppins;
+  font-weight: 500;
+  color: #4A4A4A;
+  line-height: 25px;
+}
+.daos-count img{
+  width:40px;
+  height: 40px;
+  margin-left: 48px;
+  margin-right: 12px;
+}
+
+.daos-number,.daos-number-locked{
+  font-size: 16px;
+  font-family: Poppins-Medium, Poppins;
+  font-weight: 500;
+  color: #000000;
+  line-height: 25px;
+}
+.account-level{
+  margin-top:51px;
+  padding-bottom: 100px;
+}
+.available-balance{
+  width: 514px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.available-balance  .balance{
+  font-size: 24px;
+  font-family: Poppins-Bold, Poppins;
+  font-weight: bold;
+  color: #000000;
+  line-height: 35px;
+  text-align: center;
+  
+}
+.available-balance .balance-handler{
+  display: flex;
+  justify-content: space-between;
+  margin: 32px 0 52px 0;
+}
+.available-balance  .balance-handler span{
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15), 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    border: 2px solid #F5F5F5;
+    font-size: 16px;
+    font-family: TwCenMT-Bold, TwCenMT;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+    line-height: 52px;
+    padding: 0 85px
+}
+.available-balance  .balance-handler .lockin{
+  background: linear-gradient(90deg, #0F0F0F 0%, #24333D 100%);
+
+}
+.available-balance  .balance-handler .unlock{
+  background: linear-gradient(135deg, #3023AE 0%, #C86DD7 100%);
+}
+.available-balance .rules {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40px 48px;
+  width: 514px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 16px 0 122px 0;
+}
+
+.dates>div,.stars>div{
+font-size: 16px;
+font-family: Poppins-Medium, Poppins;
+font-weight: 500;
+color: #000000;
+line-height: 25px;
+}
+.dates{
+  margin-bottom: 32px;
+}
+.stars{
+  margin-bottom: 40px;
+}
+.available-balance .rules li{
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+.available-balance .rules li span:nth-of-type(1){
+  font-size: 14px;
+  font-family: Poppins-Regular, Poppins;
+  font-weight: 400;
+  color: #4A4A4A;
+  line-height: 21px;
+}
+.available-balance .rules li span:nth-of-type(2){
+font-size: 14px;
+font-family: Poppins-Bold, Poppins;
+font-weight: bold;
+color: #000000;
+line-height: 21px;
+}

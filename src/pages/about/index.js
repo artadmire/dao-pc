@@ -1,5 +1,7 @@
 import React,{useState} from 'react'
 import './index.css'
+import MyBottom from '../../components/myBottom'
+
 import bronze from '../../assets/img/bronze@2x.png'
 import CrossChainSwaps from '../../assets/img/Cross-chain Swaps@2x.png'
 
@@ -10,7 +12,7 @@ function About() {
   return (
     <div className="my-about">
       <div className="desc">
-        <span className="mainTitle about-title">WhatisDAOStarter？</span>
+        <span className="mainTitle about-title">What is DAOStarter？</span>
         <div className="info introduce">
           <p className="about-DAo">
             DAOStarter is a public token launchpad, a service platform for crypto projects.
@@ -19,7 +21,7 @@ function About() {
             It will act as the final bridge between early-stage projects and the community before the project goes fully public.
           </p>         
           </div>
-          <p className="info">
+          <p className="info introduce2">
             DAOStarter has an unique level system which requires users to lock-in a <br/>
             certain amount of DST tokens to participate in the launch platform.<br/>
             As a service platform, DAOStarter will also offer several KYC options for upcoming projects.
@@ -74,7 +76,7 @@ function About() {
       <div className="character">
       {
         list1.map((index,item)=>(
-              <a href="javascript:;" className="character-item">
+              <a href="javascript:;" key={index} className="character-item">
                     <img src ={CrossChainSwaps}/>
                     <div>
                       sdfs
@@ -101,6 +103,7 @@ function About() {
 
             </div>
       </div>
+      <MyBottom className="about-bottom"/>
     </div>
   );
 }
