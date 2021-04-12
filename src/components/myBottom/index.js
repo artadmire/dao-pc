@@ -16,10 +16,9 @@ function myBottom(props) {
       </div>
       <div className="bottom-right">
           <div className="term-privacy">
-           <a>Terms</a>
-           <a>Privacy</a>
+           <a href="javascript:;" >Terms</a>
+           <a href="javascript:;">Privacy</a>
           </div>
-
           <div className="icon">
           <a href="javascript:;"><img src='https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/twitter%402x.png' /></a>
           <a href="javascript:;"><img src='https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/discord%402x.png'/></a>

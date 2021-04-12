@@ -1,0 +1,52 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 41px;
+  width: 100%;
+  height: 88px;
+  background: #FFFFFF;
+  box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+header .logo {
+  width: 173px;
+  height: 36px;
+  margin-left: 77px;
+
+}
+.unlock-wallet{
+  background: linear-gradient(135deg, #3023AE 0%, #C86DD7 100%);
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  border: 2px solid #F5F5F5;
+  font-size: 16px;
+  font-family: TwCenMT-Bold, TwCenMT;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 52px;
+  margin-right: 50px;
+  padding: 0 20px;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+}
+.navtab {
+  font-size: 16px;
+  font-family: TwCenMT-Bold, TwCenMT;
+  font-weight: bold;
+  color: #B2B7CC;
+  line-height: 18px;
+  margin-left: 80px;
+}
+.navtab.active {
+  color: red;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}

@@ -9,10 +9,11 @@
     color: #4A4A4A;
     line-height: 20px;
 }
-.previous-projects-title img{
-    width:20px;
-    height: 24px;
+.arrow-pre{
+    width:16px;
+    height: 22px;
     margin-top: -4px;
+    margin-left: 4px;
 }
 .previous-projects-content{
     margin-top: 50px;

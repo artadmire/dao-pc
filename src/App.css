@@ -5,13 +5,14 @@ p {
 
 .App {
   display: flex;
-  justify-content: center;
   min-height: 100vmin;
   background: #FFF;
   width: 100%;
+  flex-direction: column;
+  align-items: center;
 }
 
-.appBg {
+/* .appBg {
   background-image: url('./assets/img/background@2x.png'),url('./assets/img/pic@2x.png'),url('./assets/img/background3@2x.png');
   background-repeat: no-repeat, no-repeat, no-repeat;
   background-position: right top ,right 100px  top 200px,right bottom 175px;
@@ -22,69 +23,15 @@ p {
     background-position: center bottom 162px;
     background-repeat: no-repeat;
     background-size: 100% 80%;
-}
+} */
 .content {
-  width: 1420px;
   display: flex;
+  justify-content: center;
+  width: 1420px;
   flex-direction: column;
-}
-.content>header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 41px;
-  width: 1420px;
-height: 88px;
-background: #FFFFFF;
-box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.1);
-border-radius: 4px;
-}
-.content>header .logo {
-  width: 173px;
-  height: 36px;
-  margin-left: 77px;
 
 }
-.ant-tabs-top > .ant-tabs-nav::before, .ant-tabs-bottom > .ant-tabs-nav::before, .ant-tabs-top > div > .ant-tabs-nav::before, .ant-tabs-bottom > div > .ant-tabs-nav::before {
-  border: 0 !important
-}
-.ant-tabs-tab.ant-tabs-tab-active {
-  border: 0 !important
-}
-.ant-tabs-ink-bar{
-  background: none !important;
-}
-.unlock-wallet{
-  width: 147px;
-  height: 52px;
-  background: linear-gradient(135deg, #3023AE 0%, #C86DD7 100%);
-  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  border: 2px solid #F5F5F5;
-  font-size: 16px;
-font-family: TwCenMT-Bold, TwCenMT;
-font-weight: bold;
-color: #FFFFFF;
-line-height: 52px;
-text-align: center;
-margin-right: 99px;
-}
-.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
-  
- 
-  font-size: 16px;
-  font-family: TwCenMT-Bold, TwCenMT;
-  font-weight: bold;
-  color: #B2B7CC;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-.my-logo {
-  
-}
+
 
 
 
