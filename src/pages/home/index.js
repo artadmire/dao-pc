@@ -6,17 +6,17 @@ import PreviousProject from './components/previousProjects/index.js'
 import {Link} from 'react-router-dom'
 import ctx from '../../events';
 
-function Home(props) {
-  const [upComingList, setUpComingList] = useState([1,2,3,4,5,6,4,4])
-  const [previousList, setPreviousList] = useState([1,2,4,4,5,5,5])
+function Home (props) {
+  const [upComingList, setUpComingList] = useState([1, 2, 3, 4, 5, 6, 4, 4])
+  const [previousList, setPreviousList] = useState([1, 2, 4, 4, 5, 5, 5])
 
-  function handleClick() {
+  function handleClick () {
     // const { onHandleClick } = props
     // typeof onHandleClick === 'function' && onHandleClick()
     const { chainAccount } = ctx.data;
     console.log(chainAccount, 'chainAccount')
   }
-  
+
   ctx.event.emit('connectWallet');
 
   return (
@@ -28,15 +28,15 @@ function Home(props) {
       </div>
       {upComingList && upComingList.length ? <UpcomingProject list={upComingList} /> : null}
       {previousList && previousList.length ? <PreviousProject list={previousList} /> : null}
-       <div className="user-applay">
+      <div className="user-applay">
         <div className="title">
           Start your dream on
         </div>
         <div className="title title2">
-          DAOStarter 
+          DAOStarter
         </div>
         <Link to='/apply' onClick={handleClick} className="start">APPLY HERE</Link>
-       </div>
+      </div>
       <MyBottom className="home-bottom"/>
     </div>
   );

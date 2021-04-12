@@ -6,7 +6,6 @@ import PreviousProjects from './pages/previousProjects'
 import Account from './pages/account'
 import Parameter from './pages/parameter'
 import Header from './components/Header'
-
 import Apply from './pages/apply'
 import 'antd/dist/antd.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
@@ -14,14 +13,14 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import ctx, { mapData, unmapActions } from './events';
 
 
-function App() {
-  
+function App () {
+
   useEffect(() => {
     console.log(88)
     const lifetimeObj = {};
     // 页面初始化，监听钱包连接状态
     mapData({
-      chainAccount(chainAccount) {
+      chainAccount (chainAccount) {
         console.log('chainAccount')
         if (chainAccount) {
           // setAccount(chainAccount);
@@ -47,10 +46,10 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home}></Route>
             <Route path="/about" component={About}></Route>
-            <Route path="/previous" component={PreviousProjects}></Route>
-            <Route path="/apply" component={Apply}></Route>
             <Route path="/account" component={Account}></Route>
-            <Route path="/parameter/:id" component={Parameter}></Route>
+            <Route path="/parameter" component={Parameter}></Route>
+            <Route path="/apply" component={Apply}></Route>
+            <Route path="/project-list" component={PreviousProjects}></Route>
           </Switch>
         </BrowserRouter>
       </div>

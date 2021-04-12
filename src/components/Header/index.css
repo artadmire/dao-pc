@@ -28,6 +28,7 @@ header .logo {
   line-height: 52px;
   margin-right: 50px;
   padding: 0 20px;
+  cursor:pointer;
 }
 .header-left {
   display: flex;
@@ -42,7 +43,9 @@ header .logo {
   margin-left: 80px;
 }
 .navtab.active {
-  color: red;
+  background: linear-gradient(to right, #3023AE, #C86DD7);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 @media (prefers-reduced-motion: no-preference) {

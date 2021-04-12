@@ -4,7 +4,7 @@ import logo from '@/assets/img/logo@2x.png'
 import { NavLink } from 'react-router-dom'
 
 
-function Header(props) {
+function Header (props) {
   return (
     <header>
       <div className="header-left">
