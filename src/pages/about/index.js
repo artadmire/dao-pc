@@ -78,8 +78,8 @@ function About () {
           list1.map((index, item) => (
             <a href="javascript:;" key={index} className="character-item">
               <img src={CrossChainSwaps}/>
-              <div>
-                      sdfs
+              <div className='character-item-desc'>
+                 sdfs
               </div>
             </a>
           ))
@@ -94,8 +94,13 @@ function About () {
           <div className='investors-content'>
             {
               list2.map((index, item) => (
-                <a href="javascript:;" key={index} className="investors-item">
-                  {item}
+                <a href="javascript:;" key={index} className="wrap-investors-item" >
+                  <div  className="investors-item">
+                    <img src={CrossChainSwaps}/>
+                    <p className='investors-item-desc'>
+                      sdfshfjdshfkdjshjkdsds
+                    </p>
+                  </div>
                 </a>
               ))
             }

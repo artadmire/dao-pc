@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import './App.css';
 import Home from './pages/home'
 import About from './pages/about'
@@ -10,33 +10,8 @@ import Apply from './pages/apply'
 import 'antd/dist/antd.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import ctx, { mapData, unmapActions } from './events';
-
-
 function App () {
 
-  useEffect(() => {
-    console.log(88)
-    const lifetimeObj = {};
-    // 页面初始化，监听钱包连接状态
-    mapData({
-      chainAccount (chainAccount) {
-        console.log('chainAccount')
-        if (chainAccount) {
-          // setAccount(chainAccount);
-          // 如果已连接钱包，进入买入页面
-          // history.replace('/list');
-          console.log(chainAccount)
-        } else {
-          // history.replace('/');
-          console.log('000')
-        }
-      }
-    }, ctx, lifetimeObj);
-    return () => {
-      unmapActions(lifetimeObj);
-    };
-  });
 
   return (
     <div className='App'>

@@ -1,13 +1,26 @@
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 41px;
-  width: 100%;
+.wrap-header {
+  width: 1371px;
   height: 88px;
   background: #FFFFFF;
   box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
+  opacity: 0.71;
+  position: relative;
+  margin-top: 40px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 41px;
+  width: 1420px;
+  height: 88px;
+  background: #FFFFFF;
+  box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  position: absolute;
+  top: -50px;
+  left: -25px;
 }
 header .logo {
   width: 173px;

@@ -4,7 +4,6 @@ import MyBottom from '../../components/myBottom'
 import UpcomingProject from './components/upcomingProjects/index.js'
 import PreviousProject from './components/previousProjects/index.js'
 import {Link} from 'react-router-dom'
-import ctx from '../../events';
 
 function Home (props) {
   const [upComingList, setUpComingList] = useState([1, 2, 3, 4, 5, 6, 4, 4])
@@ -13,11 +12,9 @@ function Home (props) {
   function handleClick () {
     // const { onHandleClick } = props
     // typeof onHandleClick === 'function' && onHandleClick()
-    const { chainAccount } = ctx.data;
-    console.log(chainAccount, 'chainAccount')
+
   }
 
-  ctx.event.emit('connectWallet');
 
   return (
     <div className="home">
