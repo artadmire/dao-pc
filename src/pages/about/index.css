@@ -1,10 +1,16 @@
-
+.my-about {
+  display: flex;
+  flex-direction: column;
+}
 
 .my-about .desc {
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
+  padding-left: 80px;
 }
+/* style="background: linear-gradient('135deg', '#3023AE 0%', '#C86DD7 100%')" */
 .about-title {
   margin: 120px 0 57px 0;
 }
@@ -30,16 +36,18 @@
     width: 900px;
     display: flex;
     flex-wrap: wrap;
+    padding-left: 80px;
+    box-sizing: border-box;
 }
 .my-about .character-item{
   width: 366px;
-height: 160px;
-border-radius: 10px;
-border: 3px solid #F7F4FC;
-margin-right: 20px;
-margin-bottom: 40px;
-display: flex;
-align-items: center;
+  height: 160px;
+  border-radius: 10px;
+  border: 3px solid #F7F4FC;
+  margin-right: 20px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
 }
 .my-about .character-item img{
   width:100px;
@@ -48,7 +56,7 @@ align-items: center;
 }
 .my-about .investors{
   margin-top: 280px;
-  padding-left: 80px;
+ 
 }
 
 .my-about .investors .title{
@@ -109,9 +117,40 @@ align-items: center;
 }
 
 .my-about .level{
-  margin-top: 40px;
-  margin-bottom: 126px;
+  margin: 40px 0 126px 0px;
+  padding-left: 80px;
+  box-sizing: border-box;
 }
+.my-about .level-top-bg {
+  height: 73px;
+  border-radius: 20px 0 0 20px;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #3023AE 0%, #C86DD7 100%)
+}
+.wrap-level-top {
+  background: rgb(252,245,254);
+  width: 720px;
+  height: 100%;
+  border-radius: 20px;
+
+}
+.my-about  .level-top {
+  width: 720px;
+  height: 100%;
+  border-radius: 20px;
+  display: flex;
+  background: transparent;
+
+}
+
+.my-about  .level-top .dashed {
+  margin-left: 180px;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom, #9B9B9B, #9B9B9B 5px, transparent 5px, transparent);
+  background-size: 100% 10px;
+}
+
 .my-about .level-bottom{
   display: flex;
 }
@@ -119,7 +158,11 @@ align-items: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 94px;
+  margin-right: 90px;
+}
+.my-about .level-bottom li:nth-of-type(4) {
+  margin-right: 50px;
+
 }
 .my-about .level-bottom li img{
   width:48px;
@@ -130,9 +173,7 @@ align-items: center;
   margin-top:325px;
   margin-left: 81px;
 }
-.character,.level,.my-about .introduce p:nth-of-type(2),.introduce2{
-  margin-left: 142px;
-}
+
 .character-item-desc {
   font-size: 20px;
   font-family: Poppins-Medium, Poppins;

@@ -5,6 +5,8 @@ import MyBottom from '../../components/myBottom'
 import bronze from '../../assets/img/bronze@2x.png'
 import CrossChainSwaps from '../../assets/img/Cross-chain Swaps@2x.png'
 
+const percent = '90%'
+
 function About () {
   let [list1] = useState([1, 2, 3, 4, 5, 6, 7, 8])
   let [list2] = useState([1, 2, 3, 4, 5, 6, 7, 8])
@@ -28,8 +30,14 @@ function About () {
         </p>
       </div>
       <div className="level">
-        <div className="level-top">
-
+        <div className="wrap-level-top">
+          <div className="level-top-bg" style={{width: `${percent}`}}>
+            <div className="level-top">
+              <div className='dashed'></div>
+              <div className='dashed'></div>
+              <div className='dashed'></div>
+            </div>
+          </div>
         </div>
         <ul className="level-bottom">
           <li>

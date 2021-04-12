@@ -1,5 +1,6 @@
 import React from 'react'
 import './index.css'
+import { list } from './constant'
 
 function myBottom (props) {
   const { className = ''} = props
@@ -20,11 +21,9 @@ function myBottom (props) {
           <a href="javascript:;">Privacy</a>
         </div>
         <div className="icon">
-          <a href="javascript:;"><img src='https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/twitter%402x.png' /></a>
-          <a href="javascript:;"><img src='https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/discord%402x.png'/></a>
-          <a href="javascript:;"><img src='https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/medium%402x.png'/></a>
-          <a href="javascript:;"><img src='https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/telegram%402x.png'/></a>
-          <a href="javascript:;"><img src='https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/email%402x.png'/></a>
+          {
+            list.map((i) => <a key={i.url} href={i.href}><img src={i.url} /></a>)
+          }
         </div>
       </div>
     </div>
