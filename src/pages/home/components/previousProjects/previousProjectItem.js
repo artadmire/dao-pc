@@ -2,10 +2,10 @@ import React from 'react'
 import './previousProjectItem.css'
 import {NavLink} from 'react-router-dom'
 export default function PreviousProjectItem (props) {
-  const { data } = props;
-  const { name = '', logo = '', method = '', deposit = '', earn = '', totalDeposited = '', avaliable = '', status} = data || {}
+  const { data = {} } = props;
+  const { name = '', logo = '', method = '', deposit = '', earn = '', totalDeposited = '', avaliable = '', status, poolId = ''} = data || {}
   return (
-    <NavLink to='/project-list/:id' className="previous-project-item" style={{'marginRight': props.styles.marginRight || '', 'marginBottom': props.styles.marginBottom || ''}}>
+    <NavLink to={`/project-list/${poolId}`} className="previous-project-item" style={{'marginRight': props.styles.marginRight || '', 'marginBottom': props.styles.marginBottom || ''}}>
       <div className="section1">
         <img alt="oo"  src={logo}/>
         <span>{name}</span>
@@ -36,8 +36,8 @@ export default function PreviousProjectItem (props) {
           <div>{avaliable}</div>
         </li>
         <li>
-          <div>your share of the pool</div>
-          <div>{(avaliable / totalDeposited).toFixed(2) * 100}%</div>
+          <div>status</div>
+          <div>{status ? 'open' : 'over'}</div>
         </li>
       </ul>
       <div className="section4">

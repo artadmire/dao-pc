@@ -6,7 +6,7 @@ export default function upComingProjectItem (props) {
   const {data} = props
 
   return (
-    <a href="javascript:;" className="up-coming-project-item">
+    <a href={data.url ? data.url : 'javascript:;'} className="up-coming-project-item">
       <img src={data.logo}/>
       <div className="details">
         {data.isOpen == 1 && <p>Starts: in {data.days} day（s）/ Whitelist Closed</p>}

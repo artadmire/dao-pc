@@ -14,6 +14,7 @@ export const getLockin = (params) => axios.get(lockin, {params})
 
 export const projectsData = [
   {
+    url: '',
     logo: 'https:xxxx',
     isOpen: 1,  // (1-已结束，2-开启中，3-未开始)
     days: 3
@@ -45,6 +46,7 @@ export const projectsData = [
 
 ]
 export const perviousProjectsData = [{
+  poolId: '1',
   name: 'ethbox',
   logo: 'https//xxxx',
   method: 'Batch-Lottery',
@@ -54,7 +56,9 @@ export const perviousProjectsData = [{
   avaliable: 25000,
   status: true,  // (true-开启中、false-已结束)},
 },
-{ name: 'ethbox',
+{
+  poolId: '2',
+  name: 'ethbox',
   logo: 'https//xxxx',
   method: 'Batch-Lottery',
   deposit: 'USDT',
