@@ -54,10 +54,20 @@
 .my-level .level-bottom li:nth-of-type(1) {
   margin-left: 0px;
 }
+.my-level .level-bottom li:nth-of-type(3) {
+  margin-left: 220px;
+}
 .my-level .level-bottom li:nth-of-type(4) {
   margin-left: 240px;
 }
 .my-level .level-bottom li:nth-of-type(5) {
-  margin-left: 140px;
+  margin-left: 180px;
+}
+.account-level-desc {
+  font-size: 16px;
+  font-family: Poppins-Medium, Poppins;
+  font-weight: 500;
+  color: #000000;
+  line-height: 24px;
 }
 

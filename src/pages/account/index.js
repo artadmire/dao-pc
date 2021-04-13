@@ -1,8 +1,8 @@
 import React, {useState, useCallback} from 'react'
 import './index.css'
-import bronze from '../../assets/img/bronze@2x.png'
-import MyBottom from '../../components/myBottom'
-import Level from './components/Level'
+import bronze from '@/assets/img/bronze@2x.png'
+import MyBottom from '@/components/myBottom'
+import Level from '@/components/Level'
 import MyModel from './components/MyModel'
 
 
@@ -41,9 +41,9 @@ export default function index () {
           </div>
         </div>
         <div className="account-level">
-          <p className="account-level-desc">
+          {/* <p className="account-level-desc">
             You don’t have a DuckSTARTER Tier yet. Please upgrade your level.
-          </p>
+          </p> */}
           <Level/>
         </div>
         <div className="available-balance">

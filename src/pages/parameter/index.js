@@ -3,11 +3,13 @@ import './index.css'
 import MyBottom from '../../components/myBottom'
 
 import bronze from '../../assets/img/bronze@2x.png'
+import Level from '@/components/Level'
 
 function Parameter () {
   return (
     <div className="my-parameter">
       <div className="parameter-content">
+        <Level/>
         <div className="parameter-detail">
           <div className="parameter-detail-top">
             <div className="deposited">
