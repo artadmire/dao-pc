@@ -1,0 +1,27 @@
+.my-modal {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.my-modal .handler .right {
+  background: #FFF;
+  border: 2px solid #3023AE;
+  /* border-color: linear-gradient(10deg, #3023AE 0%, #C86DD7 100%); */
+  background: linear-gradient(to right, #3023AE, #C86DD7);
+  -webkit-background-clip: text;
+  color: transparent;
+  cursor: pointer;
+}
+.my-modal .handler  .avtive {
+  background: linear-gradient(to right, #3023AE, #C86DD7);
+
+}
+

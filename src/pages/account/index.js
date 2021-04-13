@@ -1,9 +1,23 @@
-import React from 'react'
+import React, {useState, useCallback} from 'react'
 import './index.css'
 import bronze from '../../assets/img/bronze@2x.png'
 import MyBottom from '../../components/myBottom'
+import Level from './components/Level'
+import MyModel from './components/MyModel'
+
 
 export default function index () {
+  const [visible, setVisible] = useState(false)
+  const hideModal = useCallback(() => {
+    setVisible(false)
+  })
+  const lockIn = useCallback(() => {
+    console.log(2)
+    setVisible(true)
+  })
+  const unlock = useCallback(() => {
+    setVisible(true)
+  })
   return (
     <div className="account">
       <div className="account-content">
@@ -27,19 +41,18 @@ export default function index () {
           </div>
         </div>
         <div className="account-level">
-          <p>
+          <p className="account-level-desc">
             You don’t have a DuckSTARTER Tier yet. Please upgrade your level.
           </p>
-          <div>
-          </div>
+          <Level/>
         </div>
         <div className="available-balance">
           <div className="balance">
                    Available balance:<span>0</span>
           </div>
           <div className="balance-handler">
-            <span className="lockin">LOCK-IN</span>
-            <span className="unlock">UNLOCK</span>
+            <div onClick={lockIn} className="lockin">LOCK-IN</div>
+            <div onClick={unlock} className="unlock">UNLOCK</div>
           </div>
           <div>
             <span className="balance">Disclaimer:</span>
@@ -128,7 +141,7 @@ export default function index () {
         </div>
       </div>
       <MyBottom className="account-bottom"/>
-
+      {visible && <MyModel hideModal={hideModal}/>}
     </div>
   )
 }
