@@ -41,9 +41,6 @@ export default function index () {
           </div>
         </div>
         <div className="account-level">
-          {/* <p className="account-level-desc">
-            You don’t have a DuckSTARTER Tier yet. Please upgrade your level.
-          </p> */}
           <Level/>
         </div>
         <div className="available-balance">

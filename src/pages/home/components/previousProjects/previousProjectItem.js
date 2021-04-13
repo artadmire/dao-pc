@@ -1,46 +1,43 @@
 import React from 'react'
-import Twitter from '@/assets/img/Twitter@2x.png'
 import './previousProjectItem.css'
 import {NavLink} from 'react-router-dom'
 export default function PreviousProjectItem (props) {
+  const { data } = props;
+  const { name = '', logo = '', method = '', deposit = '', earn = '', totalDeposited = '', avaliable = '', status} = data || {}
   return (
     <NavLink to='/project-list/:id' className="previous-project-item" style={{'marginRight': props.styles.marginRight || '', 'marginBottom': props.styles.marginBottom || ''}}>
       <div className="section1">
-        <img alt="oo"  src={Twitter}/>
-        <span>ethbox</span>
+        <img alt="oo"  src={logo}/>
+        <span>{name}</span>
       </div>
       <div className="border"></div>
       <ul className="section2">
         <li>
           <div>METHOD</div>
-          <div>Batch-Lottery</div>
+          <div>{method}</div>
         </li>
         <li>
-          <div>METHOD</div>
-          <div>Batch-Lottery</div>
+          <div>Deposit</div>
+          <div>{deposit}</div>
         </li>
         <li>
-          <div>METHOD</div>
-          <div>Batch-Lottery</div>
+          <div>Earn</div>
+          <div>{earn}</div>
         </li>
       </ul>
       <div className="border"></div>
       <ul className="section3">
         <li>
-          <div>METHOD</div>
-          <div>Batch-Lottery</div>
+          <div>Total USDC deposited</div>
+          <div>{totalDeposited}</div>
         </li>
         <li>
-          <div>METHOD</div>
-          <div>Batch-Lottery</div>
+          <div>ethbox tokens available</div>
+          <div>{avaliable}</div>
         </li>
         <li>
-          <div>METHOD</div>
-          <div>Batch-Lottery</div>
-        </li>
-        <li>
-          <div>METHOD</div>
-          <div>Batch-Lottery</div>
+          <div>your share of the pool</div>
+          <div>{(avaliable / totalDeposited).toFixed(2) * 100}%</div>
         </li>
       </ul>
       <div className="section4">

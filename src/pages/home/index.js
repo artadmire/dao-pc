@@ -1,19 +1,37 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './index.css'
 import MyBottom from '../../components/myBottom'
 import UpcomingProject from './components/upcomingProjects/index.js'
 import PreviousProject from './components/previousProjects/index.js'
 import {Link} from 'react-router-dom'
+import {getProjects, getPerviousProjects, projectsData, perviousProjectsData} from '@/service'
 
 function Home (props) {
-  const [upComingList, setUpComingList] = useState([1, 2, 3, 4, 5, 6, 4, 4])
-  const [previousList, setPreviousList] = useState([1, 2, 4, 4, 5, 5, 5])
+  const [upComingList, setUpComingList] = useState(projectsData)
+  const [previousList, setPreviousList] = useState(perviousProjectsData)
 
   function handleClick () {
-    // const { onHandleClick } = props
-    // typeof onHandleClick === 'function' && onHandleClick()
 
   }
+  // useEffect(async () => {
+  //   try {
+  //     const res = await getProjects();
+  //     if (!res || !res.data || !res.data.length) {throw new Error('')}
+  //     setUpComingList(res.data)
+  //   } catch (error) {
+  //     setUpComingList([])
+  //   }
+  // }, [])
+
+  // useEffect(async () => {
+  //   try {
+  //     const res = await getPerviousProjects();
+  //     if (!res || !res.data || !res.data.length) {throw new Error('')}
+  //     setPreviousList(res.data)
+  //   } catch (error) {
+  //     setPreviousList([])
+  //   }
+  // }, [])
 
 
   return (

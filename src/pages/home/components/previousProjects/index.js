@@ -16,13 +16,13 @@ export default function PreviousProject (props) {
       <div className="previous-projects-content">
         <div style={{display: 'flex'}} className="previous-projects-content-top">
           {
-            list.slice(0, 3).map((index, item) =>  <PreviousProjectItem key={index} styles={{'marginRight': '16px'}}/>)
+            list.slice(0, 3).map((item, index) =>  <PreviousProjectItem key={index} data={item} styles={{'marginRight': '16px'}}/>)
           }
         </div>
         {
           list.length >= 3  && <div style={{display: 'flex'}} className="previous-projects-content-bottom">
             {
-              list.slice(3, 6).map((index, item) =>  <PreviousProjectItem key={index} styles={{'marginRight': '16px'}}/>)
+              list.slice(3, 6).map((item, index) =>  <PreviousProjectItem key={index} data={item} styles={{'marginRight': '16px'}}/>)
             }
           </div>
         }

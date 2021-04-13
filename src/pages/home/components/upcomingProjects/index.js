@@ -15,7 +15,7 @@ function UpcomingProject (props) {
         </div>
         <div className="other-items">
           {
-            list.slice(2).map((index, item) => <UpcomingProjectItem key={index}/>)
+            list.slice(2).map((item, index) => <UpcomingProjectItem key={index} data={item}/>)
           }
         </div>
       </div>
