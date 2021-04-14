@@ -24,7 +24,7 @@
   border-radius: 20px;
   display: flex;
   background: transparent;
-  justify-content: space-between;
+  position: relative;
 
 }
 
@@ -33,36 +33,28 @@
   height: 100%;
   background: linear-gradient(to bottom, #9B9B9B, #9B9B9B 5px, transparent 5px, transparent);
   background-size: 100% 10px;
+  position: absolute;
 }
-.my-level  .level-top .dashed:nth-of-type(1), .my-level  .level-top .dashed:nth-of-type(5) {
-  width: 0;
-}
+
 
 .my-level .level-bottom{
   margin-top: 20px;
   display: flex;
-  /* justify-content: space-between; */
+  width: 1130px;
+  position: relative;
 }
 .my-level .level-bottom li{
-  margin-left: 190px;
   font-size: 16px;
   font-family: Poppins-Bold, Poppins;
   font-weight: bold;
+  width: 2px;
   color: #000000;
+  display: flex;
+  justify-content: center;
   line-height: 25px;
+  position: absolute;
 }
-.my-level .level-bottom li:nth-of-type(1) {
-  margin-left: 0px;
-}
-.my-level .level-bottom li:nth-of-type(3) {
-  margin-left: 220px;
-}
-.my-level .level-bottom li:nth-of-type(4) {
-  margin-left: 240px;
-}
-.my-level .level-bottom li:nth-of-type(5) {
-  margin-left: 180px;
-}
+
 .account-level-desc {
   font-size: 16px;
   font-family: Poppins-Medium, Poppins;

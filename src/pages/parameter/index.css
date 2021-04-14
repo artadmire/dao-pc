@@ -68,6 +68,7 @@ font-weight: bold;
   font-weight: bold;
   color: #000000;
   line-height: 25px;
+  width: 519px;
 }
 .dates-detail-time{
   font-size: 16px;
@@ -77,12 +78,21 @@ font-weight: bold;
   line-height: 25px;
   margin:4px 0 16px;
 }
+.wrap-dates-detail-process {
+  width: 520px;
+  height: 62px;
+  border: 3px solid #3023AE;
+  border-radius: 20px;
+  position: relative;
+
+}
 .dates-detail-process{
-  width: 100%;
-height: 56px;
-background: linear-gradient(135deg, #3023AE 0%, #C86DD7 100%);
-border-radius: 20px;
-border: 3px solid #4A4A4A;
+  height: 56px;
+  background: linear-gradient(135deg, #3023AE 0%, #C86DD7 100%);
+  border-radius: 17px 0 0 17px;
+  position: absolute;
+  top: 0;
+  left:0;
 }
 .ethbox-details{
   padding:48px 56px 0;

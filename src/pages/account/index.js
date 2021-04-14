@@ -29,15 +29,15 @@ function Account (props) {
   const unlock = useCallback(() => {
     setVisible(true)
   })
-  // useEffect(async () => {
-  //   const unSubscribe = store.subscribe(() => {
-  //     this.fetchData()
-  //   })
-  //   this.fetchData()
-  //   return () => {
-  //     unSubscribe()
-  //   }
-  // }, [])
+  useEffect(async () => {
+    const unSubscribe = store.subscribe(() => {
+      // this.fetchData()
+    })
+    // this.fetchData()
+    return () => {
+      unSubscribe()
+    }
+  }, [])
 
   async function fetchData () {
     try {

@@ -1,11 +1,12 @@
 import React from 'react'
 import './previousProjectItem.css'
 import {NavLink} from 'react-router-dom'
+
 export default function PreviousProjectItem (props) {
   const { data = {} } = props;
   const { name = '', logo = '', method = '', deposit = '', earn = '', totalDeposited = '', avaliable = '', status, poolId = ''} = data || {}
   return (
-    <NavLink to={`/project-list/${poolId}`} className="previous-project-item" style={{'marginRight': props.styles.marginRight || '', 'marginBottom': props.styles.marginBottom || ''}}>
+    <NavLink to={`/parameter/${poolId}`} className="previous-project-item" style={{'marginRight': props.styles.marginRight || '', 'marginBottom': props.styles.marginBottom || ''}}>
       <div className="section1">
         <img alt="oo"  src={logo}/>
         <span>{name}</span>
