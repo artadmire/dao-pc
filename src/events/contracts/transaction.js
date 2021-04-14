@@ -2,6 +2,8 @@ import Config from '../../config';
 import ctx from '../index';
 import {  addPid} from './promote';
 import { convertByAnoWei, convertByWei, convertByAno, convertByEth } from '../../utils';
+import { store } from '../../store'
+import { ANOBalanceAction, totalSupplyAction } from '../../store/actions'
 // const ANOcontractAddress = "0xCd56f257C28d66FC7cA0bb3596721814Be15328B";   //respon地址
 // const ANOPoolcontractAddress = "0x30628290Fd21b53bE400345910ce7b23bB60d487";
 // 单币矿池
@@ -41,7 +43,6 @@ export const initContract = async () => {
   // 质押合约
   const GOFGTPool_JSON = await getGofPoolJson();
   const GofPoolContract = TruffleContract(GOFGTPool_JSON);
-  console.log(GofPoolContract, 'GofPoolContract')
   GofPoolContract.setProvider(chainProvider);
   ctx.data.GofPoolContract = GofPoolContract;
 }
@@ -155,6 +156,7 @@ export const balanceOf = async (address) => {
   const { GofContract = {at: () => {}}, chainAccount } = ctx.data;
   const ano = await GofContract.at(ANOcontractAddress);
   const ANOBalance = ano && await ano.balanceOf(chainAccount);
+  store.dispatch(ANOBalanceAction(ANOBalance))
   ctx.data.ANOBalance = convertByAnoWei(ANOBalance);
 };
 
@@ -171,6 +173,7 @@ export const totalSupply = async (address) => {
   const { GofPoolContract = {at: () => {}}, chainAccount } = ctx.data;
   const pool = await GofPoolContract.at(ANOPoolcontractAddress);
   const total = await pool.totalSupply();
+  store.dispatch(totalSupplyAction(total))
   ctx.data.ANOtotalSupply = convertByAnoWei(total);
 
 };

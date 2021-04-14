@@ -23,13 +23,27 @@ font-weight: Regular;
 color: #000000;
 line-height: 25px;
 }
-.verified{
-font-size: 16px;
-font-family: Poppins-Regular, Poppins;
-font-weight: 400;
-color: #000000;
-line-height: 25px;
-margin-top: 16px;
+.verified {
+  font-size: 16px;
+  font-family: Poppins-Regular, Poppins;
+  font-weight: 400;
+  color: #000000;
+  line-height: 25px;
+  margin-top: 16px;
+ 
+}
+.verified span {
+  font-size: 13px;
+  font-family: Poppins-Bold, Poppins;
+  font-weight: bold;
+  color: #FFFFFF;
+  line-height: 24px;
+  background: linear-gradient(135deg, #3023AE 0%, #C86DD7 100%);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  padding: 5px 20px;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 .daos-count{

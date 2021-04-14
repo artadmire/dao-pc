@@ -7,7 +7,9 @@ import { initChain, updateAccount } from './contracts/accounts';
 import { initContract, approve, stake, claim, withdraw, totalStake, earned, balanceOf, totalSupply, tranferHT } from './contracts/transaction';
 import { LPapprove, LPbalanceOf, LPclaim, LPstake, LPearned, LPwithdraw, LPtotalStake, LPtotalSupply } from './contracts/LPtransaction';
 import { getPromoteInfo, transfer, addPid, promoteReward } from './contracts/promote';
-import { setAsyncData } from '../utils/cache';
+import { store } from '../store';
+import { accountAction } from '../store/actions';
+
 
 ctx.event.listen('showLoading', (message) => {
   ctx.data.showLoading = true;
@@ -38,6 +40,7 @@ ctx.event.listen('connectWallet', async () => {
     let account = '';
     try {
       account = await chainProvider.request({ method: 'eth_requestAccounts' });
+      store.dispatch(accountAction(account[0]))
       await updateAccount(account);
     } catch (err) {
       if (err.code === 4001) {

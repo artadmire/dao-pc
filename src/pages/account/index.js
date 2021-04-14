@@ -1,23 +1,53 @@
-import React, {useState, useCallback} from 'react'
+import React, {useState, useCallback, useEffect} from 'react'
 import './index.css'
-import bronze from '@/assets/img/bronze@2x.png'
+import wallet from '@/assets/img/wallet@2x.png'
 import MyBottom from '@/components/myBottom'
 import Level from '@/components/Level'
 import MyModel from './components/MyModel'
+import { connect } from 'react-redux';
+import { getLockin } from '@/service'
+import {store} from '@/store'
+const _data = {
+  kyc: true,  // (true-已认证，false-未认证),
+  userLv: 3,   // (0-4,5个等级),
+  lastDeposit: 3,  // (3days ago)
+}
 
 
-export default function index () {
+function Account (props) {
+  const {account} = props
   const [visible, setVisible] = useState(false)
+  const [data, setData] = useState(_data)
+
+
   const hideModal = useCallback(() => {
     setVisible(false)
   })
   const lockIn = useCallback(() => {
-    console.log(2)
     setVisible(true)
   })
   const unlock = useCallback(() => {
     setVisible(true)
   })
+  // useEffect(async () => {
+  //   const unSubscribe = store.subscribe(() => {
+  //     this.fetchData()
+  //   })
+  //   this.fetchData()
+  //   return () => {
+  //     unSubscribe()
+  //   }
+  // }, [])
+
+  async function fetchData () {
+    try {
+      const res = await getLockin({account});
+      if (!res || !res.data) {throw new Error('')}
+      setData(res.data)
+    } catch (error) {
+      setData({})
+    }
+  }
   return (
     <div className="account">
       <div className="account-content">
@@ -27,21 +57,23 @@ export default function index () {
                     Your Wallet :
             </label>
             <span>
-              FJEF89934Y924GKJ32G42V5H35VJBK3244B2JK4
+              {props.account}
             </span>
           </div>
-          <div className="verified">
-              Some pools may requre you to be KYC verified<span>KYC for DAOStarter projects</span>
-          </div>
+          {
+            data && data.kyc ? null : <div className="verified">
+            Some pools may requre you to be KYC verified <span>KYC for DAOStarter projects</span>
+            </div>
+          }
           <div className="daos-count">
-            <img src={bronze}/>
+            <img src={wallet}/>
             <div>
-                       you have <span className="daos-number">0</span> DAOs in your wallet and <span className="daos-number-locked">0</span> locked-in
+              you have <span className="daos-number">{props.balance || 0}</span> DAOs in your wallet and <span className="daos-number-locked">{data.totalSupply || 0}</span> locked-in
             </div>
           </div>
         </div>
         <div className="account-level">
-          <Level/>
+          <Level level={data.userLv}/>
         </div>
         <div className="available-balance">
           <div className="balance">
@@ -142,3 +174,4 @@ export default function index () {
     </div>
   )
 }
+export default connect(({account, balance, totalSupply}) => ({account, balance, totalSupply}))(Account)

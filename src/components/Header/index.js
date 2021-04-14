@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom'
 import ctx, { mapData, unmapActions } from '../../events';
 import { showInfo } from '../Modal';
 
-
 function Header (props) {
   const [account, setAccount] = useState('');
 
@@ -18,6 +17,7 @@ function Header (props) {
       return;
     }
     ctx.event.emit('connectWallet');
+    console.log(ctx.data, 'ctx.data')
   }
 
   useEffect(() => {
@@ -27,6 +27,7 @@ function Header (props) {
       chainAccount (chainAccount) {
         if (chainAccount) {
           setAccount(chainAccount);
+          window.account = chainAccount
           // 如果已连接钱包，进入买入页面
         }
       }
