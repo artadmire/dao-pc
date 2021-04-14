@@ -5,7 +5,7 @@ import MyBottom from '../../components/myBottom'
 import bronze from '../../assets/img/bronze@2x.png'
 import CrossChainSwaps from '../../assets/img/Cross-chain Swaps@2x.png'
 
-const percent = '90%'
+const percent = '40%'
 
 function About () {
   let [list1] = useState([1, 2, 3, 4, 5, 6, 7, 8])
@@ -33,17 +33,17 @@ function About () {
         <div className="wrap-level-top">
           <div className="level-top-bg" style={{width: `${percent}`}}>
             <div className="level-top">
-              <div className='dashed'></div>
-              <div className='dashed'></div>
-              <div className='dashed'></div>
+              <div style={{left: '25%'}} className='dashed'></div>
+              <div  style={{left: '50%'}} className='dashed'></div>
+              <div  style={{left: '75%'}}  className='dashed'></div>
             </div>
           </div>
         </div>
         <ul className="level-bottom">
-          <li>
+          <li style={{left: '10px'}}>
                   start
           </li>
-          <li>
+          <li style={{left: '25%'}}>
             <strong>
                     bronze
             </strong>
@@ -52,30 +52,30 @@ function About () {
             </span>
             <img  src={bronze}/>
           </li>
-          <li>
+          <li style={{left: '50%'}}>
             <strong>
                     bronze
             </strong>
             <span>
-                    2,000 ducks
+                    5,000 ducks
             </span>
             <img  src={bronze}/>
           </li>
-          <li>
+          <li style={{left: '75%'}}>
             <strong>
                     bronze
             </strong>
             <span>
-                    2,000 ducks
+                    10,000 ducks
             </span>
             <img  src={bronze}/>
           </li>
-          <li>
+          <li style={{right: '20px'}}>
             <strong>
                     bronze
             </strong>
             <span>
-                    2,000 ducks
+                    20,000 ducks
             </span>
             <img  src={bronze}/>
           </li>
@@ -106,7 +106,7 @@ function About () {
                   <div  className="investors-item">
                     <img src={CrossChainSwaps}/>
                     <p className='investors-item-desc'>
-                      sdfshfjdshfkdjshjkdsds
+                      BADISCHE LANDES-BIBLIOTHEK
                     </p>
                   </div>
                 </a>

@@ -4,7 +4,6 @@
   background: #FFFFFF;
   box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  opacity: 0.71;
   position: relative;
   margin-top: 40px;
 }
@@ -42,6 +41,10 @@ header .logo {
   margin-right: 50px;
   padding: 0 20px;
   cursor:pointer;
+  width: 240px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .header-left {
   display: flex;

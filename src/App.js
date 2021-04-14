@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './App.css';
 import Home from './pages/home'
 import About from './pages/about'
@@ -9,10 +9,15 @@ import Header from './components/Header'
 import Apply from './pages/apply'
 import 'antd/dist/antd.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import ctx from './events';
+import './events/ethereum';
 
 function App () {
 
-
+  useEffect(() => {
+    // 初始化区块链库
+    ctx.event.emit('initEthereum');
+  }, []);
   return (
     <div className='App'>
       <div className="content">

@@ -16,16 +16,10 @@ export const convertByAnoWei = (wei) => {
 };
 
 // 将eth换算成wei单位，乘以18
-export const convertByEth = (eth) => {
-  return window.BigInt(eth * Math.pow(10, 18))
-};
+export const convertByEth = (eth) => window.BigInt(eth * Math.pow(10, 18));
 
 // 将ano换算成wei单位，乘以8
-export const convertByAno = (num) => {
-  return window.BigInt(num * Math.pow(10, 8))
-};
+export const convertByAno = (num) => window.BigInt(num * Math.pow(10, 8));
 
 // 乘以10
-export const convertMultipleTen = (num) => {
-  return window.BigInt(num * Math.pow(10,10))
-};
+export const convertMultipleTen = (num) => window.BigInt(num * Math.pow(10, 10));
