@@ -66,5 +66,48 @@ export const perviousProjectsData = [{
   totalDeposited: 150000,
   avaliable: 25000,
   status: true, // (true-开启中、false-已结束)
+},
+{
+  poolId: '2',
+  name: 'ethbox',
+  logo: 'https//xxxx',
+  method: 'Batch-Lottery',
+  deposit: 'USDT',
+  earn: 'ANO Token',
+  totalDeposited: 150000,
+  avaliable: 25000,
+  status: true, // (true-开启中、false-已结束)
+}, {
+  poolId: '2',
+  name: 'ethbox',
+  logo: 'https//xxxx',
+  method: 'Batch-Lottery',
+  deposit: 'USDT',
+  earn: 'ANO Token',
+  totalDeposited: 150000,
+  avaliable: 25000,
+  status: true, // (true-开启中、false-已结束)
+},
+{
+  poolId: '2',
+  name: 'ethbox',
+  logo: 'https//xxxx',
+  method: 'Batch-Lottery',
+  deposit: 'USDT',
+  earn: 'ANO Token',
+  totalDeposited: 150000,
+  avaliable: 25000,
+  status: true, // (true-开启中、false-已结束)
+},
+{
+  poolId: '2',
+  name: 'ethbox',
+  logo: 'https//xxxx',
+  method: 'Batch-Lottery',
+  deposit: 'USDT',
+  earn: 'ANO Token',
+  totalDeposited: 150000,
+  avaliable: 25000,
+  status: true, // (true-开启中、false-已结束)
 }
 ]
