@@ -11,6 +11,7 @@ const _data = {
   kyc: true,  // (true-已认证，false-未认证),
   userLv: 3,   // (0-4,5个等级),
   lastDeposit: 3,  // (3days ago)
+  balance: 0
 }
 
 
@@ -18,16 +19,27 @@ function Account (props) {
   const {account} = props
   const [visible, setVisible] = useState(false)
   const [data, setData] = useState(_data)
-
+  const [modalLeftBun, setModalLeftBun] = useState('APPROVE')
+  const [active, setActive] = useState(true)
 
   const hideModal = useCallback(() => {
     setVisible(false)
   })
+
+  function handleAction () {
+    setVisible(false)
+    if (!active) {return;}
+  }
   const lockIn = useCallback(() => {
     setVisible(true)
+    setActive(true)
+    setModalLeftBun('APPROVE')
   })
   const unlock = useCallback(() => {
     setVisible(true)
+    setActive(!!data.balance)
+    setModalLeftBun('UNLOCK')
+
   })
   useEffect(async () => {
     const unSubscribe = store.subscribe(() => {
@@ -68,7 +80,7 @@ function Account (props) {
           <div className="daos-count">
             <img src={wallet}/>
             <div>
-              you have <span className="daos-number">{props.balance || 0}</span> DAOs in your wallet and <span className="daos-number-locked">{data.totalSupply || 0}</span> locked-in
+              you have <span className="daos-number">{data.balance || 0}</span> DAOs in your wallet and <span className="daos-number-locked">{data.totalSupply || 0}</span> locked-in
             </div>
           </div>
         </div>
@@ -77,7 +89,7 @@ function Account (props) {
         </div>
         <div className="available-balance">
           <div className="balance">
-                   Available balance:<span>0</span>
+                   Available balance:<span>{data.balance || 0}</span>
           </div>
           <div className="balance-handler">
             <div onClick={lockIn} className="lockin">LOCK-IN</div>
@@ -88,7 +100,7 @@ function Account (props) {
             <div className="rules">
               <div className="dates">
                 <div>
-                                there are penalties when you unlock，based on the date you deposited your last tokens：
+                  there are penalties when you unlock，based on the date you deposited your last tokens：
                 </div>
                 <ul>
                   <li>
@@ -170,7 +182,7 @@ function Account (props) {
         </div>
       </div>
       <MyBottom className="account-bottom"/>
-      {visible && <MyModel hideModal={hideModal}/>}
+      {visible && <MyModel hideModal={hideModal} active={active} onAction={handleAction} left={modalLeftBun} balance={data.balance}/>}
     </div>
   )
 }

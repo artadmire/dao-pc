@@ -17,7 +17,7 @@ export default function MyModal (props) {
                                       INPUT
               </span>
               <span>
-                                 Your Wallet Balance: <label>0</label>
+                                 Your Wallet Balance: <label>{props.balance}</label>
               </span>
             </div>
             <div className="cont-last">
@@ -40,7 +40,7 @@ export default function MyModal (props) {
             </div>
           </div>
           <div className="handler">
-            <span className="left avtive"> APPROVE</span>
+            <span onClick={props.onAction} className={`left ${props.active ? 'avtive' : ''}`}> {props.left}</span>
             <span onClick={props.hideModal} className="right">CANCEL</span>
           </div>
         </div>
