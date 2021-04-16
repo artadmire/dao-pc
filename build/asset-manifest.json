@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.5f2ffd2d.chunk.css",
+    "main.css": "/static/css/main.1d02dd6e.chunk.css",
     "main.js": "/static/js/main.51c281a8.chunk.js",
     "main.js.map": "/static/js/main.51c281a8.chunk.js.map",
     "metamask.js": "/static/js/metamask.b3d085de.chunk.js",
@@ -14,7 +14,7 @@
     "static/js/4.97ca8c54.chunk.js.map": "/static/js/4.97ca8c54.chunk.js.map",
     "index.html": "/index.html",
     "static/css/3.208f400b.chunk.css.map": "/static/css/3.208f400b.chunk.css.map",
-    "static/css/main.5f2ffd2d.chunk.css.map": "/static/css/main.5f2ffd2d.chunk.css.map",
+    "static/css/main.1d02dd6e.chunk.css.map": "/static/css/main.1d02dd6e.chunk.css.map",
     "static/js/3.2f88744c.chunk.js.LICENSE.txt": "/static/js/3.2f88744c.chunk.js.LICENSE.txt",
     "static/media/Cross-chain Swaps@2x.d6009c28.png": "/static/media/Cross-chain Swaps@2x.d6009c28.png",
     "static/media/bronze@2x.acd318fc.png": "/static/media/bronze@2x.acd318fc.png",
@@ -24,7 +24,7 @@
     "static/js/runtime-main.4280a78a.js",
     "static/css/3.208f400b.chunk.css",
     "static/js/3.2f88744c.chunk.js",
-    "static/css/main.5f2ffd2d.chunk.css",
+    "static/css/main.1d02dd6e.chunk.css",
     "static/js/main.51c281a8.chunk.js"
   ]
 }
