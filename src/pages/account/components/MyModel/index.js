@@ -32,8 +32,8 @@ function MyModal (props) {
             </div>
           </div>
           <div className="handler">
-            <span onClick={props.onAction} className={`left ${props.active ? 'avtive' : ''}`}> {props.left}</span>
-            <span onClick={props.hideModal} className="right">CANCEL</span>
+            <p onClick={props.onAction} className={`left ${props.active ? 'avtive' : ''}`}> {props.left}</p>
+            <p onClick={props.hideModal} className="right">CANCEL</p>
           </div>
         </div>
       </div>
