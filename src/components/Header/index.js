@@ -1,12 +1,15 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import './index.css'
 import logo from '@/assets/img/logo@2x.png'
 import { NavLink } from 'react-router-dom'
 import ctx, { mapData, unmapActions } from '../../events';
 import { showInfo } from '../Modal';
+import { connect} from 'react-redux'
+import { store } from '@/store'
+import {accountAction} from '@/store/actions'
 
 function Header (props) {
-  const [account, setAccount] = useState('');
+  const { account } = props
 
   const connectWallet = () => {
     const { chainAccount } = ctx.data;
@@ -17,7 +20,6 @@ function Header (props) {
       return;
     }
     ctx.event.emit('connectWallet');
-    console.log(ctx.data, 'ctx.data')
   }
 
   useEffect(() => {
@@ -26,9 +28,7 @@ function Header (props) {
     mapData({
       chainAccount (chainAccount) {
         if (chainAccount) {
-          setAccount(chainAccount);
-          window.account = chainAccount
-          // 如果已连接钱包，进入买入页面
+          store.dispatch(accountAction(chainAccount))
         }
       }
     }, ctx, lifetimeObj);
@@ -53,4 +53,4 @@ function Header (props) {
   );
 }
 
-export default Header;
+export default connect(({account}) => ({account}))(Header);

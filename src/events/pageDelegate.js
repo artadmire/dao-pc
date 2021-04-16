@@ -90,7 +90,6 @@ ctx.event.listen('withdraw', async (params) => {
   await balanceOf();
   await totalStake();
   // ctx.event.emit('hideLoading');
-  console.log(result);
   if (!result) {
     return;
   }
@@ -171,7 +170,7 @@ ctx.event.listen('ANOUSDTwithdraw', async (params) => {
   await LPbalanceOf();
   await LPtotalStake();
   // ctx.event.emit('hideLoading');
-  console.log(result);
+  // console.log(result);
   if (!result) {
     return;
   }

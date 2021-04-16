@@ -1,5 +1,5 @@
 const Config = {
-  BaseApi: '/Users/maile/lzb程总/dao-pc/reference',
+  BaseApi: '',
   // 交易币种名称
   CoinName: 'ANO',
   whitepaperLink: 'http://www.anobor.com/',

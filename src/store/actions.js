@@ -16,3 +16,14 @@ export const DAOsAction = (daos) => ({
   type: 'DAOS',
   payload: daos
 })
+
+export const ANOTotalStakeAction = (tatol) => ({
+  type: 'TOTALSTATE',
+  payload: tatol
+})
+
+export const claimedOfAction = (tatol) => ({
+  type: 'CLAIMED',
+  payload: tatol
+})
+

@@ -1,13 +1,9 @@
-import Config from '../../config';
 import ctx from '../index';
-import {  addPid} from './promote';
-import { convertByAnoWei, convertByWei, convertByAno, convertByEth } from '../../utils';
-// const ANOcontractAddress = "0xCd56f257C28d66FC7cA0bb3596721814Be15328B";   //respon地址
-// const ANOPoolcontractAddress = "0x30628290Fd21b53bE400345910ce7b23bB60d487";
+import { convertByAnoWei, convertByWei, convertByEth } from '../../utils';
 
 // lp矿池测试
-const ANOcontractAddress = '0xa7578687c70328eE48Ab35fe673969eb14e97B2e'// "0x7FDF7Ed3BE4e3A8F27aF520Cfc6769122D3f901C"
-const ANOPoolcontractAddress = '0xcf0a9775d57820ba42E13bf066943b5188BD2287'// "0xd1668Db7Da8898E34D0E2972c5073cB2cD586115"// "0x2D717a4578427484e92E30D2E421412d4852497E"
+const ANOcontractAddress = '0xb021e33c901844F7E9e593B357dFf6443d7b7F34'// "0x7FDF7Ed3BE4e3A8F27aF520Cfc6769122D3f901C"
+const ANOPoolcontractAddress = '0xE1ce3C3fdc7f08DA94f2fa68376a03634682dBd6'// "0xd1668Db7Da8898E34D0E2972c5073cB2cD586115"// "0x2D717a4578427484e92E30D2E421412d4852497E"
 
 export const LPapprove = async (number) => {
   const { GofContract, chainAccount } = ctx.data;
@@ -88,8 +84,9 @@ export const LPwithdraw = async (number) => {
 // 查看收益
 export const LPearned = async (address) => {
   const { GofPoolContract, chainAccount } = ctx.data;
+  console.log(GofPoolContract, 'GofPoolContract')
   const pool = await GofPoolContract.at(ANOPoolcontractAddress);
-  const ANOEarned = await pool.earned(chainAccount)
+  const ANOEarned = await typeof pool.earned === 'function' && pool.earned(chainAccount)
   ctx.data.ANOUSDTEarned =  convertByAnoWei(ANOEarned);
 };
 
@@ -105,7 +102,7 @@ export const LPbalanceOf = async (address) => {
 export const LPtotalStake = async (address) => {
   const { GofPoolContract, chainAccount } = ctx.data;
   const pool = await GofPoolContract.at(ANOPoolcontractAddress);
-  const total = await pool.balanceOf(chainAccount);
+  const total =  typeof pool.balanceOf === 'function' && await pool.balanceOf(chainAccount);
   ctx.data.ANOUSDTTotalStake = convertByWei(total);
 };
 
@@ -113,7 +110,7 @@ export const LPtotalStake = async (address) => {
 export const LPtotalSupply = async (address) => {
   const { GofPoolContract, chainAccount } = ctx.data;
   const pool = await GofPoolContract.at(ANOPoolcontractAddress);
-  const total = await pool.totalSupply();
+  const total =  typeof pool.totalSupply === 'function' && await pool.totalSupply();
   ctx.data.ANOUSDTtotalSupply = convertByWei(total);
 
 

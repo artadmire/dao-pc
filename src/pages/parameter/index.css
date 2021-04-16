@@ -35,6 +35,7 @@
   line-height: 25px;
 
 }
+
 .deposited ul li  span:nth-of-type(1){
   
   font-family: Poppins-Regular, Poppins;
@@ -91,16 +92,16 @@ font-weight: bold;
   background: linear-gradient(135deg, #3023AE 0%, #C86DD7 100%);
   border-radius: 17px 0 0 17px;
   position: absolute;
-  top: 0;
-  left:0;
+  top: 0px;
+  left:0px;
 }
 .ethbox-details{
   padding:48px 56px 0;
   width: 542px;
-background: #FFFFFF;
-box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
-border-radius: 10px;
-margin-bottom: 21px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-bottom: 21px;
 }
 .ethbox-details-title{
 font-size: 20px;
@@ -191,6 +192,10 @@ line-height: 25px;
   font-family: TwCenMT-Bold, TwCenMT;
   font-weight: bold;
   color: #FFFFFF;
+  cursor: pointer;
+}
+.deposited-availale .handler .active {
+  background: linear-gradient(135deg, #3023AE 0%, #C86DD7 100%);
 }
 .reward-tokens{
   width: 542px;
@@ -242,8 +247,13 @@ line-height: 20px;
   font-family: TwCenMT-Bold, TwCenMT;
   font-weight: bold;
   color: #FFFFFF;
+  cursor: pointer;
   margin-top: 9px;
 }
+.reward-tokens .handler.active {
+  background: linear-gradient(135deg, #3023AE 0%, #C86DD7 100%);
+}
+
 .deposited-availale .cont-first,.deposited-availale .cont-last{
   display: flex;
   justify-content: space-between;

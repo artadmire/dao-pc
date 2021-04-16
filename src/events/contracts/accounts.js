@@ -3,7 +3,7 @@
 import { ETH_NETWORK } from './constants';
 import ctx from '../index';
 import { showConfirm } from '../../components/Modal';
-import { earned, balanceOf, totalStake, totalSupply, isApprove } from './transaction';
+import { earned, balanceOf, totalStake, totalSupply, isApprove, claimedOf } from './transaction';
 import { getANOUSDTinfo } from './LPtransaction';
 import { getPromoteInfo, getAPY, getANOPrice } from './promote';
 
@@ -65,6 +65,8 @@ export const updateAccount = async (account) => {
     totalStake(chainAccount);
     earned(chainAccount);
     totalSupply();
+    claimedOf()
+
 
   }
 }

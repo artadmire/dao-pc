@@ -1,19 +1,26 @@
 import React, {useState, useEffect} from 'react'
 import PreviousProjectItem from '../home/components/previousProjects/previousProjectItem.js'
 import './index.css'
-import {getPerviousProjects, perviousProjectsData} from '@/service'
+import { getPerviousProjects} from '@/service'
+import { perviousProjectsData} from '@/service/mock'
 
 export default function PreviousProjectsList () {
   let [list, setList]  = useState(perviousProjectsData)
-  // useEffect(async () => {
-  //   try {
-  //     const res = await getPerviousProjects();
-  //     if (!res || !res.data || !res.data.length) {throw new Error('')}
-  //     setPreviousList(res.data)
-  //   } catch (error) {
-  //     setPreviousList([])
-  //   }
-  // }, [])
+
+  useEffect(async () => {
+    fetchData()
+  }, [])
+
+  async function fetchData () {
+    try {
+      const res = await getPerviousProjects();
+      if (!res || !res.data || !res.data.length) {throw new Error('')}
+      setList(res.data)
+    } catch (error) {
+      setList([])
+    }
+  }
+
   return (
     <div className="previous-projects-list">
       <div  className="title mainTitle">Previous Projects</div>

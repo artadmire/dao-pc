@@ -16,7 +16,7 @@ const _data = {
 
 
 function Account (props) {
-  const {account} = props
+  const { account } = props
   const [visible, setVisible] = useState(false)
   const [data, setData] = useState(_data)
   const [modalLeftBun, setModalLeftBun] = useState('APPROVE')
@@ -42,18 +42,19 @@ function Account (props) {
 
   })
   useEffect(async () => {
-    const unSubscribe = store.subscribe(() => {
-      // this.fetchData()
-    })
-    // this.fetchData()
-    return () => {
-      unSubscribe()
-    }
+    // const unSubscribe = store.subscribe(() => {
+    //   fetchData()
+    // })
+    fetchData()
+    // return () => {
+    //   unSubscribe()
+    // }
   }, [])
 
   async function fetchData () {
     try {
-      const res = await getLockin({account});
+      let res = await getLockin({account});
+      res = res.data
       if (!res || !res.data) {throw new Error('')}
       setData(res.data)
     } catch (error) {

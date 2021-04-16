@@ -4,7 +4,8 @@ import MyBottom from '../../components/myBottom'
 import UpcomingProject from './components/upcomingProjects/index.js'
 import PreviousProject from './components/previousProjects/index.js'
 import {Link} from 'react-router-dom'
-import {getProjects, getPerviousProjects, projectsData, perviousProjectsData} from '@/service'
+import {getProjects, getPerviousProjects } from '@/service'
+import { projectsData, perviousProjectsData } from '@/service/mock'
 
 function Home (props) {
   const [upComingList, setUpComingList] = useState(projectsData)
@@ -13,26 +14,35 @@ function Home (props) {
   function handleClick () {
 
   }
-  // useEffect(async () => {
-  //   try {
-  //     const res = await getProjects();
-  //     if (!res || !res.data || !res.data.length) {throw new Error('')}
-  //     setUpComingList(res.data)
-  //   } catch (error) {
-  //     setUpComingList([])
-  //   }
-  // }, [])
+  useEffect(async () => {
+    fetchPervious()
+  }, [])
 
-  // useEffect(async () => {
-  //   try {
-  //     const res = await getPerviousProjects();
-  //     if (!res || !res.data || !res.data.length) {throw new Error('')}
-  //     setPreviousList(res.data)
-  //   } catch (error) {
-  //     setPreviousList([])
-  //   }
-  // }, [])
+  useEffect(async () => {
+    fetchProjects()
+  }, [])
 
+  async function fetchProjects () {
+    try {
+      let res = await getProjects();
+      res = res.data
+      if (!res || !res.data || !res.data.data || !res.data.data.length) {throw new Error('')}
+      setUpComingList(res.data.data)
+    } catch (error) {
+      setUpComingList([])
+    }
+  }
+
+  async function fetchPervious () {
+    try {
+      let res = await getPerviousProjects();
+      res = res.data
+      if (!res || !res.data ||  !res.data.data || !res.data.data.length) {throw new Error('')}
+      setPreviousList(res.data.data)
+    } catch (error) {
+      setPreviousList([])
+    }
+  }
 
   return (
     <div className="home">
