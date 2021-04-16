@@ -13,13 +13,12 @@ import ctx from './events';
 import './events/ethereum';
 
 function App () {
-
   useEffect(() => {
     // 初始化区块链库
     ctx.event.emit('initEthereum');
   }, []);
   return (
-    <div className='App'>
+    <div className={`App ${window.location.pathname === '/apply' ? 'applyBg' : ''}`}>
       <div className="content">
         <BrowserRouter >
           <Header/>
