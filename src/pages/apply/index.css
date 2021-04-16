@@ -74,3 +74,10 @@ font-weight: bold;
 .ant-slider.slider .ant-slider-handle {
    border: none
 }
+.ant-form-item-label {
+    font-size: 16px;
+    font-family: Poppins-Bold, Poppins;
+    font-weight: bold;
+    color: #FFFFFF;
+    line-height: 25px;
+}

@@ -47,7 +47,7 @@ export const initContract = async () => {
   ctx.data.GofPoolContract = GofPoolContract;
 }
 
-export const approve = async (number) => {
+export const approve = async () => {
   const { GofContract = {at: () => {}}, chainAccount } = ctx.data;
   const ano = await GofContract.at(ANOcontractAddress);
   // 授权
@@ -106,7 +106,7 @@ export const offer = async (number) => {
   }
 };
 
-
+// harvest操作
 export const claim = async () => {
   const { GofPoolContract = { at: () => {}}, chainAccount } = ctx.data;
   const pool = await GofPoolContract.at(ANOPoolcontractAddress);
@@ -190,10 +190,10 @@ export const totalStake = async (address) => {
 };
 
 // 查看总质押量 deposited:     用的是众筹合约的offeredOf方法
-export const totalSupply = async (address) => {
+export const totalSupply = async () => {
   const { GofPoolContract = {at: () => {}}, chainAccount } = ctx.data;
   const pool = await GofPoolContract.at(ANOPoolcontractAddress);
-  const total = typeof pool.offeredOf === 'function' && await pool.offeredOf();
+  const total = typeof pool.offeredOf === 'function' && await pool.offeredOf(chainAccount);
   ctx.data.ANOtotalSupply = convertByAnoWei(total);
   store.dispatch(totalSupplyAction(ctx.data.ANOtotalSupply))
 
@@ -202,7 +202,7 @@ export const totalSupply = async (address) => {
 export const claimedOf = async (address) => {
   const { GofPoolContract = {at: () => {}}, chainAccount } = ctx.data;
   const pool = await GofPoolContract.at(ANOPoolcontractAddress);
-  const total = typeof pool.claimedOf === 'function' && await pool.claimedOf();
+  const total = typeof pool.claimedOf === 'function' && await pool.claimedOf(chainAccount);
   ctx.data.claimedOf = convertByAnoWei(total);
   store.dispatch(claimedOfAction(ctx.data.claimedOf))
 

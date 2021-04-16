@@ -1,4 +1,4 @@
-import React, {useState } from 'react'
+import React, {useState, useEffect } from 'react'
 import './index.css'
 import { Form, Input, Button, Radio, Upload, Slider } from 'antd';
 import { InboxOutlined  } from '@ant-design/icons';
@@ -8,6 +8,14 @@ export default function Apply () {
   const [fundsVal, setFunds] = useState(0)
   const [raiseVal, setRaise] = useState(0)
   const { TextArea } = Input;
+  useEffect(() => {
+    const bg = document.getElementById('boxbg')
+    bg.style.background = '#000'
+    return () => {
+      bg.style.background = '#FFF'
+    }
+  }, [])
+
   const formItemLayout =
     {
       labelCol: { span: 24 },
@@ -18,6 +26,7 @@ export default function Apply () {
         labelCol: { span: 24 },
         wrapperCol: { span: 24 },
       }
+
   const normFile = (e) => {
     console.log('Upload event:', e);
 
@@ -27,6 +36,7 @@ export default function Apply () {
 
     return e && e.fileList;
   };
+
   const onFinish = (values) => {
     console.log(values);
   };
@@ -52,9 +62,11 @@ export default function Apply () {
           <div className="form-name">
             <Form.Item  name="name1" label="Name" rules={[{ required: true, message: 'Please input your username!' }]}  >
               <Input placeholder=" " className="form-name-item"/>
+              <span style={{color: '#FFF'}}>first</span>
             </Form.Item>
             <Form.Item  name="name2" label=" " rules={[{ required: true, message: 'Please input your username!' }]} >
               <Input placeholder=" " className="form-name-item"/>
+              <span style={{color: '#FFF'}}>last</span>
             </Form.Item>
           </div>
           <Form.Item  name="email" label="Email " {...formItemLayout2} rules={[{ required: true, message: 'Please input your Email!' }]}>
@@ -72,7 +84,10 @@ export default function Apply () {
               autoSize={{ minRows: 5, maxRows: 8 }}
             />
           </Form.Item>
-          <Form.Item name="radio-group" label="On which Blockchain do you want to launch? "  className="aa">
+          <Form.Item name="radio-group"
+            label="On which Blockchain do you want to launch? "
+            className="aa"
+            rules={[{ required: true, message: 'Please selset your Content!' }]}>
             <Radio.Group>
               <Radio value="a">Ethereum</Radio>
               <Radio value="b">Binance Smart Chain</Radio>
@@ -80,7 +95,8 @@ export default function Apply () {
               <Radio value="d">More than one</Radio>
             </Radio.Group>
           </Form.Item>
-          <Form.Item   label="When would you like to do a Token Launch on DuckStarter? " {...formItemLayout}
+          <Form.Item   label="When would you like to do a Token Launch on DuckStarter? "
+            {...formItemLayout}
             rules={[{ required: true, message: 'Please input your Content!' }]}>
             <Input placeholder="" className="input-controller1"/>
           </Form.Item>

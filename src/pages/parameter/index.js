@@ -9,6 +9,7 @@ import moment from 'moment'
 import {  approve, offer, claim} from '@/events/contracts/transaction'
 import ctx from '@/events'
 import {connect} from 'react-redux'
+import {Button} from 'antd'
 
 const datas = {
   'status': 1000,
@@ -39,7 +40,7 @@ const datas = {
 
 function Parameter (props) {
   const [data, setData] = useState({})
-  const [leftTime, setLeftTime] = useState(-1)
+  const [leftTime, setLeftTime] = useState(0)
   const [days, setDays] = useState('00')
   const [hours, setHours] = useState('00')
   const [minutes, setMins] = useState('00')
@@ -61,14 +62,9 @@ function Parameter (props) {
     }
   }, [leftTime])
 
-  // useEffect(async () => {
-  //   account && fetchData(account)
-  //   // 查看收否授权
-  //   if (account && !_approve) {
-  //     await isApprove(account);
-  //     store.dispatch({type: 'ISAPPROVE', payload: ctx.data.stakeStatus})
-  //   }
-  // }, [account])
+  useEffect(async () => {
+    account && fetchData(account)
+  }, [account])
 
   function changeValue (e) {
     console.log(ctx.data, 'ctx.data')
@@ -89,16 +85,22 @@ function Parameter (props) {
 
   // 授权
   async function handleApprove () {
-    if (_approve)  {return}
-    const res = await approve(value);
+    // if (_approve)  {return}
+    const res = await approve();
     res && store.dispatch({type: 'ISAPPROVE', payload: true})
   }
+
   // 质押
   async function handleDeposit () {
-    if (!_approve || leftTime > 0)  {return}
-    const res = await offer(value);
+    // if (!_approve || leftTime > 0)  {return}
+    await offer(value);
   }
 
+  // harvest操作
+  async function handleHarvest () {
+    // if (leftTime > 0) {return}
+    claim()
+  }
   function getTimes () {
     if (leftTime <= 0) {return}
     const _leftTime = leftTime - 1000
@@ -112,11 +114,6 @@ function Parameter (props) {
     setSeconds(_seconds)
     setLeftTime(_leftTime)
 
-  }
-
-  async function handleHarvest () {
-    // if (leftTime >= 0) {return}
-    claim()
   }
 
 
@@ -232,12 +229,12 @@ function Parameter (props) {
                 <div>TOTAL: {balance || 0} USDC</div>
               </div>
               <div className="handler">
-                <span onClick={handleApprove} className={!_approve ? 'active' : ''}>
+                <Button type="default" onClick={handleApprove} disabled={_approve} >
                             approve
-                </span>
-                <span onClick={handleDeposit} className={(_approve && leftTime <= 0) ? 'active' : ''}>
+                </Button>
+                <Button type="default" onClick={handleDeposit} disabled={!_approve || leftTime > 0} >
                             Deposit
-                </span>
+                </Button>
               </div>
             </div>
             <div className="reward-tokens">
@@ -270,9 +267,9 @@ function Parameter (props) {
                   {data.totalRewards || 0} EBOX Token
                 </div>
               </div>
-              <div onClick={handleHarvest} className={`handler ${leftTime <= 0 ? 'active' : ''}`}>
+              <Button type="default" onClick={handleHarvest} disabled={leftTime > 0} >
               Harvest
-              </div>
+              </Button>
             </div>
           </div>
         </div>

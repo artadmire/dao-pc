@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import './App.css';
 import Home from './pages/home'
 import About from './pages/about'
@@ -18,7 +18,7 @@ function App () {
     ctx.event.emit('initEthereum');
   }, []);
   return (
-    <div className={`App ${window.location.pathname === '/apply' ? 'applyBg' : ''}`}>
+    <div className='App' id="boxbg">
       <div className="content">
         <BrowserRouter >
           <Header/>
