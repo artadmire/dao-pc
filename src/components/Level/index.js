@@ -5,7 +5,7 @@ const percent = {
   0: '0%',
   1: '25%',
   2: '50%',
-  3: '70%',
+  3: '75%',
   4: '100%',
 }
 
@@ -13,9 +13,9 @@ export default function Level (props) {
   const {level = 0} = props
   return (
     <div className="my-level">
-      <p className="account-level-desc">
+      {level == 0 ? <p className="account-level-desc">
         You don’t have a DuckSTARTER Tier yet. Please upgrade your level.
-      </p>
+      </p> : null}
       <div className="wrap-level-top">
         <div className="level-top-bg" style={{width: `${percent[level]}`}}>
           <div className="level-top">

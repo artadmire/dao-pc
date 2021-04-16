@@ -26,4 +26,8 @@ export const claimedOfAction = (tatol) => ({
   type: 'CLAIMED',
   payload: tatol
 })
+export const isApproveAction = (bol) => ({
+  type: 'ISAPPROVE',
+  payload: bol
+})
 

@@ -6,7 +6,7 @@ import Level from '@/components/Level'
 import { store } from '@/store'
 import { getDeposit } from '@/service'
 import moment from 'moment'
-import { isApprove, approve, offer, claim} from '@/events/contracts/transaction'
+import {  approve, offer, claim} from '@/events/contracts/transaction'
 import ctx from '@/events'
 import {connect} from 'react-redux'
 
@@ -48,7 +48,7 @@ function Parameter (props) {
 
   const { isApprove: _approve, account, balances = 0,
     ANOTotalStake = 0, totalSupply = 0, claimed = 0 } = props
-  const balance = ((balances || 0) / 1000000000000000000).toFixed(4) || 0
+  const balance = ((balances || 0) / 10000000000).toFixed(4) || 0
 
   useEffect(() => {
     let timer = setInterval(() => {
@@ -61,14 +61,14 @@ function Parameter (props) {
     }
   }, [leftTime])
 
-  useEffect(async () => {
-    account && fetchData(account)
-    // 查看收否授权
-    if (account && !_approve) {
-      await isApprove(account);
-      store.dispatch({type: 'ISAPPROVE', payload: ctx.data.stakeStatus})
-    }
-  }, [account])
+  // useEffect(async () => {
+  //   account && fetchData(account)
+  //   // 查看收否授权
+  //   if (account && !_approve) {
+  //     await isApprove(account);
+  //     store.dispatch({type: 'ISAPPROVE', payload: ctx.data.stakeStatus})
+  //   }
+  // }, [account])
 
   function changeValue (e) {
     console.log(ctx.data, 'ctx.data')
@@ -92,7 +92,6 @@ function Parameter (props) {
     if (_approve)  {return}
     const res = await approve(value);
     res && store.dispatch({type: 'ISAPPROVE', payload: true})
-    console.log(ctx.data, 'ctx.data')
   }
   // 质押
   async function handleDeposit () {
@@ -204,23 +203,13 @@ function Parameter (props) {
                   {data.website}
                 </a>
               </div>
-              <p>
-                {data.details}
-                {/* ethbox is a DuckDAO strategic partner and an up and <br/>
-                          coming escrow service specializing in security,  <br/>
-                          privacy, and effectiveness for the OTC cryptocurrency  <br/>
-                          market. It serves as a trustable, transparent and <br/>
-                          always-valid intermediary between two parties  <br/>
-                          willing to send cryptocurrency one way or both ways. <br/>
-                          Instead of sending funds  <br/>
-                          directly to each other, funds are relayed through the ethbox smart contract. */}
-              </p>
+              <p>{data.details}</p>
             </div>
           </div>
           <div className="parameter-detail-bottom">
             <div className="deposited-availale">
               <div className="title">
-                       YOU HAVE <span>{totalSupply || 0}</span> USDC DEPOSITED from <span>{ANOTotalStake || 0} </span>available for your TIER
+                       YOU HAVE <span>{totalSupply || 0}</span> USDC DEPOSITED from <span>{balance || 0} </span>available for your TIER
               </div>
               <div className="cont">
                 <div className="cont-first">
@@ -239,12 +228,8 @@ function Parameter (props) {
                 </div>
               </div>
               <div className="sum">
-                <div>
-                             + 0% Fee: {totalSupply} Deposited
-                </div>
-                <div>
-                             TOTAL: {ANOTotalStake || 0} USDC
-                </div>
+                <div>{totalSupply} Deposited</div>
+                <div>TOTAL: {balance || 0} USDC</div>
               </div>
               <div className="handler">
                 <span onClick={handleApprove} className={!_approve ? 'active' : ''}>
@@ -297,5 +282,5 @@ function Parameter (props) {
   );
 }
 
-export default connect(({isApprove, account, balances, ANOTotalStake, totalSupply, claimed}) =>
-  ({isApprove, account, balances, ANOTotalStake, totalSupply, claimed}))(Parameter);
+export default connect(({isApprove, account, balances, totalSupply, claimed}) =>
+  ({isApprove, account, balances, totalSupply, claimed}))(Parameter);

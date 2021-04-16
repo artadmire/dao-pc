@@ -46,6 +46,7 @@ export function accountReducer (state = initState, action) {
       ...state,
       claimed: action.payload
     }
+
   default:
     return {
       ...state

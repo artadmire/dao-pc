@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useEffect} from 'react'
+import React, {useState, useCallback, useEffect, useMemo} from 'react'
 import './index.css'
 import wallet from '@/assets/img/wallet@2x.png'
 import MyBottom from '@/components/myBottom'
@@ -7,20 +7,28 @@ import MyModel from './components/MyModel'
 import { connect } from 'react-redux';
 import { getLockin } from '@/service'
 import {store} from '@/store'
+import {  approve, offer} from '@/events/contracts/transaction'
 const _data = {
   kyc: true,  // (true-已认证，false-未认证),
   userLv: 3,   // (0-4,5个等级),
   lastDeposit: 3,  // (3days ago)
-  balance: 0
 }
 
 
 function Account (props) {
-  const { account } = props
+  const { account, balances, totalSupply, isApprove } = props
   const [visible, setVisible] = useState(false)
   const [data, setData] = useState(_data)
   const [modalLeftBun, setModalLeftBun] = useState('APPROVE')
   const [active, setActive] = useState(true)
+  const [value, setValue] = useState('')
+
+
+  const balance = useMemo(() => (balances / 10000000000).toFixed(4) || 0, [balances])
+
+  function handleChange (val) {
+    setValue()
+  }
 
   const hideModal = useCallback(() => {
     setVisible(false)
@@ -30,26 +38,32 @@ function Account (props) {
     setVisible(false)
     if (!active) {return;}
   }
+  // 授权
+  async function _approve () {
+    const res = await approve(value);
+    res && store.dispatch({type: 'ISAPPROVE', payload: true})
+
+  }
+  // 质押
+  async function handleDeposit () {
+    const res = await offer(value);
+  }
+
   const lockIn = useCallback(() => {
     setVisible(true)
     setActive(true)
-    setModalLeftBun('APPROVE')
+    isApprove ? setModalLeftBun('DEPOSITE') : setModalLeftBun('APPROVE')
   })
   const unlock = useCallback(() => {
     setVisible(true)
-    setActive(!!data.balance)
+    setActive(!!totalSupply)
     setModalLeftBun('UNLOCK')
 
   })
+
   useEffect(async () => {
-    // const unSubscribe = store.subscribe(() => {
-    //   fetchData()
-    // })
     fetchData()
-    // return () => {
-    //   unSubscribe()
-    // }
-  }, [])
+  }, [account])
 
   async function fetchData () {
     try {
@@ -70,7 +84,7 @@ function Account (props) {
                     Your Wallet :
             </label>
             <span>
-              {props.account}
+              {account}
             </span>
           </div>
           {
@@ -81,7 +95,7 @@ function Account (props) {
           <div className="daos-count">
             <img src={wallet}/>
             <div>
-              you have <span className="daos-number">{data.balance || 0}</span> DAOs in your wallet and <span className="daos-number-locked">{data.totalSupply || 0}</span> locked-in
+              you have <span className="daos-number">{balance || 0}</span> DAOs in your wallet and <span className="daos-number-locked">{totalSupply || 0}</span> locked-in
             </div>
           </div>
         </div>
@@ -90,7 +104,7 @@ function Account (props) {
         </div>
         <div className="available-balance">
           <div className="balance">
-                   Available balance:<span>{data.balance || 0}</span>
+                   Available balance: <span>{balance || 0}</span>
           </div>
           <div className="balance-handler">
             <div onClick={lockIn} className="lockin">LOCK-IN</div>
@@ -183,8 +197,17 @@ function Account (props) {
         </div>
       </div>
       <MyBottom className="account-bottom"/>
-      {visible && <MyModel hideModal={hideModal} active={active} onAction={handleAction} left={modalLeftBun} balance={data.balance}/>}
+      {visible && <MyModel hideModal={hideModal}
+        active={active}
+        onAction={handleAction}
+        left={modalLeftBun}
+        balance={balance}
+        account={account}
+        totalSupply={totalSupply}
+        onChange={handleChange}
+      />}
     </div>
   )
 }
-export default connect(({account, balance, totalSupply}) => ({account, balance, totalSupply}))(Account)
+export default connect(({account, balances, totalSupply, isApprove}) =>
+  ({account, balances, totalSupply, isApprove}))(Account)
