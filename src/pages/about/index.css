@@ -38,6 +38,7 @@
     flex-wrap: wrap;
     padding-left: 80px;
     box-sizing: border-box;
+    margin-top: 50px;
 }
 .my-about .character-item{
   width: 366px;
@@ -48,11 +49,13 @@
   margin-bottom: 40px;
   display: flex;
   align-items: center;
+  padding: 0 45px;
+  box-sizing: border-box;
 }
 .my-about .character-item img{
   width:100px;
   height: 100px;
-  margin: 30px;
+  margin-right: 20px;
 }
 .my-about .investors{
   margin-top: 280px;

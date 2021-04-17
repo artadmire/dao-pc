@@ -11,6 +11,13 @@ function Home (props) {
   const [upComingList, setUpComingList] = useState(projectsData)
   const [previousList, setPreviousList] = useState(perviousProjectsData)
 
+  useEffect(() => {
+    const bg = document.getElementById('boxbg')
+    bg.className = 'App app-Home'
+    return () => {
+      bg.className = 'App'
+    }
+  }, [])
   function handleClick () {
 
   }

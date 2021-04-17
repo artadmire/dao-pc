@@ -183,6 +183,7 @@ line-height: 25px;
   margin-top: 40px;
   
 }
+
 .handler .ant-btn.ant-btn-default:nth-of-type(1){
   margin-right: 20px;
 }
@@ -309,4 +310,14 @@ line-height: 20px;
   color: #FFFFFF;
   margin-top: 15px;
 
+}
+.ant-btn.ant-btn-default:hover {
+  background: linear-gradient(135deg, #3023AE 0%, #C86DD7 100%);
+  border: 2px solid #F5F5F5;
+  color: #FFFFFF;
+}
+.reward-tokens .ant-btn.ant-btn-default:hover {
+  background: linear-gradient(135deg, #3023AE 0%, #C86DD7 100%);
+  border: 2px solid #F5F5F5;
+  color: #FFFFFF;
 }

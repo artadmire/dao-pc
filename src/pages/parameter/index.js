@@ -67,8 +67,8 @@ function Parameter (props) {
   }, [account])
 
   function changeValue (e) {
-    console.log(ctx.data, 'ctx.data')
-    console.log(props)
+    // console.log(ctx.data, 'ctx.data')
+    // console.log(props)
     setValue(e.target.value)
   }
 
@@ -92,14 +92,14 @@ function Parameter (props) {
 
   // 质押
   async function handleDeposit () {
-    // if (!_approve || leftTime > 0)  {return}
-    await offer(value);
+    if (!_approve || leftTime > 0)  {return}
+    await offer(value * 1000000000000000000);
   }
 
   // harvest操作
   async function handleHarvest () {
-    // if (leftTime > 0) {return}
-    claim()
+    if (leftTime > 0) {return}
+    claim(value * 1000000000000000000)
   }
   function getTimes () {
     if (leftTime <= 0) {return}

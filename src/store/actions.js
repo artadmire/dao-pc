@@ -7,6 +7,11 @@ export const ANOBalanceAction = (balance) => ({
   type: 'ANOBALANCE',
   payload: balance
 })
+export const ANOBalanceActionV2 = (balance) => ({
+  type: 'ANOBALANCEV2',
+  payload: balance
+})
+
 export const totalSupplyAction = (totalSupply) => ({
   type: 'TOTALSUPPLY',
   payload: totalSupply
@@ -21,6 +26,10 @@ export const ANOTotalStakeAction = (tatol) => ({
   type: 'TOTALSTATE',
   payload: tatol
 })
+export const ANOTotalStakeActionV2 = (tatol) => ({
+  type: 'TOTALSTATEV2',
+  payload: tatol
+})
 
 export const claimedOfAction = (tatol) => ({
   type: 'CLAIMED',
@@ -28,6 +37,10 @@ export const claimedOfAction = (tatol) => ({
 })
 export const isApproveAction = (bol) => ({
   type: 'ISAPPROVE',
+  payload: bol
+})
+export const isApproveActionV2 = (bol) => ({
+  type: 'ISAPPROVEV2',
   payload: bol
 })
 

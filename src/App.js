@@ -17,6 +17,7 @@ function App () {
     // 初始化区块链库
     ctx.event.emit('initEthereum');
   }, []);
+
   return (
     <div className='App' id="boxbg">
       <div className="content">

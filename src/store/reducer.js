@@ -5,7 +5,10 @@ const initState = {
   DAOs: 0,
   isApprove: false,
   ANOTotalStake: 0,
-  claimed: 0
+  claimed: 0,
+  balancesAccount: '',
+  ANOTotalStakeAccount: '',
+  isApproveAccount: ''
 }
 
 export function accountReducer (state = initState, action) {
@@ -20,6 +23,11 @@ export function accountReducer (state = initState, action) {
     return {
       ...state,
       balances: action.payload
+    }
+  case 'ANOBALANCEV2':
+    return {
+      ...state,
+      balancesAccount: action.payload
     }
   case 'TOTALSUPPLY':
     return {
@@ -36,10 +44,20 @@ export function accountReducer (state = initState, action) {
       ...state,
       isApprove: action.payload
     }
+  case 'ISAPPROVEV2':
+    return {
+      ...state,
+      isApproveAccount: action.payload
+    }
   case 'TOTALSTATE':
     return {
       ...state,
       ANOTotalStake: action.payload
+    }
+  case 'TOTALSTATEV2':
+    return {
+      ...state,
+      ANOTotalStakeAccount: action.payload
     }
   case 'CLAIMED':
     return {

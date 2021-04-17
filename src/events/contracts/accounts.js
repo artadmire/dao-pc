@@ -3,7 +3,7 @@
 import { ETH_NETWORK } from './constants';
 import ctx from '../index';
 import { showConfirm } from '../../components/Modal';
-import { earned, balanceOf, totalStake, totalSupply, isApprove, claimedOf } from './transaction';
+import { earned, balanceOf, totalStake, totalSupply, isApprove, claimedOf, balanceOfV2, isApproveV2, totalStakeV2 } from './transaction';
 import { getANOUSDTinfo } from './LPtransaction';
 import { getPromoteInfo, getAPY, getANOPrice } from './promote';
 
@@ -55,18 +55,19 @@ export const updateAccount = async (account) => {
   if (account && account.length) {
     const chainAccount = account[0];
     ctx.data.chainAccount = chainAccount;
-    getANOPrice();
-    getPromoteInfo(chainAccount);
-    getAPY(1);
-    getAPY(2);
+    // getANOPrice();
+    // getPromoteInfo(chainAccount);
+    // getAPY(1);
+    // getAPY(2);
     balanceOf(chainAccount);
-    getANOUSDTinfo();
+    balanceOfV2(chainAccount)
+    // getANOUSDTinfo();
     isApprove();
+    isApproveV2();
     totalStake(chainAccount);
+    totalStakeV2(chainAccount);
     earned(chainAccount);
     totalSupply();
     claimedOf()
-
-
   }
 }

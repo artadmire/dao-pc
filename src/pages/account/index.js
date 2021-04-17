@@ -7,46 +7,68 @@ import MyModel from './components/MyModel'
 import { connect } from 'react-redux';
 import { getLockin } from '@/service'
 import {store} from '@/store'
-import {  approve, offer} from '@/events/contracts/transaction'
-const _data = {
-  kyc: true,  // (true-已认证，false-未认证),
-  userLv: 3,   // (0-4,5个等级),
-  lastDeposit: 3,  // (3days ago)
-}
+import ctx from '@/events'
+import { approveV2, stakeV2, withdrawV2} from '@/events/contracts/transaction'
+
+
+// const _data = {
+//   kyc: true,  // (true-已认证，false-未认证),
+//   userLv: 3,   // (0-4,5个等级),
+//   lastDeposit: 3,  // (3days ago)
+// }
 
 
 function Account (props) {
-  const { account, balances, totalSupply, isApprove } = props
+  const { account, balances, isApprove, ANOTotalStakeAccount } = props
   const [visible, setVisible] = useState(false)
-  const [data, setData] = useState(_data)
+  const [data, setData] = useState({})
   const [modalLeftBun, setModalLeftBun] = useState('APPROVE')
   const [active, setActive] = useState(true)
-  const [value, setValue] = useState('')
-
+  const [value, setValue] = useState(0)
 
   const balance = useMemo(() => (balances / 10000000000).toFixed(4) || 0, [balances])
 
   function handleChange (val) {
-    setValue()
+    setValue(val)
   }
 
   const hideModal = useCallback(() => {
     setVisible(false)
+    setValue(0)
   })
 
   function handleAction () {
     setVisible(false)
     if (!active) {return;}
+    if (modalLeftBun === 'APPROVE') {
+      _approve()
+      setValue(0)
+      return
+    }
+    if (modalLeftBun === 'DEPOSITE') {
+      handleDeposit()
+      setValue(0)
+      return
+    }
+    if (modalLeftBun === 'UNLOCK') {
+      handleWithDraw()
+      setValue(0)
+      return
+    }
   }
   // 授权
   async function _approve () {
-    const res = await approve(value);
-    res && store.dispatch({type: 'ISAPPROVE', payload: true})
+    const res = await approveV2();
+    res && store.dispatch({type: 'ISAPPROVEV2', payload: true})
 
   }
   // 质押
   async function handleDeposit () {
-    const res = await offer(value);
+    await stakeV2(value * 1000000000000000000);
+  }
+  // 提取本金
+  async function handleWithDraw () {
+    await withdrawV2(value * 1000000000000000000);
   }
 
   const lockIn = useCallback(() => {
@@ -56,7 +78,7 @@ function Account (props) {
   })
   const unlock = useCallback(() => {
     setVisible(true)
-    setActive(!!totalSupply)
+    setActive(!!ANOTotalStakeAccount)
     setModalLeftBun('UNLOCK')
 
   })
@@ -95,7 +117,7 @@ function Account (props) {
           <div className="daos-count">
             <img src={wallet}/>
             <div>
-              you have <span className="daos-number">{balance || 0}</span> DAOs in your wallet and <span className="daos-number-locked">{totalSupply || 0}</span> locked-in
+              you have <span className="daos-number">{balance || 0}</span> DAOs in your wallet and <span className="daos-number-locked">{ANOTotalStakeAccount || 0}</span> locked-in
             </div>
           </div>
         </div>
@@ -104,7 +126,7 @@ function Account (props) {
         </div>
         <div className="available-balance">
           <div className="balance">
-                   Available balance: <span>{balance || 0}</span>
+                   Available balance: <span>{ANOTotalStakeAccount || 0}</span>
           </div>
           <div className="balance-handler">
             <div onClick={lockIn} className="lockin">LOCK-IN</div>
@@ -203,11 +225,11 @@ function Account (props) {
         left={modalLeftBun}
         balance={balance}
         account={account}
-        totalSupply={totalSupply}
+        ANOTotalStakeAccount={ANOTotalStakeAccount}
         onChange={handleChange}
       />}
     </div>
   )
 }
-export default connect(({account, balances, totalSupply, isApprove}) =>
-  ({account, balances, totalSupply, isApprove}))(Account)
+export default connect(({account, balancesAccount, isApproveAccount, ANOTotalStakeAccount}) =>
+  ({account, balances: balancesAccount, isApprove: isApproveAccount, ANOTotalStakeAccount}))(Account)

@@ -1,16 +1,50 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './index.css'
 import MyBottom from '../../components/myBottom'
 
 import bronze from '../../assets/img/bronze@2x.png'
-import CrossChainSwaps from '../../assets/img/Cross-chain Swaps@2x.png'
+import gold from '../../assets/img/gold@2x.png'
+import sliver from '../../assets/img/silver@2x.png'
+import platinum from '../../assets/img/platinum@2x.png'
+const CrossChainSwaps = 'https://daostarter.oss-cn-hangzhou.aliyuncs.com/Cross-chainSwaps%402x.png'
+const percent = 0
 
-const percent = '40%'
-
+const listA  = [
+  {
+    text: 'Cross-chain Swaps',
+    imgUrl: 'https://daostarter.oss-cn-hangzhou.aliyuncs.com/Cross-chainSwaps%402x.png'
+  },
+  {
+    text: 'Fixed and Dynamic Swaps',
+    imgUrl: 'https://daostarter.oss-cn-hangzhou.aliyuncs.com/FixedandDynamicSwaps%402x.png'
+  },
+  {
+    text: 'Anti-scam Features',
+    imgUrl: 'https://daostarter.oss-cn-hangzhou.aliyuncs.com/Anti-scamFeatures%402x.png'
+  },
+  {
+    text: 'Full KYC Integration',
+    imgUrl: 'https://daostarter.oss-cn-hangzhou.aliyuncs.com/FullKYCIntegration%402x.png'
+  },
+  {
+    text: 'Governance Model',
+    imgUrl: 'https://daostarter.oss-cn-hangzhou.aliyuncs.com/GovernanceModel%402x.png'
+  },
+  {
+    text: 'Permissionless Listing',
+    imgUrl: 'https://daostarter.oss-cn-hangzhou.aliyuncs.com/PermissionlessListing%402x.png'
+  },
+]
 function About () {
-  let [list1] = useState([1, 2, 3, 4, 5, 6, 7, 8])
+  let [list1] = useState(listA)
   let [list2] = useState([1, 2, 3, 4, 5, 6, 7, 8])
-
+  useEffect(() => {
+    const bg = document.getElementById('boxbg')
+    bg.className = 'App app-about'
+    return () => {
+      bg.className = 'App'
+    }
+  }, [])
   return (
     <div className="my-about">
       <div className="desc">
@@ -41,7 +75,9 @@ function About () {
         </div>
         <ul className="level-bottom">
           <li style={{left: '10px'}}>
-                  start
+            <strong>
+                  START
+            </strong>
           </li>
           <li style={{left: '25%'}}>
             <strong>
@@ -54,40 +90,40 @@ function About () {
           </li>
           <li style={{left: '50%'}}>
             <strong>
-                    bronze
+              SLIVER
             </strong>
             <span>
                     5,000 ducks
             </span>
-            <img  src={bronze}/>
+            <img  src={sliver}/>
           </li>
           <li style={{left: '75%'}}>
             <strong>
-                    bronze
+                    GOLD
             </strong>
             <span>
                     10,000 ducks
             </span>
-            <img  src={bronze}/>
+            <img  src={gold}/>
           </li>
           <li style={{right: '20px'}}>
             <strong>
-                    bronze
+            PLATINUM
             </strong>
             <span>
                     20,000 ducks
             </span>
-            <img  src={bronze}/>
+            <img  src={platinum}/>
           </li>
         </ul>
       </div>
       <div className="character">
         {
-          list1.map((index, item) => (
+          list1.map((item, index) => (
             <a href="javascript:;" key={index} className="character-item">
-              <img src={CrossChainSwaps}/>
+              <img src={item.imgUrl}/>
               <div className='character-item-desc'>
-                 sdfs
+                {item.text}
               </div>
             </a>
           ))

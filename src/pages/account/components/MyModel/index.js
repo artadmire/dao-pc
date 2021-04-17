@@ -9,7 +9,7 @@ function MyModal (props) {
       <div className="parameter-detail-bottom">
         <div className="deposited-availale">
           <div className="title">
-          YOU have <span>{props.totalSupply}</span> DAOs locked-in
+          YOU have <span>{props.balance}</span> DAOs locked-in
           </div>
           <div className="cont">
             <div className="cont-first">
@@ -17,7 +17,7 @@ function MyModal (props) {
                                       INPUT
               </span>
               <span>
-                                 Your Wallet Balance: <label>{props.balance}</label>
+                                 Your Wallet Balance: <label>{props.ANOTotalStakeAccount || 0}</label>
               </span>
             </div>
             <div className="cont-last">
