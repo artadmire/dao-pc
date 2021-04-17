@@ -55,19 +55,16 @@ export const updateAccount = async (account) => {
   if (account && account.length) {
     const chainAccount = account[0];
     ctx.data.chainAccount = chainAccount;
-    // getANOPrice();
-    // getPromoteInfo(chainAccount);
-    // getAPY(1);
-    // getAPY(2);
-    balanceOf(chainAccount);
-    balanceOfV2(chainAccount)
-    // getANOUSDTinfo();
-    isApprove();
+    if (window.offerAddress && window.dtokenAddress) {
+      balanceOf();
+      isApprove();
+      totalStake();
+      earned();
+      totalSupply();
+      claimedOf()
+    }
+    balanceOfV2()
     isApproveV2();
-    totalStake(chainAccount);
-    totalStakeV2(chainAccount);
-    earned(chainAccount);
-    totalSupply();
-    claimedOf()
+    totalStakeV2();
   }
 }

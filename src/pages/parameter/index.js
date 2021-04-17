@@ -9,6 +9,7 @@ import moment from 'moment'
 import {  approve, offer, claim} from '@/events/contracts/transaction'
 import {connect} from 'react-redux'
 import {Button} from 'antd'
+import ctx from '../../events';
 
 
 function Parameter (props) {
@@ -23,6 +24,11 @@ function Parameter (props) {
   const { isApprove: _approve, account, balances = 0,
     totalSupply = 0, claimed = 0 } = props
   const balance = ((balances || 0) / 10000000000).toFixed(4) || 0
+
+  useEffect(() => {
+    // 初始化区块链库
+    ctx.event.emit('initEthereum');
+  }, []);
 
   useEffect(() => {
     let timer = setInterval(() => {
@@ -41,6 +47,8 @@ function Parameter (props) {
 
   function changeValue (e) {
     setValue(e.target.value)
+    console.log(ctx.data)
+
   }
 
   async function fetchData (account) {

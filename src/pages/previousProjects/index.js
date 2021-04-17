@@ -13,9 +13,10 @@ export default function PreviousProjectsList () {
 
   async function fetchData () {
     try {
-      const res = await getPerviousProjects();
-      if (!res || !res.data || !res.data.length) {throw new Error('')}
-      setList(res.data)
+      let res = await getPerviousProjects();
+      res = res.data;
+      if (!res || !res.data || !res.data.data ||  !res.data.data.length) {throw new Error('')}
+      setList(res.data.data)
     } catch (error) {
       setList([])
     }

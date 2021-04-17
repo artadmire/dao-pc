@@ -8,15 +8,11 @@ import Parameter from './pages/parameter'
 import Header from './components/Header'
 import Apply from './pages/apply'
 import 'antd/dist/antd.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import ctx from './events';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import './events/ethereum';
 
 function App () {
-  useEffect(() => {
-    // 初始化区块链库
-    ctx.event.emit('initEthereum');
-  }, []);
+
 
   return (
     <div className='App' id="boxbg">
@@ -30,6 +26,7 @@ function App () {
             <Route path="/parameter" component={Parameter}></Route>
             <Route path="/apply" component={Apply}></Route>
             <Route path="/project-list" component={PreviousProjects}></Route>
+            <Redirect to="/" ></Redirect>
           </Switch>
         </BrowserRouter>
       </div>

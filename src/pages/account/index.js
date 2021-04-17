@@ -7,8 +7,8 @@ import MyModel from './components/MyModel'
 import { connect } from 'react-redux';
 import { getLockin } from '@/service'
 import {store} from '@/store'
-import ctx from '@/events'
 import { approveV2, stakeV2, withdrawV2} from '@/events/contracts/transaction'
+import ctx from '../../events';
 
 
 // const _data = {
@@ -28,12 +28,15 @@ function Account (props) {
 
   const balance = useMemo(() => (balances / 10000000000).toFixed(4) || 0, [balances])
 
+  useEffect(() => {
+    // 初始化区块链库
+    ctx.event.emit('initEthereum');
+  }, []);
+
   function handleChange (val) {
     setValue(val)
 
   }
-  // handleWithDraw()
-
 
   const hideModal = useCallback(() => {
     setVisible(false)
