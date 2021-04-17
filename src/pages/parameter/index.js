@@ -72,13 +72,13 @@ function Parameter (props) {
   // 质押
   async function handleDeposit () {
     if (!_approve || leftTime > 0)  {return}
-    await offer(value * 1000000000000000000);
+    await offer(value);
   }
 
   // harvest操作
   async function handleHarvest () {
     if (leftTime > 0) {return}
-    claim(value * 1000000000000000000)
+    claim(value)
   }
   function getTimes () {
     if (leftTime <= 0) {return}

@@ -71,11 +71,11 @@ function Account (props) {
   }
   // 质押
   async function handleDeposit () {
-    await stakeV2(value * 1000000000000000000);
+    await stakeV2(value);
   }
   // 提取本金
   async function handleWithDraw () {
-    await withdrawV2(value * 1000000000000000000);
+    await withdrawV2(value);
   }
 
   const lockIn = useCallback(() => {
