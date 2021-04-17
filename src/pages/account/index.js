@@ -30,12 +30,16 @@ function Account (props) {
 
   function handleChange (val) {
     setValue(val)
+
   }
+  // handleWithDraw()
+
 
   const hideModal = useCallback(() => {
     setVisible(false)
     setValue(0)
   })
+
 
   function handleAction () {
     setVisible(false)

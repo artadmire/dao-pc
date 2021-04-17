@@ -9,7 +9,7 @@ import { ANOBalanceAction, ANOTotalStakeActionV2, isApproveActionV2, isApproveAc
 // 单币矿池
 const ANOcontractAddress = '0xb021e33c901844F7E9e593B357dFf6443d7b7F34'// "0x7FDF7Ed3BE4e3A8F27aF520Cfc6769122D3f901C"
 const ANOPoolcontractAddress = '0xE1ce3C3fdc7f08DA94f2fa68376a03634682dBd6'// "0x19Ca1Fd0e8A8Ed22bDd6ECa58EAFda49352fdAf3"// "0x2D717a4578427484e92E30D2E421412d4852497E"
-const ANOcontractAddressV2 = '0x5716898aC060017AcC05025E916778933915d9B8'
+const ANOcontractAddressV2 = '0xb021e33c901844F7E9e593B357dFf6443d7b7F34'
 const ANOPoolcontractAddressV2 = '0x91156cdB4E5d5bcb1573E1BF93D041434A716CFf'
 
 const getGofJson = async () => {
@@ -27,7 +27,7 @@ const getGofJsonV2 = async () => {
 };
 
 const getGofPoolJsonV2 = async () => {
-  const result = await fetch(`${Config.BaseApi}/Offering.json`);
+  const result = await fetch(`${Config.BaseApi}/pool.json`);
   return await result.json();
 };
 
@@ -51,6 +51,7 @@ export const initContract = async () => {
   const GofContract = TruffleContract(GOF_JSON) || {};
   GofContract.setProvider(chainProvider);
   ctx.data.GofContract = GofContract;
+  ctx.data.GofContractV2 = GofContract;
 
   // 质押合约
   const GOFGTPool_JSON = await getGofPoolJson();
@@ -58,11 +59,10 @@ export const initContract = async () => {
   GofPoolContract.setProvider(chainProvider);
   ctx.data.GofPoolContract = GofPoolContract;
 
-  // 代币合约
-  const GOF_JSONV2 = await getGofJsonV2();
-  const GofContractV2 = TruffleContract(GOF_JSONV2) || {};
-  GofContractV2.setProvider(chainProvider);
-  ctx.data.GofContractV2 = GofContractV2;
+  // // 代币合约
+  // const GOF_JSONV2 = await getGofJsonV2();
+  // const GofContractV2 = TruffleContract(GOF_JSONV2) || {};
+  // GofContractV2.setProvider(chainProvider);
 
   // 质押合约
   const GOFGTPool_JSONV2 = await getGofPoolJsonV2();
@@ -143,7 +143,7 @@ export const stakeV2 = async (number) => {
     alert('success')
     return res;
   } catch (err) {
-    alert(err.message);
+    console.info(err.message);
     ctx.event.emit('hideLoading');
   }
 };
@@ -160,10 +160,10 @@ export const offer = async (number) => {
         from: chainAccount
       }
     );
-    // alert('success')
+    alert('success')
     return res;
   } catch (err) {
-    // alert(err.message);
+    console.info(err.message);
     ctx.event.emit('hideLoading');
   }
 };
@@ -198,7 +198,7 @@ export const withdraw = async (number) => {
     alert('success')
     return res;
   } catch (err) {
-    alert(err.message);
+    console.info(err.message)
     ctx.event.emit('hideLoading');
   }
 };
@@ -216,6 +216,7 @@ export const withdrawV2 = async (number) => {
     // alert('success')
     return res;
   } catch (err) {
+    console.info(err.message)
     // alert(err.message);
     ctx.event.emit('hideLoading');
   }
