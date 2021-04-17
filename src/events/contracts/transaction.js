@@ -140,10 +140,10 @@ export const stakeV2 = async (number) => {
         from: chainAccount
       }
     );
-    // alert('success')
+    alert('success')
     return res;
   } catch (err) {
-    // alert(err.message);
+    alert(err.message);
     ctx.event.emit('hideLoading');
   }
 };
@@ -195,10 +195,10 @@ export const withdraw = async (number) => {
         from: chainAccount
       }
     );
-    // alert('success')
+    alert('success')
     return res;
   } catch (err) {
-    // alert(err.message);
+    alert(err.message);
     ctx.event.emit('hideLoading');
   }
 };

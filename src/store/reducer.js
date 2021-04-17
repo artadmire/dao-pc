@@ -14,7 +14,6 @@ const initState = {
 export function accountReducer (state = initState, action) {
   switch (action.type) {
   case 'ACCOUNT':
-    console.log(action, 'ac')
     return {
       ...state,
       account: action.payload

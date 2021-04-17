@@ -7,35 +7,8 @@ import { store } from '@/store'
 import { getDeposit } from '@/service'
 import moment from 'moment'
 import {  approve, offer, claim} from '@/events/contracts/transaction'
-import ctx from '@/events'
 import {connect} from 'react-redux'
 import {Button} from 'antd'
-
-const datas = {
-  'status': 1000,
-  'data': {
-    'earnToken': 'PWT',
-    'depositPeriod': 60,
-    'maxDepositAvailable': 10.0,
-    'harvestDate': '830112',
-    'website': 'http://www.anobor.com/',
-    'depositTokenLogo': 'http://www.anobor.com/',
-    'endDate': '1618830830112',
-    'totalDeposited': 0.0,
-    'start': 50,
-    'bronze': 100,
-    'gold': 200,
-    'platinum': 300,
-    'yourShare': 10.0,
-    'depositToken': 'PPT',
-    'hasRoot': true,
-    'objectName': 'Anobor',
-    'details': `ethbox is aDuckDao strategic partner and an up and coming ethbox is aDuckDao strategic partner and an up and comingethbox is aDuckDao strategic partner 
-    and an up and coming ethbox is aDuckDao strategic partner and an up and coming`,
-    'silver': 150,
-    'startDate': '1618230830112'
-  }
-}
 
 
 function Parameter (props) {
@@ -48,7 +21,7 @@ function Parameter (props) {
   const [value, setValue] = useState(0)
 
   const { isApprove: _approve, account, balances = 0,
-    ANOTotalStake = 0, totalSupply = 0, claimed = 0 } = props
+    totalSupply = 0, claimed = 0 } = props
   const balance = ((balances || 0) / 10000000000).toFixed(4) || 0
 
   useEffect(() => {
@@ -67,8 +40,6 @@ function Parameter (props) {
   }, [account])
 
   function changeValue (e) {
-    // console.log(ctx.data, 'ctx.data')
-    // console.log(props)
     setValue(e.target.value)
   }
 
