@@ -8,7 +8,7 @@ import Parameter from './pages/parameter'
 import Header from './components/Header'
 import Apply from './pages/apply'
 import 'antd/dist/antd.css';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
 import './events/ethereum';
 
 function App () {
@@ -17,7 +17,7 @@ function App () {
   return (
     <div className='App' id="boxbg">
       <div className="content">
-        <BrowserRouter >
+        <HashRouter >
           <Header/>
           <Switch>
             <Route exact path="/" component={Home}></Route>
@@ -28,7 +28,7 @@ function App () {
             <Route path="/project-list" component={PreviousProjects}></Route>
             <Redirect to="/" ></Redirect>
           </Switch>
-        </BrowserRouter>
+        </HashRouter>
       </div>
     </div>
   );
