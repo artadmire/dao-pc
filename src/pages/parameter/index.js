@@ -35,6 +35,10 @@ function Parameter (props) {
       getTimes()
     }, 1000)
 
+    if (setLeftTime < 0) {
+      clearInterval(timer)
+      timer = null
+    }
     return () => {
       clearInterval(timer)
       timer = null
@@ -81,8 +85,9 @@ function Parameter (props) {
     claim(value)
   }
   function getTimes () {
-    if (leftTime <= 0) {return}
     const _leftTime = leftTime - 1000
+    setLeftTime(_leftTime)
+    if (_leftTime < 0) {return}
     let _days = parseInt(_leftTime / 1000 / 60 / 60 / 24);
     setDays(_days)
     let _hours = parseInt(_leftTime  / 1000 / 60 / 60 % 24);
@@ -91,7 +96,6 @@ function Parameter (props) {
     setMins(_minutes)
     let _seconds = parseInt(_leftTime / 1000 % 60);
     setSeconds(_seconds)
-    setLeftTime(_leftTime)
 
   }
 
@@ -204,7 +208,7 @@ function Parameter (props) {
                 </div>
               </div>
               <div className="sum">
-                <div>{totalSupply} Deposited</div>
+                <div>{totalSupply  / 100000000000000000 / (data.ratio || 1)} Deposited</div>
                 <div>TOTAL: {balance || 0} USDC</div>
               </div>
               <div className="handler">

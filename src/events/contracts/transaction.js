@@ -320,7 +320,7 @@ export const isApproveV2 = async (address) => {
   const { GofContractV2 = {at: () => {}}, chainAccount } = ctx.data;
   const ano = await GofContractV2.at(ANOcontractAddressV2);
   const approveNum = await ano.allowance(chainAccount, ANOPoolcontractAddressV2);
-  if (approveNum >  convertByEth(100 * 100000000000000000000)) {
+  if (approveNum >  convertByEth(100)) {
     ctx.data.stakeStatusV2 = true;
   } else {
     ctx.data.stakeStatusV2 = false;

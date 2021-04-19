@@ -66,6 +66,7 @@ function Account (props) {
   // 授权
   async function _approve () {
     const res = await approveV2();
+    // console.log(res)
     res && store.dispatch({type: 'ISAPPROVEV2', payload: true})
 
   }
