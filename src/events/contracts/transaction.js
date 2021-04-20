@@ -1,7 +1,7 @@
 import Config from '../../config';
 import ctx from '../index';
 import {  addPid} from './promote';
-import { convertByAnoWei, convertByEth, convertByAno } from '../../utils';
+import { convertByAnoWei, convertByEth, convertByAno, convertByWei } from '../../utils';
 import { store } from '../../store'
 import { ANOBalanceAction, ANOTotalStakeActionV2, isApproveActionV2, isApproveAction, totalSupplyAction, ANOBalanceActionV2, ANOTotalStakeAction, claimedOfAction } from '../../store/actions'
 
@@ -288,7 +288,7 @@ export const totalSupply = async () => {
   const { GofPoolContract = {at: () => {}}, chainAccount } = ctx.data;
   const pool = await GofPoolContract.at(window.offerAddress);
   const total = typeof pool.offeredOf === 'function' && await pool.offeredOf(chainAccount);
-  ctx.data.ANOtotalSupply =  convertByAnoWei(total);
+  ctx.data.ANOtotalSupply =  convertByWei(total);
   store.dispatch(totalSupplyAction(ctx.data.ANOtotalSupply))
 
 };

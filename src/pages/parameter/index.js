@@ -208,7 +208,7 @@ function Parameter (props) {
                 </div>
               </div>
               <div className="sum">
-                <div>{convertByWei(totalSupply) / (data.ratio || 1)} Deposited</div>
+                <div>{totalSupply / (data.ratio || 1)} Deposited</div>
                 <div>TOTAL: {balance || 0} USDC</div>
               </div>
               <div className="handler">
