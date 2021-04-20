@@ -10,7 +10,7 @@ import {  approve, offer, claim} from '@/events/contracts/transaction'
 import {connect} from 'react-redux'
 import {Button} from 'antd'
 import ctx from '../../events';
-
+import {convertByWei} from '@/utils/number'
 
 function Parameter (props) {
   const [data, setData] = useState({})
@@ -208,7 +208,7 @@ function Parameter (props) {
                 </div>
               </div>
               <div className="sum">
-                <div>{totalSupply  / 100000000000000000 / (data.ratio || 1)} Deposited</div>
+                <div>{convertByWei(totalSupply) / (data.ratio || 1)} Deposited</div>
                 <div>TOTAL: {balance || 0} USDC</div>
               </div>
               <div className="handler">

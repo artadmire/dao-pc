@@ -6,11 +6,8 @@ export default function PreviousProjectItem (props) {
   const { data = {} } = props;
   const { name = '', logo = '', offerAddress = '', dtokenAddress = '', method = '', deposit = '', earn = '', totalDeposited = '', avaliable = '', status, poolId = ''} = data || {}
   function handleClick () {
-    console.log(2)
     window.offerAddress = offerAddress
     window.dtokenAddress = dtokenAddress
-    console.log(window)
-
   }
   return (
     <NavLink to='/parameter' onClick={handleClick} className="previous-project-item" style={{'marginRight': props.styles.marginRight || '', 'marginBottom': props.styles.marginBottom || ''}}>
