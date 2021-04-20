@@ -87,3 +87,6 @@ font-weight: bold;
 .ant-upload-list-item-name {
     color: #FFF;
 }
+.ant-radio-wrapper span {
+    color: #FFF;
+}
