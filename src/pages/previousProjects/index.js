@@ -2,10 +2,9 @@ import React, {useState, useEffect} from 'react'
 import PreviousProjectItem from '../home/components/previousProjects/previousProjectItem.js'
 import './index.css'
 import { getPerviousProjects} from '@/service'
-import { perviousProjectsData} from '@/service/mock'
 
 export default function PreviousProjectsList () {
-  let [list, setList]  = useState(perviousProjectsData)
+  let [list, setList]  = useState([])
 
   useEffect(async () => {
     fetchData()
