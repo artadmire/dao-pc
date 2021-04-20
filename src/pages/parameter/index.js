@@ -67,7 +67,6 @@ function Parameter (props) {
 
   // 授权
   async function handleApprove () {
-    console.log(1)
     const res = await approve();
     res && store.dispatch({type: 'ISAPPROVE', payload: true})
   }
