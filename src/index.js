@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import 'lib-flexible'
+// import 'lib-flexible'
 import { Provider } from 'react-redux'
 import { store } from './store'
+import './utils/flexible'
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}> <App /></Provider>

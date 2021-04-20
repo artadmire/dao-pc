@@ -189,7 +189,7 @@ function Parameter (props) {
           <div className="parameter-detail-bottom">
             <div className="deposited-availale">
               <div className="title">
-                       YOU HAVE <span>{totalSupply || 0}</span> USDC DEPOSITED from <span>{balance || 0} </span>available for your TIER
+                       YOU HAVE <span>{totalSupply / (data.ratio || 1) || 0}</span> USDC DEPOSITED from <span>{balance || 0} </span>available for your TIER
               </div>
               <div className="cont">
                 <div className="cont-first">
