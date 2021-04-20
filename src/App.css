@@ -14,12 +14,7 @@ p {
 }
 
 
-/* .appBg {
-  background-image: url('./assets/img/background@2x.png'),url('./assets/img/pic@2x.png'),url('./assets/img/background3@2x.png');
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: right top ,right 100px  top 200px,right bottom 175px;
-  background-size:1099px 1304px ,800px 800px,100% 800px;
-} */
+
 .app-Home {
   background-image: url('https://daostarter.oss-cn-hangzhou.aliyuncs.com/background.png'),
   url('https://daostarter.oss-cn-hangzhou.aliyuncs.com/pic.png'),

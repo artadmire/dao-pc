@@ -12,6 +12,6 @@ export const getProjects = (params) => axios.get(projects, {params})
 export const getPerviousProjects = (params) => axios.get(perviousProjects, {params})
 export const getDeposit = (params) => axios.get(deposit, {params})
 export const getLockin = (params) => axios.get(lockin, {params})
-export const postApply = (params) => axios.post(apply, {data: params})
+export const postApply = (params) => axios.post(apply, params)
 
 

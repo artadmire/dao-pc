@@ -79,14 +79,17 @@ export default function Apply () {
     values.roadMap = roadMap;
     values.file1 = file1;
     values.file2 = file2
+    const data = new FormData();
     Object.keys(values).forEach((key) => {
       if (values[key] === undefined) {
         (key === 'raised' || key === 'raiseIDO') ? values[key] = 0 : values[key] = ''
       }
+      data.append(key, values[key]);
     })
-    postApply(values).then(() => {
-      message.info('上传成功')
-    }, () => {message.info('上传失败，请重试')})
+    postApply(data).then(() => {
+      message.info('申请成功')
+      window.location.reload()
+    }, () => {message.info('申请失败，请重试')})
   };
   function fundsChange (val) {
     setFunds(val)
