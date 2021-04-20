@@ -67,13 +67,14 @@ function Parameter (props) {
 
   // 授权
   async function handleApprove () {
+    if (_approve) {return}
     const res = await approve();
     res && store.dispatch({type: 'ISAPPROVE', payload: true})
   }
 
   // 质押
   async function handleDeposit () {
-    if (!_approve || leftTime > 0)  {return}
+    if (!_approve)  {return}
     await offer(value);
   }
 
@@ -210,12 +211,12 @@ function Parameter (props) {
                 <div>TOTAL: {balance || 0} USDC</div>
               </div>
               <div className="handler">
-                <Button type="default" onClick={handleApprove} disabled={_approve} >
-                            approve
-                </Button>
-                <Button type="default" onClick={handleDeposit} disabled={!_approve} >
-                            Deposit
-                </Button>
+                <span className={!_approve ? 'active' : ''} onClick={handleApprove}  >
+                  approve
+                </span>
+                <span className={_approve ? 'active' : ''} onClick={handleDeposit}  >
+                   Deposit
+                </span>
               </div>
             </div>
             <div className="reward-tokens">
@@ -248,9 +249,9 @@ function Parameter (props) {
                   {data.totalRewards || 0} EBOX Token
                 </div>
               </div>
-              <Button type="default" onClick={handleHarvest} disabled={leftTime > 0} >
+              <span className={`Harvest ${leftTime > 0 ? '' : 'active'}`}  onClick={handleHarvest}  >
               Harvest
-              </Button>
+              </span>
             </div>
           </div>
         </div>
