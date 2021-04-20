@@ -1,7 +1,7 @@
 import Config from '../../config';
 import ctx from '../index';
 import {  addPid} from './promote';
-import { convertByAnoWei, convertByEth } from '../../utils';
+import { convertByAnoWei, convertByEth, convertByAno } from '../../utils';
 import { store } from '../../store'
 import { ANOBalanceAction, ANOTotalStakeActionV2, isApproveActionV2, isApproveAction, totalSupplyAction, ANOBalanceActionV2, ANOTotalStakeAction, claimedOfAction } from '../../store/actions'
 
@@ -307,7 +307,7 @@ export const isApprove = async () => {
   const { GofContract = {at: () => {}}, chainAccount } = ctx.data;
   const ano = await GofContract.at(window.dtokenAddress);
   const approveNum = await ano.allowance(chainAccount, window.offerAddress);
-  if (approveNum >  convertByEth(100)) {
+  if (approveNum >  convertByAno(100)) {
     ctx.data.stakeStatus = true;
   } else {
     ctx.data.stakeStatus = false;
@@ -320,7 +320,7 @@ export const isApproveV2 = async (address) => {
   const { GofContractV2 = {at: () => {}}, chainAccount } = ctx.data;
   const ano = await GofContractV2.at(ANOcontractAddressV2);
   const approveNum = await ano.allowance(chainAccount, ANOPoolcontractAddressV2);
-  if (approveNum >  convertByEth(100)) {
+  if (approveNum >  convertByAno(100)) {
     ctx.data.stakeStatusV2 = true;
   } else {
     ctx.data.stakeStatusV2 = false;
