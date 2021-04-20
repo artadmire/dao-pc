@@ -10,7 +10,6 @@ import {  approve, offer, claim} from '@/events/contracts/transaction'
 import {connect} from 'react-redux'
 import {Button} from 'antd'
 import ctx from '../../events';
-import {convertByWei} from '@/utils/number'
 
 function Parameter (props) {
   const [data, setData] = useState({})
@@ -68,7 +67,7 @@ function Parameter (props) {
 
   // 授权
   async function handleApprove () {
-    // if (_approve)  {return}
+    console.log(1)
     const res = await approve();
     res && store.dispatch({type: 'ISAPPROVE', payload: true})
   }
@@ -215,7 +214,7 @@ function Parameter (props) {
                 <Button type="default" onClick={handleApprove} disabled={_approve} >
                             approve
                 </Button>
-                <Button type="default" onClick={handleDeposit} disabled={!_approve || leftTime > 0} >
+                <Button type="default" onClick={handleDeposit} disabled={!_approve} >
                             Deposit
                 </Button>
               </div>

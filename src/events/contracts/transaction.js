@@ -77,9 +77,8 @@ export const approve = async () => {
         from: chainAccount
       }
     );
-    return res;
+    console.log(res)
   } catch (err) {
-    // alert(err.message);
     ctx.event.emit('hideLoading');
   }
 
@@ -307,7 +306,7 @@ export const isApprove = async () => {
   const { GofContract = {at: () => {}}, chainAccount } = ctx.data;
   const ano = await GofContract.at(window.dtokenAddress);
   const approveNum = await ano.allowance(chainAccount, window.offerAddress);
-  if (approveNum >  convertByEth(100)) {
+  if (approveNum >  convertByAno(100)) {
     ctx.data.stakeStatus = true;
   } else {
     ctx.data.stakeStatus = false;
@@ -320,7 +319,7 @@ export const isApproveV2 = async (address) => {
   const { GofContractV2 = {at: () => {}}, chainAccount } = ctx.data;
   const ano = await GofContractV2.at(ANOcontractAddressV2);
   const approveNum = await ano.allowance(chainAccount, ANOPoolcontractAddressV2);
-  if (approveNum >  convertByEth(100)) {
+  if (approveNum >  convertByAno(100)) {
     ctx.data.stakeStatusV2 = true;
   } else {
     ctx.data.stakeStatusV2 = false;
