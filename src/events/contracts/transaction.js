@@ -242,7 +242,7 @@ export const earned = async () => {
   const { GofPoolContract = {at: () => {}}, chainAccount } = ctx.data;
   const pool = await GofPoolContract.at(window.offerAddress);
   const ANOEarned = typeof pool.earned === 'function' && await pool.earned(chainAccount)
-  ctx.data.ANOEarned =   convertByAnoWei(ANOEarned);
+  ctx.data.ANOEarned = convertByAnoWei(ANOEarned);
 };
 
 // 查看ANO余额 代币合约的balanceOf方法，也就是ppt余额
@@ -288,7 +288,7 @@ export const totalSupply = async () => {
   const { GofPoolContract = {at: () => {}}, chainAccount } = ctx.data;
   const pool = await GofPoolContract.at(window.offerAddress);
   const total = typeof pool.offeredOf === 'function' && await pool.offeredOf(chainAccount);
-  ctx.data.ANOtotalSupply =  convertByWei(total);
+  ctx.data.ANOtotalSupply =  convertByAnoWei(total);
   store.dispatch(totalSupplyAction(ctx.data.ANOtotalSupply))
 
 };
