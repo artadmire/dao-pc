@@ -100,6 +100,8 @@ function Parameter (props) {
 
 
   const pre = data.endDate * 1 - data.startDate * 1
+  const now = new Date().valueOf()
+  const percent = now / pre * 100
   return (
     <div className="my-parameter">
       <div className="parameter-content">
@@ -163,7 +165,7 @@ function Parameter (props) {
                   }
                 </div>
                 <div className="wrap-dates-detail-process">
-                  <div className="dates-detail-process" style={{width: '20%'}}></div>
+                  <div className="dates-detail-process" style={{width: percent}}></div>
                 </div>
               </div>
             </div>
@@ -199,7 +201,7 @@ function Parameter (props) {
                   <input onInput={changeValue} placeholder="0.0" />
                   <div>
                     <span>
-                                          Max
+                        Max
                     </span>
                     <img src={bronze}/>
                                       USDC

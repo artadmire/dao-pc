@@ -50,20 +50,16 @@ function About () {
       <div className="desc">
         <span className="mainTitle about-title">What is DAOStarter？</span>
         <div className="info introduce">
-
           <p className="about-DAo">
-          DAOStarter is a public token launchpad, serving for crypto inveestors & projects.
-          </p>
-          <p>
+          DAOStarter is a public token launchpad, serving for crypto inveestors & projects.<br/>
           DAOStarter is deployed on BSC, Ethereum and HECO, and cross-chain bridge will be developed to swap assets between different chains.
           </p>
         </div>
         <p className="info introduce2">
         As the final bridge bettween early-stage projects and the crypto community, DAOStarter will pay more attentions on project research & value evaluation to reduce the risk of investors.<br/>
+        </p>
+        <p className="info introduce2">
         An unique investors rating system is adopted based on the lock-in amounts of DST tokens in smart contract.  Besides, KYC & whitelist is also offered for investors.
-          {/* DAOStarter has an unique level system which requires users to lock-in a <br/>
-            certain amount of DST tokens to participate in the launch platform.<br/> */}
-          {/* As a service platform, DAOStarter will also offer several KYC options for upcoming projects. */}
         </p>
       </div>
       <div className="level">

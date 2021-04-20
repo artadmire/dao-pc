@@ -15,7 +15,10 @@
   margin: 120px 0 57px 0;
 }
 .about-DAo {
-  text-align: center;
+  /* text-align: center; */
+  margin-bottom: 20px;
+  line-height: 30px;
+
 }
 .my-about .info{
   font-size: 20px;
