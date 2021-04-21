@@ -4,6 +4,10 @@ import bronze from '@/assets/img/bronze@2x.png'
 
 
 function MyModal (props) {
+  function handleChange (e) {
+    const {onChange} = props
+    typeof onChange === 'function' && onChange(e.target.value)
+  }
   return (
     <div className="my-modal">
       <div className="parameter-detail-bottom">
@@ -21,7 +25,7 @@ function MyModal (props) {
               </span>
             </div>
             <div className="cont-last">
-              <input placeholder="0.0"/>
+              <input onInput={handleChange} placeholder="0.0"/>
               <div>
                 <span>
                                           Max

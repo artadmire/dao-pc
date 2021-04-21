@@ -35,6 +35,7 @@ function Account (props) {
 
   function handleChange (val) {
     setValue(val)
+    console.log(val)
 
   }
 
