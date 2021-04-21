@@ -159,42 +159,42 @@ function Account (props) {
                   </li>
                   <li>
                     <span>
-                                    less than 10 days ago
+                                    less than 20 days ago
                     </span>
                     <span>
-                                    30%
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                                    less than 10 days ago
-                    </span>
-                    <span>
-                                    30%
+                                    25%
                     </span>
                   </li>
                   <li>
                     <span>
-                                    less than 10 days ago
+                                    less than 30 days ago
                     </span>
                     <span>
-                                    30%
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                                    less than 10 days ago
-                    </span>
-                    <span>
-                                    30%
+                                    20%
                     </span>
                   </li>
                   <li>
                     <span>
-                                    less than 10 days ago
+                                    less than 60 days ago
                     </span>
                     <span>
-                                    30%
+                                    10%
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                                    less than 90 days ago
+                    </span>
+                    <span>
+                                  5%
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                                  after  90 days
+                    </span>
+                    <span>
+                                    0%
                     </span>
                   </li>
                 </ul>
@@ -214,10 +214,10 @@ function Account (props) {
                   </li>
                   <li>
                     <span>
-                                    less than 10 days ago
+                    last deposit
                     </span>
                     <span>
-                                    30%
+                    0 day(s) ago
                     </span>
                   </li>
                 </ul>
