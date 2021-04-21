@@ -7,7 +7,7 @@ const initState = {
   ANOTotalStake: 0,
   claimed: 0,
   balancesAccount: '',
-  ANOTotalStakeAccount: '',
+  ANOTotalStakeAccount: 0,
   isApproveAccount: ''
 }
 

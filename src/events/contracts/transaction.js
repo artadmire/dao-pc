@@ -277,8 +277,8 @@ export const totalStakeV2 = async (address) => {
   const { GofPoolContractV2 = {at: () => {}}, chainAccount } = ctx.data;
   const pool = await GofPoolContractV2.at(ANOPoolcontractAddressV2);
   const total = typeof pool.balanceOf === 'function' && await pool.balanceOf(chainAccount);
-  ctx.data.ANOTotalStakeV2 =  convertByAnoWei(total);
-  store.dispatch(ANOTotalStakeActionV2(ctx.data.ANOTotalStake))
+  ctx.data.ANOTotalStakeV2 =  convertByWei(total);
+  store.dispatch(ANOTotalStakeActionV2(ctx.data.ANOTotalStakeV2))
 
 };
 

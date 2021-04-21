@@ -20,6 +20,7 @@ import ctx from '../../events';
 
 function Account (props) {
   const { account, balances, isApprove, ANOTotalStakeAccount } = props
+  console.log(ANOTotalStakeAccount)
   const [visible, setVisible] = useState(false)
   const [data, setData] = useState({})
   const [modalLeftBun, setModalLeftBun] = useState('APPROVE')
