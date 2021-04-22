@@ -199,7 +199,7 @@ export default function Apply () {
               autoSize={{ minRows: 5, maxRows: 8 }}
             />
           </Form.Item>
-          <Form.Item name="hear" label="Where did you hear about Duckstarter? " {...formItemLayout}
+          <Form.Item name="hear" label="Where did you hear about DAOStarter? " {...formItemLayout}
             rules={[{ required: true, message: 'Please input your Content!' }]}>
             <Input placeholder=" " className="input-controller2"/>
           </Form.Item>

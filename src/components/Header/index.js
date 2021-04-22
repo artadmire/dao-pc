@@ -44,6 +44,8 @@ function Header (props) {
           <NavLink className="navtab" to='/'>
             <img src={logo} className="logo"/>
           </NavLink>
+          <NavLink className="navtab" to='/'>HOME</NavLink>
+          <NavLink className="navtab" to='/#' >BRIDGE</NavLink>
           <NavLink className="navtab" to='/about'>ABOUT</NavLink>
           <NavLink className="navtab" to='/account'>ACCOUNT</NavLink>
         </div>
