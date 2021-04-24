@@ -115,27 +115,29 @@ function Account (props) {
     <div className="account">
       <div className="account-content">
         <div  className="account-wallet">
-          <div className="wallet">
+          {/* <div className="wallet">
             <label>
                     Your Wallet :
             </label>
             <span>
               {account}
             </span>
-          </div>
-          {
-            data && data.kyc ? null : <div className="verified">
-            Some pools may requre you to be KYC verified <span>KYC for DAOStarter projects</span>
-            </div>
-          }
-          <div className="daos-count">
+          </div> */}
+
+          {/* <div className="daos-count">
             <img src={wallet}/>
             <div>
               you have <span className="daos-number">{balance || 0}</span> DAOs in your wallet and <span className="daos-number-locked">{ANOTotalStakeAccount || 0}</span> locked-in
             </div>
-          </div>
+          </div> */}
         </div>
-        <LevelMap level={data.userLv}/>
+        <LevelMap  ANOTotalStakeAccount={ANOTotalStakeAccount} balance={balance} account={account} level={data.userLv}/>
+        {/* data && data.kyc ? null : */}
+        {
+          data && data.kyc ? null : <div className="verified">
+            Some pools may requre you to be KYC verified <span>KYC for DAOStarter projects</span>
+          </div>
+        }
         <div className="available-balance">
           <div className="balance">
                    Available balance: <span>{ANOTotalStakeAccount || 0}</span>
