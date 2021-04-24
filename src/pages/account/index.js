@@ -20,7 +20,6 @@ import ctx from '../../events';
 
 function Account (props) {
   const { account, balances, isApprove, ANOTotalStakeAccount } = props
-  console.log(ANOTotalStakeAccount)
   const [visible, setVisible] = useState(false)
   const [data, setData] = useState({})
   const [modalLeftBun, setModalLeftBun] = useState('APPROVE')
@@ -218,7 +217,7 @@ function Account (props) {
                     last deposit
                     </span>
                     <span>
-                    0 day(s) ago
+                      {data.lastDeposit} day(s) ago
                     </span>
                   </li>
                 </ul>

@@ -2,10 +2,12 @@ import React, {useState, useEffect} from 'react'
 import './index.css'
 import MyBottom from '../../components/myBottom'
 
-import bronze from '../../assets/img/bronze@2x.png'
-import gold from '../../assets/img/gold@2x.png'
-import sliver from '../../assets/img/silver@2x.png'
-import platinum from '../../assets/img/platinum@2x.png'
+import bronze from '../../assets/img/65432-02@2x.png'
+import gold from '../../assets/img/643-02@2x.png'
+import sliver from '../../assets/img/122-02@2x.png'
+import platinum from '../../assets/img/33212-02@2x.png'
+import Wealth from '../../assets/img/1234-02@2x.png'
+
 const CrossChainSwaps = 'https://daostarter.oss-cn-hangzhou.aliyuncs.com/Cross-chainSwaps%402x.png'
 const percent = 0
 
@@ -77,6 +79,10 @@ function About () {
             <strong>
                   START
             </strong>
+            <span>
+
+            </span>
+            <img  src={bronze}/>
           </li>
           <li style={{left: '25%'}}>
             <strong>
@@ -85,7 +91,7 @@ function About () {
             <span>
                     2,000 ducks
             </span>
-            <img  src={bronze}/>
+            <img  src={gold}/>
           </li>
           <li style={{left: '50%'}}>
             <strong>
@@ -103,16 +109,16 @@ function About () {
             <span>
                     10,000 ducks
             </span>
-            <img  src={gold}/>
+            <img  src={platinum}/>
           </li>
           <li style={{right: '20px'}}>
             <strong>
-            PLATINUM
+              WEALTH
             </strong>
             <span>
                     20,000 ducks
             </span>
-            <img  src={platinum}/>
+            <img  src={Wealth}/>
           </li>
         </ul>
       </div>

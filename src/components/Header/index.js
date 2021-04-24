@@ -41,9 +41,11 @@ function Header (props) {
     <header className='wrap-header'>
       <div className='header'>
         <div className="header-left">
-          <NavLink className="navtab" to='/'>
+          <NavLink className="navtab" to='/' exact>
             <img src={logo} className="logo"/>
           </NavLink>
+          <NavLink className="navtab" to='/' exact>HOME</NavLink>
+          <NavLink className="navtab" to='/bridge'>BRIDGE</NavLink>
           <NavLink className="navtab" to='/about'>ABOUT</NavLink>
           <NavLink className="navtab" to='/account'>ACCOUNT</NavLink>
         </div>

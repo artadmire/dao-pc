@@ -1,14 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import './index.css'
 import MyBottom from '../../components/myBottom'
-import bronze from '../../assets/img/bronze@2x.png'
 import Level from '@/components/Level'
 import { store } from '@/store'
 import { getDeposit } from '@/service'
 import moment from 'moment'
 import {  approve, offer, claim} from '@/events/contracts/transaction'
 import {connect} from 'react-redux'
-import {Button} from 'antd'
 import ctx from '../../events';
 
 function Parameter (props) {
@@ -46,11 +44,15 @@ function Parameter (props) {
 
   useEffect(async () => {
     account && fetchData(account)
-  }, [account])
+  }, [account, _approve, balances, totalSupply, claimed])
 
   function changeValue (e) {
     setValue(e.target.value)
-    console.log(ctx.data)
+    // console.log(ctx.data)
+
+  }
+
+  function showMaxValue () {
 
   }
 
@@ -190,7 +192,7 @@ function Parameter (props) {
           <div className="parameter-detail-bottom">
             <div className="deposited-availale">
               <div className="title">
-                       YOU HAVE <span>{totalSupply / (data.ratio || 1) || 0}</span> USDC DEPOSITED from <span>{balance || 0} </span>available for your TIER
+                       YOU HAVE <span>{totalSupply / (data.ratio || 1) || 0}</span> PPT DEPOSITED from <span>{balance || 0} </span>available for your TIER
               </div>
               <div className="cont">
                 <div className="cont-first">
@@ -200,23 +202,23 @@ function Parameter (props) {
                 <div className="cont-last">
                   <input onInput={changeValue} placeholder="0.0" />
                   <div>
-                    <span>
-                        Max
+                    <span onClick={showMaxValue}>
+                        Max {data.maxDepositAvailable}
                     </span>
-                    <img src={bronze}/>
-                                      USDC
+                    {/* <img src={bronze}/> */}
+                     PPT
                   </div>
                 </div>
               </div>
               <div className="sum">
                 <div>{totalSupply / (data.ratio || 1)} Deposited</div>
-                <div>TOTAL: {balance || 0} USDC</div>
+                <div>TOTAL: {balance || 0} PPT</div>
               </div>
               <div className="handler">
-                <span className={!_approve ? 'active' : ''} onClick={handleApprove}  >
+                <span className={(!_approve && data.hasRoot) ? 'active' : ''} onClick={handleApprove}  >
                   approve
                 </span>
-                <span className={_approve ? 'active' : ''} onClick={handleDeposit}  >
+                <span className={(_approve && data.hasRoot && !data.deposited) ? 'active' : ''} onClick={handleDeposit}  >
                    Deposit
                 </span>
               </div>
@@ -247,11 +249,11 @@ function Parameter (props) {
                 <div>
                              Reward ({claimed} while calculating)
                 </div>
-                <div>
+                {/* <div>
                   {data.totalRewards || 0} EBOX Token
-                </div>
+                </div> */}
               </div>
-              <span className={`Harvest ${leftTime > 0 ? '' : 'active'}`}  onClick={handleHarvest}  >
+              <span className={`Harvest ${(leftTime <= 0 && data.hasRoot) ? 'active' : ''}`}  onClick={handleHarvest}  >
               Harvest
               </span>
             </div>
