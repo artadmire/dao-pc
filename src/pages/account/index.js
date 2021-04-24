@@ -2,7 +2,7 @@ import React, {useState, useCallback, useEffect, useMemo} from 'react'
 import './index.css'
 import wallet from '@/assets/img/wallet@2x.png'
 import MyBottom from '@/components/myBottom'
-import Level from '@/components/Level'
+import LevelMap from '@/components/LevelMap'
 import MyModel from './components/MyModel'
 import { connect } from 'react-redux';
 import { getLockin } from '@/service'
@@ -135,9 +135,7 @@ function Account (props) {
             </div>
           </div>
         </div>
-        <div className="account-level">
-          <Level level={data.userLv}/>
-        </div>
+        <LevelMap level={data.userLv}/>
         <div className="available-balance">
           <div className="balance">
                    Available balance: <span>{ANOTotalStakeAccount || 0}</span>
