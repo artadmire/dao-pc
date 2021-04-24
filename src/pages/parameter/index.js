@@ -51,9 +51,9 @@ function Parameter (props) {
     // console.log(ctx.data)
 
   }
-
+  // {data.maxDepositAvailable}
   function showMaxValue () {
-
+    setValue(data.maxDepositAvailable)
   }
 
   async function fetchData (account) {
@@ -192,7 +192,7 @@ function Parameter (props) {
           <div className="parameter-detail-bottom">
             <div className="deposited-availale">
               <div className="title">
-                       YOU HAVE <span>{totalSupply / (data.ratio || 1) || 0}</span> PPT DEPOSITED from <span>{balance || 0} </span>available for your TIER
+                       YOU HAVE <span>{totalSupply / (data.ratio || 1) || 0}</span> {data.depositToken} DEPOSITED from <span>{balance || 0} </span>available for your TIER
               </div>
               <div className="cont">
                 <div className="cont-first">
@@ -200,19 +200,19 @@ function Parameter (props) {
                   <p>Your Wallet Balance: <span>{balance}</span></p>
                 </div>
                 <div className="cont-last">
-                  <input onInput={changeValue} placeholder="0.0" />
+                  <input value={value} onInput={changeValue} placeholder="0.0" />
                   <div>
                     <span onClick={showMaxValue}>
-                        Max {data.maxDepositAvailable}
+                        Max
                     </span>
                     {/* <img src={bronze}/> */}
-                     PPT
+                    {data.depositToken}
                   </div>
                 </div>
               </div>
               <div className="sum">
                 <div>{totalSupply / (data.ratio || 1)} Deposited</div>
-                <div>TOTAL: {balance || 0} PPT</div>
+                <div>TOTAL: {balance || 0} {data.depositToken}</div>
               </div>
               <div className="handler">
                 <span className={(!_approve && data.hasRoot) ? 'active' : ''} onClick={handleApprove}  >

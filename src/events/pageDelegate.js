@@ -35,6 +35,7 @@ ctx.event.listen('initEthereum', async () => {
 
 
 ctx.event.listen('connectWallet', async () => {
+  await initChain();
   const { chainProvider } = ctx.data;
   if (chainProvider) {
     let account = '';

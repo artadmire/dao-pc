@@ -8,6 +8,10 @@ function MyModal (props) {
     const {onChange} = props
     typeof onChange === 'function' && onChange(e.target.value)
   }
+  function showMaxValue () {
+    const {onChange} = props
+    typeof onChange === 'function' && onChange(props.ANOTotalStakeAccount)
+  }
   return (
     <div className="my-modal">
       <div className="parameter-detail-bottom">
@@ -27,10 +31,10 @@ function MyModal (props) {
             <div className="cont-last">
               <input onInput={handleChange} placeholder="0.0"/>
               <div>
-                <span>
+                <span onClick={showMaxValue}>
                                           Max
                 </span>
-                <img src={bronze}/>
+                {/* <img src={bronze}/> */}
                                       USDC
               </div>
             </div>
