@@ -47,4 +47,15 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script>
+    window.addEventListener('resize', function () {
+      // console.log(1, navigator.userAgent)
+    if (/(iPhone|iPad|iPod|iOS|Android|Windows Phone)/i.test(navigator.userAgent)) {
+      window.app = 'mobile'
+    } else {
+      window.app = 'pc'
+    }
+    })
+  </script>
 </html>
+

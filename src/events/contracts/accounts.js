@@ -20,6 +20,9 @@ export const initChain = async () => {
   // Detect the MetaMask Ethereum provider
   // this returns the provider, or null if it wasn't detected
   const provider = await detectEthereumProvider();
+  console.log(provider, 'provider')
+  // let currentProvider = web3.currentProvider;
+  //               web3.setProvider(currentProvider);
   if (provider) {
     if (provider === window.ethereum) {
       ctx.data.chainProvider = provider;

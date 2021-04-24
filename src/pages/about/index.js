@@ -57,10 +57,10 @@ function About () {
           DAOStarter is deployed on BSC, Ethereum and HECO, and cross-chain bridge will be developed to swap assets between different chains.
           </p>
         </div>
-        <p className="info introduce2">
+        <p className="introduce2">
         As the final bridge bettween early-stage projects and the crypto community, DAOStarter will pay more attentions on project research & value evaluation to reduce the risk of investors.<br/>
         </p>
-        <p className="info introduce2">
+        <p className="introduce2">
         An unique investors rating system is adopted based on the lock-in amounts of DST tokens in smart contract.  Besides, KYC & whitelist is also offered for investors.
         </p>
       </div>
@@ -86,7 +86,7 @@ function About () {
           </li>
           <li style={{left: '25%'}}>
             <strong>
-                    bronze
+            EXPERIENCED
             </strong>
             <span>
                     2,000 ducks
@@ -95,16 +95,16 @@ function About () {
           </li>
           <li style={{left: '50%'}}>
             <strong>
-              SLIVER
+            OLD-BIRD
             </strong>
             <span>
-                    5,000 ducks
+              5,000 ducks
             </span>
             <img  src={sliver}/>
           </li>
           <li style={{left: '75%'}}>
             <strong>
-                    GOLD
+            EXPERT
             </strong>
             <span>
                     10,000 ducks
@@ -113,7 +113,7 @@ function About () {
           </li>
           <li style={{right: '20px'}}>
             <strong>
-              WEALTH
+            WEALTH
             </strong>
             <span>
                     20,000 ducks

@@ -28,6 +28,16 @@
   line-height: 30px;
   width: 100%;
 }
+.my-about .introduce2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-family: Poppins-Medium, Poppins;
+  font-weight: 500;
+  color: #000000;
+  line-height: 30px;
+  width: 100%;
+
+}
 .my-about .introduce{
   line-height: 50px;
 }
@@ -170,6 +180,9 @@
   flex-direction: column;
   position: absolute;
 }
+.my-about .level-bottom strong {
+  white-space: nowrap;
+} 
 .my-about .level-bottom li span {
   white-space: nowrap;
   position: absolute;
