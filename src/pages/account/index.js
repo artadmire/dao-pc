@@ -9,6 +9,7 @@ import { getLockin } from '@/service'
 import {store} from '@/store'
 import { approveV2, stakeV2, withdrawV2} from '@/events/contracts/transaction'
 import ctx from '../../events';
+import {updateAccount} from '../../events/contracts/accounts'
 
 
 // const _data = {
@@ -31,11 +32,10 @@ function Account (props) {
   useEffect(() => {
     // 初始化区块链库
     ctx.event.emit('initEthereum');
-  }, []);
+  }, [account]);
 
   function handleChange (val) {
     setValue(val)
-    console.log(val)
 
   }
 
@@ -69,15 +69,20 @@ function Account (props) {
     const res = await approveV2();
     // console.log(res)
     res && store.dispatch({type: 'ISAPPROVEV2', payload: true})
-
+    updateAccount()
+    fetchData()
   }
   // 质押
   async function handleDeposit () {
     await stakeV2(value);
+    updateAccount()
+    fetchData()
   }
   // 提取本金
   async function handleWithDraw () {
     await withdrawV2(value);
+    updateAccount()
+    fetchData()
   }
 
   const lockIn = useCallback(() => {

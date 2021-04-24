@@ -11,7 +11,6 @@ import 'antd/dist/antd.css';
 import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
 import ctx from './events';
 import './events/ethereum';
-import { showInfo } from './components/Modal';
 
 function App () {
   useEffect(() => {

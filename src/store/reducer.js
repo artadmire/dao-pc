@@ -8,7 +8,8 @@ const initState = {
   claimed: 0,
   balancesAccount: '',
   ANOTotalStakeAccount: 0,
-  isApproveAccount: ''
+  isApproveAccount: '',
+  chainId: ''
 }
 
 export function accountReducer (state = initState, action) {
@@ -63,7 +64,11 @@ export function accountReducer (state = initState, action) {
       ...state,
       claimed: action.payload
     }
-
+  case 'CHAINID':
+    return {
+      ...state,
+      chainId: action.payload
+    }
   default:
     return {
       ...state

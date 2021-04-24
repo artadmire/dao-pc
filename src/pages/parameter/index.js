@@ -8,6 +8,7 @@ import moment from 'moment'
 import {  approve, offer, claim} from '@/events/contracts/transaction'
 import {connect} from 'react-redux'
 import ctx from '../../events';
+import {updateAccount} from '../../events/contracts/accounts'
 
 function Parameter (props) {
   const [data, setData] = useState({})
@@ -44,14 +45,11 @@ function Parameter (props) {
 
   useEffect(async () => {
     account && fetchData(account)
-  }, [account, _approve, balances, totalSupply, claimed])
+  }, [account, _approve])
 
   function changeValue (e) {
     setValue(e.target.value)
-    // console.log(ctx.data)
-
   }
-  // {data.maxDepositAvailable}
   function showMaxValue () {
     setValue(data.maxDepositAvailable)
   }
@@ -69,22 +67,28 @@ function Parameter (props) {
 
   // 授权
   async function handleApprove () {
-    if (_approve) {return}
+    if (_approve && !data.hasRoot) {return}
+    console.log(_approve, '_approve')
     const res = await approve();
     res && store.dispatch({type: 'ISAPPROVE', payload: true})
   }
 
   // 质押
   async function handleDeposit () {
-    if (!_approve)  {return}
+    if (!_approve && !data.hasRoot)  {return}
     await offer(value);
+    updateAccount()
+    fetchData(account)
   }
 
   // harvest操作
   async function handleHarvest () {
-    if (leftTime > 0) {return}
-    claim(value)
+    if (leftTime > 0 && !data.hasRoot) {return}
+    await claim(value)
+    updateAccount()
+    fetchData(account)
   }
+
   function getTimes () {
     const _leftTime = leftTime - 1000
     setLeftTime(_leftTime)
