@@ -9,8 +9,8 @@ import {getProjects, getPerviousProjects } from '@/service'
 import {connect} from 'react-redux'
 
 function Home (props) {
-  const [upComingList, setUpComingList] = useState()
-  const [previousList, setPreviousList] = useState()
+  const [upComingList, setUpComingList] = useState([])
+  const [previousList, setPreviousList] = useState([])
   const {chainId} = props
   useEffect(() => {
     const bg = document.getElementById('boxbg')

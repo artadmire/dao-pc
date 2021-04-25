@@ -26,6 +26,10 @@ function Parameter (props) {
   useEffect(() => {
     // 初始化区块链库
     ctx.event.emit('initEthereum');
+    return () => {
+      window.offerAddress = ''
+      window.dtokenAddress = ''
+    }
   }, []);
 
   useEffect(() => {
@@ -33,7 +37,7 @@ function Parameter (props) {
       getTimes()
     }, 1000)
 
-    if (setLeftTime < 0) {
+    if (leftTime < 0) {
       clearInterval(timer)
       timer = null
     }
@@ -51,7 +55,7 @@ function Parameter (props) {
     setValue(e.target.value)
   }
   function showMaxValue () {
-    setValue(data.maxDepositAvailable)
+    setValue(data.maxDepositAvailable || 9)
   }
 
   async function fetchData (account) {
@@ -67,15 +71,14 @@ function Parameter (props) {
 
   // 授权
   async function handleApprove () {
-    if (_approve && !data.hasRoot) {return}
-    console.log(_approve, '_approve')
+    if (_approve || !data.hasRoot) {return}
     const res = await approve();
     res && store.dispatch({type: 'ISAPPROVE', payload: true})
   }
 
   // 质押
   async function handleDeposit () {
-    if (!_approve && !data.hasRoot)  {return}
+    if (!_approve || !data.hasRoot || data.deposited > 0)  {return}
     await offer(value);
     updateAccount()
     fetchData(account)
@@ -83,7 +86,7 @@ function Parameter (props) {
 
   // harvest操作
   async function handleHarvest () {
-    if (leftTime > 0 && !data.hasRoot) {return}
+    if (leftTime > 0 || !data.hasRoot) {return}
     await claim(value)
     updateAccount()
     fetchData(account)
@@ -105,9 +108,14 @@ function Parameter (props) {
   }
 
 
-  const pre = data.endDate * 1 - data.startDate * 1
   const now = new Date().valueOf()
-  const percent = now / data.endDate * 1 + data.startDate * 1
+  const perid =  (data.endDate * 1 - data.startDate * 1) || 0
+  const diff = data.endDate * 1 - now
+  const past = now - data.startDate * 1
+  let percent = past / perid
+  if (diff <= 0) {
+    percent = 1
+  }
   return (
     <div className="my-parameter">
       <div className="parameter-content">
@@ -167,11 +175,11 @@ function Parameter (props) {
                 <div className="dates-detail-time">
                   <span>{moment(data.startDate * 1).format('YYYY-MM-DD hh:mm')} UTC</span>
                   {
-                    pre > 0 ? <span>{moment(data.endDate * 1).format('YYYY-MM-DD hh:mm')} UTC</span> : <span>Finished</span>
+                    diff > 0 ? <span>{moment(data.endDate * 1).format('YYYY-MM-DD hh:mm')} UTC</span> : <span>Finished</span>
                   }
                 </div>
                 <div className="wrap-dates-detail-process">
-                  <div className="dates-detail-process" style={{width: '20%'}}></div>
+                  <div className="dates-detail-process" style={{width: `${percent * 100}%`}} ></div>
                 </div>
               </div>
             </div>
