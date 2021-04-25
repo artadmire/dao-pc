@@ -4,7 +4,7 @@ import './index.css'
 import arrow from '@/assets/img/arrow@2x.png'
 import {NavLink} from 'react-router-dom'
 export default function PreviousProject (props) {
-  const { list = [] } = props
+  const { list = [], account  } = props
   return (
     <div className="previous-projects">
       <div className="previous-projects-title">
@@ -16,13 +16,13 @@ export default function PreviousProject (props) {
       <div className="previous-projects-content">
         <div style={{display: 'flex'}} className="previous-projects-content-top">
           {
-            list.slice(0, 3).map((item, index) =>  <PreviousProjectItem key={index} data={item} styles={{'marginRight': '16px'}}/>)
+            list.slice(0, 3).map((item, index) =>  <PreviousProjectItem account={account} key={index} data={item} styles={{'marginRight': '16px'}}/>)
           }
         </div>
         {
           list.length >= 3  && <div style={{display: 'flex'}} className="previous-projects-content-bottom">
             {
-              list.slice(3, 6).map((item, index) =>  <PreviousProjectItem key={index} data={item} styles={{'marginRight': '16px'}}/>)
+              list.slice(3, 6).map((item, index) =>  <PreviousProjectItem account={account} key={index} data={item} styles={{'marginRight': '16px'}}/>)
             }
           </div>
         }

@@ -1,5 +1,5 @@
 // import detectEthereumProvider from '@metamask/detect-provider';
-// import Web3 from 'web3';
+import Web3 from 'web3';
 import { ETH_NETWORK } from './constants';
 import ctx from '../index';
 import { showConfirm } from '../../components/Modal';
@@ -8,6 +8,28 @@ import { getANOUSDTinfo } from './LPtransaction';
 import { getPromoteInfo, getAPY, getANOPrice } from './promote';
 import {store} from '../../store'
 import {  chainIdAction } from '../../store/actions';
+
+export const changeNetwork = async () => {
+  let ethereum = window.ethereum;
+  const data = [{
+    chainId: '256',
+    chainName: 'Heco Testnet',
+    nativeCurrency:
+          {
+            name: 'BNB',
+            symbol: 'BNB',
+            decimals: 18
+          },
+    rpcUrls: ['https://http-testnet.hecochain.com'],
+    // blockExplorerUrls: ['https://bscscan.com/'],
+  }]
+  /* eslint-disable */
+  const tx = await ethereum.request({method: 'metamask_switchEthereumChain', params:data}).catch()
+  if (tx) {
+      console.log(tx)
+  }
+
+}
 
 // 初始化metamask，初始化链上数据
 export const initChain = async () => {
@@ -20,9 +42,7 @@ export const initChain = async () => {
   // Detect the MetaMask Ethereum provider
   // this returns the provider, or null if it wasn't detected
   const provider = await detectEthereumProvider();
-  console.log(provider, 'provider')
-  // let currentProvider = web3.currentProvider;
-  //               web3.setProvider(currentProvider);
+
   if (provider) {
     if (provider === window.ethereum) {
       ctx.data.chainProvider = provider;

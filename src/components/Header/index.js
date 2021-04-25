@@ -8,6 +8,7 @@ import { connect} from 'react-redux'
 import { store } from '@/store'
 import {accountAction} from '@/store/actions'
 import ComingModel from '../ComingModel'
+import {changeNetwork} from '../../events/contracts/accounts'
 
 function Header (props) {
   const { account } = props
@@ -15,6 +16,7 @@ function Header (props) {
 
   function handlerHideModal (val) {
     setShow(val)
+    changeNetwork()
   }
 
   const connectWallet = () => {

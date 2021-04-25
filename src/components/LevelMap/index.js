@@ -28,7 +28,7 @@ export default function LevelMap (props) {
       {level == 0 ? <p className="account-level-desc">
         You don’t have a DuckSTARTER Tier yet. Please upgrade your level.
       </p> : null}
-      <div className="wrap-levelMap-top">
+      <div className="wrap-levelMap">
         <div className="left">
           <img src={percent[level]}/>
           <span className='title'>
@@ -41,11 +41,11 @@ export default function LevelMap (props) {
                     Your Wallet :
             </label>
             <span>
-              {account}
+              &nbsp;{account}
             </span>
           </div>
-          <div className="right-balance">
-              you have <span className="daos-number">{balance || 0}</span> DAOs in your wallet and <span className="daos-number-locked">{ANOTotalStakeAccount || 0}</span> locked-in
+          <div className="aa" style={{fontSize: '14px'}}>
+              you have <span className="right-balance-number">{balance || 0}</span> DAOs in your wallet and <span className="daos-number-locked">{ANOTotalStakeAccount || 0}</span> locked-in
           </div>
         </div>
       </div>

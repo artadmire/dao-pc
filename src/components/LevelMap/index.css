@@ -4,7 +4,7 @@
   width: 1130px;
 }
 
-.my-levelMap .wrap-levelMap-top {
+.my-levelMap .wrap-levelMap {
   background: #FFFFFF;
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -12,25 +12,36 @@
   align-items: center;
   padding: 20px 32px;
 }
-.wrap-levelMap-top img {
+.wrap-levelMap img {
   width: 78px;
   height: 91px;
   margin-right: 20px;
   margin-bottom: 10px;
 }
-.wrap-levelMap-top .title {
+.wrap-levelMap .title {
   font-size: 20px;
   font-family: Poppins-Bold, Poppins;
   font-weight: bold;
   color: #000000;
   line-height: 30px;
 }
-.wrap-levelMap-top .left {
+.wrap-levelMap .left {
   display: flex;
   flex-direction: column;
+  margin-right: 24px;
 }
-.wrap-levelMap-top .right {
+.wrap-levelMap .right {
   display: flex;
   flex-direction: column;
+  
+}
+
+
+.aa {
+  line-height: 50px;
+  font-size: 13px;
+}
+.right-balance-number {
+  font-weight: 500;
 }
 

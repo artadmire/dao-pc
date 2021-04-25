@@ -16,7 +16,7 @@ export default function Level (props) {
       {level == 0 ? <p className="account-level-desc">
         You don’t have a DuckSTARTER Tier yet. Please upgrade your level.
       </p> : null}
-      <div className="wrap-level-top">
+      <div className="wrap-level-tops">
         <div className="level-top-bg" style={{width: `${percent[level]}`}}>
           <div className="level-top">
             <div style={{left: '25%'}} className='dashed'></div>

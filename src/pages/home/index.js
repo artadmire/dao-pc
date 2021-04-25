@@ -11,7 +11,7 @@ import {connect} from 'react-redux'
 function Home (props) {
   const [upComingList, setUpComingList] = useState([])
   const [previousList, setPreviousList] = useState([])
-  const {chainId} = props
+  const {chainId, account} = props
   useEffect(() => {
     const bg = document.getElementById('boxbg')
     bg.className = 'App app-Home'
@@ -61,7 +61,7 @@ function Home (props) {
         <div className="title2">Providing the access to funding blockchain projects</div>
       </div>
       {upComingList && upComingList.length ? <UpcomingProject list={upComingList} /> : null}
-      {previousList && previousList.length ? <PreviousProject list={previousList} /> : null}
+      {previousList && previousList.length ? <PreviousProject list={previousList} account={account} /> : null}
       <div className="user-applay">
         <div className="title">
           Start your dream on
@@ -76,4 +76,4 @@ function Home (props) {
   );
 }
 
-export default connect(({chainId}) => ({chainId}))(Home);
+export default connect(({chainId, account}) => ({chainId, account}))(Home);
