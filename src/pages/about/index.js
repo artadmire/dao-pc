@@ -89,7 +89,7 @@ function About () {
             EXPERIENCED
             </strong>
             <span>
-                    2,000 ducks
+                    2,000 DSTs
             </span>
             <img  src={gold}/>
           </li>
@@ -98,7 +98,7 @@ function About () {
             OLD-BIRD
             </strong>
             <span>
-              5,000 ducks
+              5,000 DSTs
             </span>
             <img  src={sliver}/>
           </li>
@@ -107,7 +107,7 @@ function About () {
             EXPERT
             </strong>
             <span>
-                    10,000 ducks
+                    10,000 DSTs
             </span>
             <img  src={platinum}/>
           </li>
@@ -116,7 +116,7 @@ function About () {
             WEALTH
             </strong>
             <span>
-                    20,000 ducks
+                    20,000 DSTs
             </span>
             <img  src={Wealth}/>
           </li>

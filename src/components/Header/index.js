@@ -10,13 +10,18 @@ import {accountAction} from '@/store/actions'
 import ComingModel from '../ComingModel'
 import {changeNetwork} from '../../events/contracts/accounts'
 
+const chainMap = {
+  1: 'ETH',
+  128: 'HECO',
+  56: 'BSC'
+}
+
 function Header (props) {
-  const { account } = props
+  const { account, chainId } = props
   const [show, setShow] = useState(false)
 
   function handlerHideModal (val) {
     setShow(val)
-    changeNetwork()
   }
 
   const connectWallet = () => {
@@ -58,11 +63,14 @@ function Header (props) {
           <NavLink className="navtab" to='/about'>ABOUT</NavLink>
           <NavLink className="navtab" to='/account'>ACCOUNT</NavLink>
         </div>
-        <p onClick={connectWallet} className="unlock-wallet" >{account ? account : 'Unlock Wallet'}</p>
+        <div className="h-right">
+          <span>{chainMap[chainId] || 'Wrong'}</span>
+          <p onClick={connectWallet} className="unlock-wallet" >{account ? account : 'Unlock Wallet'}</p>
+        </div>
       </div>
       {show ? <ComingModel  hideModal={handlerHideModal}/> : null}
     </header>
   );
 }
 
-export default connect(({account}) => ({account}))(Header);
+export default connect(({account, chainId}) => ({account, chainId}))(Header);

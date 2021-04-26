@@ -1,22 +1,30 @@
+import twitter from '@/assets/img/Twitter@2x.png'
+import discorf from '@/assets/img/discorf@2x.png'
+import medium from '@/assets/img/medium@2x.png'
+import telegram from '@/assets/img/telegram@2x.png'
+import email from '@/assets/img/email@2x.png'
+
+
 export const list = [
   {
-    url: 'https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/twitter%402x.png',
-    href: 'javascript:;'
+    url: twitter,
+    href: 'https://twitter.com/DaoStarter'
+  },
+  // {
+  //   url: discorf,
+  //   href: 'javascript:;'
+  // },
+  {
+    url: medium,
+    href: 'https://medium.com/@DaoStarter'
   },
   {
-    url: 'https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/discord%402x.png',
-    href: 'javascript:;'
+    url: telegram,
+    href: 'https://t.me/DaoStarter'
   },
   {
-    url: 'https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/medium%402x.png',
-    href: 'javascript:;'
-  },
-  {
-    url: 'https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/telegram%402x.png',
-    href: 'javascript:;'
-  },
-  {
-    url: 'https://ffcap.oss-cn-hangzhou.aliyuncs.com/img/email%402x.png',
-    href: 'javascript:;'
+    url: email,
+    href: 'javascript:;',
+    title: 'support@daostarter.pro'
   },
 ]

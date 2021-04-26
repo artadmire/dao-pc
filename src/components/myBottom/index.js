@@ -18,11 +18,11 @@ function myBottom (props) {
       <div className="bottom-right">
         <div className="term-privacy">
           <a href="javascript:;" >Terms</a>
-          <a href="javascript:;">Privacy</a>
+          <a href="javascript:;" >Privacy</a>
         </div>
         <div className="icon">
           {
-            list.map((i) => <a key={i.url} href={i.href}><img src={i.url} /></a>)
+            list.map((i) => <a title={i.title} key={i.url} href={i.href}><img src={i.url} /></a>)
           }
         </div>
       </div>
