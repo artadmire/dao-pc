@@ -43,4 +43,7 @@ export const isApproveActionV2 = (bol) => ({
   type: 'ISAPPROVEV2',
   payload: bol
 })
-
+export const chainIdAction = (chainId) => ({
+  type: 'CHAINID',
+  payload: chainId
+})

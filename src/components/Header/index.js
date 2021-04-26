@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import './index.css'
 import logo from '@/assets/img/logo@2x.png'
 import { NavLink } from 'react-router-dom'
@@ -7,9 +7,17 @@ import { showInfo } from '../Modal';
 import { connect} from 'react-redux'
 import { store } from '@/store'
 import {accountAction} from '@/store/actions'
+import ComingModel from '../ComingModel'
+import {changeNetwork} from '../../events/contracts/accounts'
 
 function Header (props) {
   const { account } = props
+  const [show, setShow] = useState(false)
+
+  function handlerHideModal (val) {
+    setShow(val)
+    changeNetwork()
+  }
 
   const connectWallet = () => {
     const { chainAccount } = ctx.data;
@@ -37,20 +45,22 @@ function Header (props) {
     };
   }, []);
 
+
   return (
     <header className='wrap-header'>
       <div className='header'>
         <div className="header-left">
-          <NavLink className="navtab" to='/'>
+          <NavLink className="navtab" to='/' exact>
             <img src={logo} className="logo"/>
           </NavLink>
-          <NavLink className="navtab" to='/'>HOME</NavLink>
-          <NavLink className="navtab" to='/#' >BRIDGE</NavLink>
+          <NavLink className="navtab" to='/' exact>HOME</NavLink>
+          <NavLink className="navtab" onClick={() => handlerHideModal(true)}  to='/bridge'>BRIDGE</NavLink>
           <NavLink className="navtab" to='/about'>ABOUT</NavLink>
           <NavLink className="navtab" to='/account'>ACCOUNT</NavLink>
         </div>
         <p onClick={connectWallet} className="unlock-wallet" >{account ? account : 'Unlock Wallet'}</p>
       </div>
+      {show ? <ComingModel  hideModal={handlerHideModal}/> : null}
     </header>
   );
 }

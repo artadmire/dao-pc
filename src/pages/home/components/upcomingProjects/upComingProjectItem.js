@@ -4,7 +4,6 @@ import './upComingProjectItem.css'
 
 export default function upComingProjectItem (props) {
   const {data} = props
-
   return (
     <a href={data.url ? data.url : 'javascript:;'} className="up-coming-project-item">
       <img src={data.logo}/>

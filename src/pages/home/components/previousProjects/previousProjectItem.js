@@ -3,7 +3,7 @@ import './previousProjectItem.css'
 import {NavLink} from 'react-router-dom'
 
 export default function PreviousProjectItem (props) {
-  const { data = {} } = props;
+  const { data = {}, account } = props;
   const { name = '', logo = '', offerAddress = '', dtokenAddress = '', method = '', deposit = '', earn = '', totalDeposited = '', avaliable = '', status, poolId = ''} = data || {}
   function handleClick () {
     window.offerAddress = offerAddress
@@ -33,7 +33,7 @@ export default function PreviousProjectItem (props) {
       <div className="border"></div>
       <ul className="section3">
         <li>
-          <div>Total USDC deposited</div>
+          <div>Total USDT deposited</div>
           <div>{totalDeposited}</div>
         </li>
         <li>
@@ -46,7 +46,7 @@ export default function PreviousProjectItem (props) {
         </li>
       </ul>
       <div className="section4">
-        <span className="unlock-wallet">Unlock Wallet</span>
+        <span className="unlock-wallet">{account ? 'Enter' : 'Unlock Wallet'}</span>
       </div>
     </NavLink>
   )

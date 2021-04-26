@@ -5,12 +5,13 @@ import UpcomingProject from './components/upcomingProjects/index.js'
 import PreviousProject from './components/previousProjects/index.js'
 import {Link} from 'react-router-dom'
 import {getProjects, getPerviousProjects } from '@/service'
-import { projectsData, perviousProjectsData } from '@/service/mock'
+// import { projectsData, perviousProjectsData } from '@/service/mock'
+import {connect} from 'react-redux'
 
 function Home (props) {
-  const [upComingList, setUpComingList] = useState(projectsData)
-  const [previousList, setPreviousList] = useState(perviousProjectsData)
-
+  const [upComingList, setUpComingList] = useState([])
+  const [previousList, setPreviousList] = useState([])
+  const {chainId, account} = props
   useEffect(() => {
     const bg = document.getElementById('boxbg')
     bg.className = 'App app-Home'
@@ -23,12 +24,13 @@ function Home (props) {
   }
   useEffect(async () => {
     fetchPervious()
-  }, [])
+  }, [chainId])
 
   useEffect(async () => {
     fetchProjects()
   }, [])
 
+  // 将来的
   async function fetchProjects () {
     try {
       let res = await getProjects();
@@ -39,10 +41,10 @@ function Home (props) {
       setUpComingList([])
     }
   }
-
+  // 以前的
   async function fetchPervious () {
     try {
-      let res = await getPerviousProjects();
+      let res = await getPerviousProjects({chainID: chainId});
       res = res.data
       if (!res || !res.data ||  !res.data.data || !res.data.data.length) {throw new Error('')}
       setPreviousList(res.data.data)
@@ -59,7 +61,7 @@ function Home (props) {
         <div className="title2">Providing the access to funding blockchain projects</div>
       </div>
       {upComingList && upComingList.length ? <UpcomingProject list={upComingList} /> : null}
-      {previousList && previousList.length ? <PreviousProject list={previousList} /> : null}
+      {previousList && previousList.length ? <PreviousProject list={previousList} account={account} /> : null}
       <div className="user-applay">
         <div className="title">
           Start your dream on
@@ -74,4 +76,4 @@ function Home (props) {
   );
 }
 
-export default Home;
+export default connect(({chainId, account}) => ({chainId, account}))(Home);

@@ -8,7 +8,7 @@ import { initContract, approve, stake, claim, withdraw, totalStake, earned, bala
 import { LPapprove, LPbalanceOf, LPclaim, LPstake, LPearned, LPwithdraw, LPtotalStake, LPtotalSupply } from './contracts/LPtransaction';
 import { getPromoteInfo, transfer, addPid, promoteReward } from './contracts/promote';
 import { store } from '../store';
-import { accountAction } from '../store/actions';
+import { accountAction, chainIdAction } from '../store/actions';
 
 
 ctx.event.listen('showLoading', (message) => {
@@ -35,7 +35,9 @@ ctx.event.listen('initEthereum', async () => {
 
 
 ctx.event.listen('connectWallet', async () => {
+  await initChain();
   const { chainProvider } = ctx.data;
+  console.log(ctx.data, 'ctx.data')
   if (chainProvider) {
     let account = '';
     try {

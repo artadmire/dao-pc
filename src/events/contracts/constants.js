@@ -5,5 +5,7 @@ export const ETH_NETWORK = {
   3: 'Ropsten Testnet',
   4: 'Rinkeby Testnet',
   42: 'Kovan Testnet',
-  256: 'Heco Testnet'
+  256: 'Heco Testnet',
+  56: 'BSC',
+  128: 'HECO'
 };

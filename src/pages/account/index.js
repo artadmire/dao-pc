@@ -2,13 +2,14 @@ import React, {useState, useCallback, useEffect, useMemo} from 'react'
 import './index.css'
 import wallet from '@/assets/img/wallet@2x.png'
 import MyBottom from '@/components/myBottom'
-import Level from '@/components/Level'
+import LevelMap from '@/components/LevelMap'
 import MyModel from './components/MyModel'
 import { connect } from 'react-redux';
 import { getLockin } from '@/service'
 import {store} from '@/store'
 import { approveV2, stakeV2, withdrawV2} from '@/events/contracts/transaction'
 import ctx from '../../events';
+import {updateAccount} from '../../events/contracts/accounts'
 
 
 // const _data = {
@@ -20,7 +21,6 @@ import ctx from '../../events';
 
 function Account (props) {
   const { account, balances, isApprove, ANOTotalStakeAccount } = props
-  console.log(ANOTotalStakeAccount)
   const [visible, setVisible] = useState(false)
   const [data, setData] = useState({})
   const [modalLeftBun, setModalLeftBun] = useState('APPROVE')
@@ -32,11 +32,10 @@ function Account (props) {
   useEffect(() => {
     // 初始化区块链库
     ctx.event.emit('initEthereum');
-  }, []);
+  }, [account]);
 
   function handleChange (val) {
     setValue(val)
-    console.log(val)
 
   }
 
@@ -70,15 +69,20 @@ function Account (props) {
     const res = await approveV2();
     // console.log(res)
     res && store.dispatch({type: 'ISAPPROVEV2', payload: true})
-
+    updateAccount()
+    fetchData()
   }
   // 质押
   async function handleDeposit () {
     await stakeV2(value);
+    updateAccount()
+    fetchData()
   }
   // 提取本金
   async function handleWithDraw () {
     await withdrawV2(value);
+    updateAccount()
+    fetchData()
   }
 
   const lockIn = useCallback(() => {
@@ -111,29 +115,29 @@ function Account (props) {
     <div className="account">
       <div className="account-content">
         <div  className="account-wallet">
-          <div className="wallet">
+          {/* <div className="wallet">
             <label>
                     Your Wallet :
             </label>
             <span>
               {account}
             </span>
-          </div>
-          {
-            data && data.kyc ? null : <div className="verified">
-            Some pools may requre you to be KYC verified <span>KYC for DAOStarter projects</span>
-            </div>
-          }
-          <div className="daos-count">
+          </div> */}
+
+          {/* <div className="daos-count">
             <img src={wallet}/>
             <div>
               you have <span className="daos-number">{balance || 0}</span> DAOs in your wallet and <span className="daos-number-locked">{ANOTotalStakeAccount || 0}</span> locked-in
             </div>
+          </div> */}
+        </div>
+        <LevelMap  ANOTotalStakeAccount={ANOTotalStakeAccount} balance={balance} account={account} level={data.userLv}/>
+        {/* data && data.kyc ? null : */}
+        {
+          data && data.kyc ? null : <div className="verified">
+            Some pools may requre you to be KYC verified <span>KYC for DAOStarter projects</span>
           </div>
-        </div>
-        <div className="account-level">
-          <Level level={data.userLv}/>
-        </div>
+        }
         <div className="available-balance">
           <div className="balance">
                    Available balance: <span>{ANOTotalStakeAccount || 0}</span>
@@ -218,7 +222,7 @@ function Account (props) {
                     last deposit
                     </span>
                     <span>
-                    0 day(s) ago
+                      {data.lastDeposit} day(s) ago
                     </span>
                   </li>
                 </ul>

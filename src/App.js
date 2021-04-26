@@ -9,10 +9,21 @@ import Header from './components/Header'
 import Apply from './pages/apply'
 import 'antd/dist/antd.css';
 import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
+import ctx from './events';
 import './events/ethereum';
 
 function App () {
+  useEffect(() => {
+    connectWallet()
+  }, [])
 
+  const connectWallet = () => {
+    const { chainAccount } = ctx.data;
+    if (chainAccount) {
+      return;
+    }
+    ctx.event.emit('connectWallet');
+  }
 
   return (
     <div className='App' id="boxbg">
