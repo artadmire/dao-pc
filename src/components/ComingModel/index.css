@@ -22,11 +22,11 @@
 
 }
 .my-ComingModel  .parameter-detail .progress {
-  background: linear-gradient(135deg, #3023AE 0%, #C86DD7 100%);
   border-radius: 20px;
   width: 424px;
-  opacity: 0.04;
   height: 43px;
+  position: relative;
+  background:rgba(0, 0, 0, 0.04);
 }
 .my-ComingModel  .parameter-detail span {
   margin-top: 32px;
@@ -42,4 +42,11 @@
   position:absolute;
   top: 20px;
   right: 30px;
+}
+.parameter-detail .progress img {
+  width: 183px;
+  height: 43px;
+  position:absolute;
+  z-index: 1000;
+  left: 0;
 }

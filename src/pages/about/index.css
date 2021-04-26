@@ -144,7 +144,8 @@
   background: linear-gradient(135deg, #3023AE 0%, #C86DD7 100%)
 }
 .wrap-level-top {
-  background: rgb(252,245,254);
+  background: linear-gradient(135deg, #3023AE 0%, #C86DD7 100%);
+  /* background: rgb(252,245,254); */
   width: 720px;
   height: 100%;
   border-radius: 20px;

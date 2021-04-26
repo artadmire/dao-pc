@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './index.css'
 import MyBottom from '../../components/myBottom'
-import LevelMapP from '@/components/LevelMapP'
+import Level from '@/components/Level'
 import { store } from '@/store'
 import { getDeposit } from '@/service'
 import moment from 'moment'
@@ -119,7 +119,7 @@ function Parameter (props) {
   return (
     <div className="my-parameter">
       <div className="parameter-content">
-        <LevelMapP level={data.level || 0} />
+        <Level level={data.level || 0} />
         <div className="parameter-detail">
           <div className="parameter-detail-top">
             <div className="deposited">
