@@ -15,6 +15,11 @@ const chainMap = {
   128: 'HECO',
   56: 'BSC'
 }
+function address (account, chainId) {
+  if (!account) {return 'Unlock Wallet'}
+  if (account && (chainId !== 1 && chainId !== 56 && chainId !== 128)) {return 'Wrong NetWork'}
+  return account;
+}
 
 function Header (props) {
   const { account, chainId } = props
@@ -64,8 +69,8 @@ function Header (props) {
           <NavLink className="navtab" to='/account'>ACCOUNT</NavLink>
         </div>
         <div className="h-right">
-          <span>{chainMap[chainId] || 'Wrong'}</span>
-          <p onClick={connectWallet} className="unlock-wallet" >{account ? account : 'Unlock Wallet'}</p>
+          <span className={`${chainMap[chainId] ? '' : 'wrong'}`}>{chainMap[chainId] || 'Wrong NetWork'}</span>
+          <p onClick={connectWallet} className={`unlock-wallet ${address(account, chainId) === 'Wrong NetWork' && 'wrong'}`} >{address(account, chainId)}</p>
         </div>
       </div>
       {show ? <ComingModel  hideModal={handlerHideModal}/> : null}

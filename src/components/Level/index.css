@@ -1,87 +1,24 @@
-/* .my-level{
-  margin: 40px 0 126px 0px;
-  box-sizing: border-box;
-  width: 1130px;
-}
-.my-level .level-top-bg {
-  height: 73px;
-  border-radius: 20px 0 0 20px;
-  margin-bottom: 10px;
-  background: linear-gradient(135deg, #3023AE 0%, #C86DD7 100%)
-}
-.my-level .wrap-level-tops {
-  height: 73px;
-  background: rgb(252,245,254);
-  width: 1130px;
-  border-radius: 20px;
-
-} */
-/* .my-level  .level-top {
-  border: 3px solid;
-  border-color:linear-gradient(135deg, #3023AE 0%, #C86DD7 100%);
-  height: 100%;
-  width:  1130px;
-  border-radius: 20px;
-  display: flex;
-  background: transparent;
-  position: relative;
-
-}
-
-.my-level  .level-top .dashed {
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(to bottom, #9B9B9B, #9B9B9B 5px, transparent 5px, transparent);
-  background-size: 100% 10px;
-  position: absolute;
-}
 
 
-.my-level .level-bottom{
-  margin-top: 20px;
-  display: flex;
-  width: 1130px;
-  position: relative;
-}
-.my-level .level-bottom li{
-  font-size: 16px;
-  font-family: Poppins-Bold, Poppins;
-  font-weight: bold;
-  width: 2px;
-  color: #000000;
-  display: flex;
-  justify-content: center;
-  line-height: 25px;
-  position: absolute;
-}
-
-.account-level-desc {
-  font-size: 16px;
-  font-family: Poppins-Medium, Poppins;
-  font-weight: 500;
-  color: #000000;
-  line-height: 24px;
-} */
-
-.levels{
+.my-level.levels{
   margin: 0px 0 120px 0px;
   padding-left: 20px;
   box-sizing: border-box;
 }
-.level-top-bg {
+.my-level.levels .level-top-bg {
   height: 73px;
   border-radius: 20px 0 0 20px;
   margin-bottom: 10px;
   background: linear-gradient(135deg, #3023AE 0%, #C86DD7 100%)
 }
-.wrap-level-top {
+.my-level.levels .wrap-level-top {
   background: rgb(252,245,254);
   width: 1100px;
   height: 100%;
   border-radius: 20px;
 
 }
-.level-top {
+.my-level.levels .level-top {
   width: 1100px;
   height: 100%;
   border-radius: 20px;
@@ -89,7 +26,7 @@
   position: relative;
 }
 
-.level-top .dashed {
+.my-level.levels .level-top .dashed {
   width: 2px;
   height: 100%;
   background: linear-gradient(to bottom, #9B9B9B, #9B9B9B 5px, transparent 5px, transparent);
@@ -99,23 +36,23 @@
 }
 
 
-.level-bottom{
+.my-level.levels .level-bottom{
   /* width: 720px; */
   width: 1100px;
   display: flex;
   position: relative;
 }
-.level-bottom li{
+.my-level.levels .level-bottom li{
   display: flex;
   width: 2px;
   align-items: center;
   flex-direction: column;
   position: absolute;
 }
-.level-bottom strong {
+.my-level.levels .level-bottom strong {
   white-space: nowrap;
 } 
-.level-bottom li span {
+.my-level.levels .level-bottom li span {
   white-space: nowrap;
   position: absolute;
   bottom: -25px;
