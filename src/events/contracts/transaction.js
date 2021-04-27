@@ -202,15 +202,13 @@ export const withdrawV2 = async (number) => {
   try {
     let res = await pool.withdraw(
       convertByEth(number) + '',
-      {
-        from: chainAccount
-      }
+      convertByEth(number) + ''
     );
-    // alert('success')
+    alert('success')
     return res;
   } catch (err) {
     console.info(err.message)
-    // alert(err.message);
+    alert(err.message);
     ctx.event.emit('hideLoading');
   }
 };
