@@ -79,6 +79,9 @@ header .logo {
   color: #B2B7CC;
   border: 1px solid #B2B7CC;
 }
+.h-right .wrong {
+  color: red
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
