@@ -3,6 +3,8 @@ import './index.css'
 import MyBottom from '../../components/myBottom'
 import UpcomingProject from './components/upcomingProjects/index.js'
 import PreviousProject from './components/previousProjects/index.js'
+import OverProjects from './components/overProjects/index.js'
+
 import {Link} from 'react-router-dom'
 import {getProjects, getPerviousProjects } from '@/service'
 // import { projectsData, perviousProjectsData } from '@/service/mock'
@@ -11,6 +13,8 @@ import {connect} from 'react-redux'
 function Home (props) {
   const [upComingList, setUpComingList] = useState([])
   const [previousList, setPreviousList] = useState([])
+  const [inProgressList, setInProgressList] = useState([])
+
   const {chainId, account} = props
   useEffect(() => {
     const bg = document.getElementById('boxbg')
@@ -41,15 +45,18 @@ function Home (props) {
       setUpComingList([])
     }
   }
-  // 以前的
+  // 以前和进行中
   async function fetchPervious () {
     try {
       let res = await getPerviousProjects({chainID: chainId});
       res = res.data
-      if (!res || !res.data ||  !res.data.data || !res.data.data.length) {throw new Error('')}
-      setPreviousList(res.data.data)
+      if (!res || !res.data) {throw new Error('')}
+      setPreviousList(res.data.over)
+      setInProgressList(res.data.open)
     } catch (error) {
       setPreviousList([])
+      setInProgressList([])
+
     }
   }
 
@@ -61,7 +68,8 @@ function Home (props) {
         <div className="title2">Providing the access to funding blockchain projects</div>
       </div>
       {upComingList && upComingList.length ? <UpcomingProject list={upComingList} /> : null}
-      {previousList && previousList.length ? <PreviousProject list={previousList} account={account} /> : null}
+      {inProgressList && inProgressList.length ? <PreviousProject list={inProgressList} account={account} /> : null}
+      {previousList && previousList.length ? <OverProjects list={previousList} account={account} /> : null}
       <div className="user-applay">
         <div className="title">
           Start your dream on

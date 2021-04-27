@@ -1,17 +1,17 @@
 import React from 'react'
 import PreviousProjectItem from './previousProjectItem.js'
 import './index.css'
-// import arrow from '@/assets/img/arrow@2x.png'
-// import {NavLink} from 'react-router-dom'
+import arrow from '@/assets/img/arrow@2x.png'
+import {NavLink} from 'react-router-dom'
 export default function PreviousProject (props) {
   const { list = [], account  } = props
   return (
     <div className="previous-projects">
       <div className="previous-projects-title">
-        <span className="mainTitle">In-Previous Projects</span>
-        {/* <div>
+        <span className="mainTitle">Previous Projects</span>
+        <div>
           <NavLink to='project-list' className="left">Show all previous projects</NavLink><img className="arrow-pre" src={arrow}/>
-        </div> */}
+        </div>
       </div>
       <div className="previous-projects-content">
         <div style={{display: 'flex'}} className="previous-projects-content-top">

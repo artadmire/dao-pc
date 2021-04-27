@@ -100,7 +100,7 @@ export default function Apply () {
   return (
     <div className="apply">
       <div className="title">
-                 Apply for DAOstarter
+                 Apply for DAOStarter
       </div>
       <div className="apply-form">
         <Form
@@ -143,7 +143,7 @@ export default function Apply () {
               <Radio value="d">More than one</Radio>
             </Radio.Group>
           </Form.Item>
-          <Form.Item name="startTime"  label="When would you like to do a Token Launch on DuckStarter? "
+          <Form.Item name="startTime"  label="When would you like to do a Token Launch on DAOStarter? "
             {...formItemLayout}
             rules={[{ required: true, message: 'Please input your Content!' }]}>
             <Input placeholder="" className="input-controller1"/>
@@ -199,7 +199,7 @@ export default function Apply () {
               autoSize={{ minRows: 5, maxRows: 8 }}
             />
           </Form.Item>
-          <Form.Item name="hear" label="Where did you hear about Duckstarter? " {...formItemLayout}
+          <Form.Item name="hear" label="Where did you hear about DAOStarter? " {...formItemLayout}
             rules={[{ required: true, message: 'Please input your Content!' }]}>
             <Input placeholder=" " className="input-controller2"/>
           </Form.Item>
