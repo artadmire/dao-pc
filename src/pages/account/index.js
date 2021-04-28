@@ -26,6 +26,7 @@ function Account (props) {
   const [modalLeftBun, setModalLeftBun] = useState('APPROVE')
   const [active, setActive] = useState(true)
   const [value, setValue] = useState(0)
+  const [type, setType] = useState('')
 
   const balance = useMemo(() => (balances / 10000000000).toFixed(4) || 0, [balances])
 
@@ -87,12 +88,14 @@ function Account (props) {
 
   const lockIn = useCallback(() => {
     if (!data.root) {return}
+    setType('1')
     setVisible(true)
     setActive(true)
     isApprove ? setModalLeftBun('DEPOSITE') : setModalLeftBun('APPROVE')
   })
   const unlock = useCallback(() => {
     if (!data.root) {return}
+    setType('2')
     setVisible(true)
     setActive(!!ANOTotalStakeAccount)
     setModalLeftBun('UNLOCK')
@@ -239,6 +242,8 @@ function Account (props) {
         active={active}
         onAction={handleAction}
         left={modalLeftBun}
+        type={type}
+        value={value}
         balance={balance}
         account={account}
         ANOTotalStakeAccount={ANOTotalStakeAccount}
