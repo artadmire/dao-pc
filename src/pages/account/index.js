@@ -161,7 +161,7 @@ function Account (props) {
                                     less than 7 days ago
                     </span>
                     <span>
-                                    30%
+                                    40%
                     </span>
                   </li>
                   <li>
@@ -169,7 +169,7 @@ function Account (props) {
                                     less than 15 days ago
                     </span>
                     <span>
-                                    25%
+                                    30%
                     </span>
                   </li>
                   <li>

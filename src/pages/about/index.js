@@ -116,7 +116,7 @@ function About () {
             WEALTH
             </strong>
             <span>
-                    10,000 DSTs
+                    12,000 DSTs
             </span>
             <img  src={Wealth}/>
           </li>
