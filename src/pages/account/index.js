@@ -129,7 +129,7 @@ function Account (props) {
           {/* <div className="daos-count">
             <img src={wallet}/>
             <div>
-              you have <span className="daos-number">{balance || 0}</span> DAOs in your wallet and <span className="daos-number-locked">{ANOTotalStakeAccount || 0}</span> locked-in
+              you have <span className="daos-number">{balance || 0}</span> DSTs in your wallet and <span className="daos-number-locked">{ANOTotalStakeAccount || 0}</span> locked-in
             </div>
           </div> */}
         </div>
@@ -158,7 +158,7 @@ function Account (props) {
                 <ul>
                   <li>
                     <span>
-                                    less than 10 days ago
+                                    less than 7 days ago
                     </span>
                     <span>
                                     30%
@@ -166,7 +166,7 @@ function Account (props) {
                   </li>
                   <li>
                     <span>
-                                    less than 20 days ago
+                                    less than 15 days ago
                     </span>
                     <span>
                                     25%
@@ -208,15 +208,16 @@ function Account (props) {
               </div>
               <div className="stars">
                 <div>
-                            your stars：
+                            your stats：
                 </div>
                 <ul>
                   <li>
                     <span>
-                                    less than 10 days ago
+                                    Current penalty
+
                     </span>
                     <span>
-                                    30%
+                                    0%
                     </span>
                   </li>
                   <li>

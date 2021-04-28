@@ -45,7 +45,7 @@ export default function LevelMap (props) {
             </span>
           </div>
           <div className="aa" style={{fontSize: '14px'}}>
-              you have <span className="right-balance-number">{balance || 0}</span> DAOs in your wallet and <span className="daos-number-locked">{ANOTotalStakeAccount || 0}</span> locked-in
+              you have <span className="right-balance-number">{balance || 0}</span> DSTs in your wallet and <span className="daos-number-locked">{ANOTotalStakeAccount || 0}</span> locked-in
           </div>
         </div>
       </div>

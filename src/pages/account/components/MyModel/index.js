@@ -17,7 +17,7 @@ function MyModal (props) {
       <div className="parameter-detail-bottom">
         <div className="deposited-availale">
           <div className="title">
-          YOU have <span>{props.balance}</span> DAOs locked-in
+          YOU have <span>{props.balance}</span> DSTs locked-in
           </div>
           <div className="cont">
             <div className="cont-first">
@@ -35,7 +35,7 @@ function MyModal (props) {
                                           Max
                 </span>
                 {/* <img src={bronze}/> */}
-                                      USDC
+                                      DST
               </div>
             </div>
           </div>
