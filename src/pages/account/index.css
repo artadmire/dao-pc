@@ -127,6 +127,9 @@ line-height: 25px;
 .available-balance  .balance-handler .unlock{
   background: linear-gradient(135deg, #3023AE 0%, #C86DD7 100%);
 }
+.available-balance  .balance-handler .lockin.unactive, .available-balance  .balance-handler .unlock.unactive {
+  background: #999; 
+}
 .available-balance .rules {
   width: 100%;
   box-sizing: border-box;

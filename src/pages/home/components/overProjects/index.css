@@ -1,0 +1,36 @@
+.previous-projects-title{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 150px;
+}
+.previous-projects-title .left {
+    font-size: 13px;
+    font-family: Poppins-Medium, Poppins;
+    color: #4A4A4A;
+    line-height: 20px;
+}
+.arrow-pre{
+    width:16px;
+    height: 16px;
+    margin-top: -4px;
+    margin-left: 4px;
+}
+.previous-projects-content{
+    margin-top: 50px;
+}
+.previous-projects-content-top .previous-project-item {
+   margin-right: 20px;
+}
+
+.previous-projects-content-bottom{
+    margin-left: 167px;
+    margin-top: 58px;
+}
+.previous-projects-title .mainTitle {
+    background: linear-gradient(to right, #3023AE, #C86DD7);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 46px;
+  }

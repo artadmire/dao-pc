@@ -86,11 +86,13 @@ function Account (props) {
   }
 
   const lockIn = useCallback(() => {
+    if (!data.root) {return}
     setVisible(true)
     setActive(true)
     isApprove ? setModalLeftBun('DEPOSITE') : setModalLeftBun('APPROVE')
   })
   const unlock = useCallback(() => {
+    if (!data.root) {return}
     setVisible(true)
     setActive(!!ANOTotalStakeAccount)
     setModalLeftBun('UNLOCK')
@@ -143,8 +145,8 @@ function Account (props) {
                    Available balance: <span>{ANOTotalStakeAccount || 0}</span>
           </div>
           <div className="balance-handler">
-            <div onClick={lockIn} className="lockin">LOCK-IN</div>
-            <div onClick={unlock} className="unlock">UNLOCK</div>
+            <div onClick={lockIn} className={`lockin ${data.root ? '' : 'unactive'}`}>LOCK-IN</div>
+            <div onClick={unlock} className={`unlock ${data.root ? '' : 'unactive'}`}>UNLOCK</div>
           </div>
           <div>
             <span className="balance">Disclaimer:</span>

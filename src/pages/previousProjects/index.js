@@ -15,8 +15,8 @@ function PreviousProjectsList (props) {
     try {
       let res = await getPerviousProjects({chainID: chainId});
       res = res.data;
-      if (!res || !res.data || !res.data.data ||  !res.data.data.length) {throw new Error('')}
-      setList(res.data.data)
+      if (!res || !res.data) {throw new Error('')}
+      setList(res.data.all)
     } catch (error) {
       setList([])
     }

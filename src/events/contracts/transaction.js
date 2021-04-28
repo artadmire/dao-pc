@@ -198,9 +198,12 @@ export const withdraw = async (number) => {
 // 提取本金
 export const withdrawV2 = async (number) => {
   const { GofPoolContractV2 = {at: () => {}}, chainAccount } = ctx.data;
-  const pool = await GofPoolContractV2 && GofPoolContractV2.at(ANOPoolcontractAddressV2);
+  const pool =  GofPoolContractV2 && await GofPoolContractV2.at(ANOPoolcontractAddressV2);
+  console.log(convertByEth(number))
+
   try {
     let res = await pool.withdraw(
+      convertByEth(number) + '',
       convertByEth(number) + '',
       {
         from: chainAccount

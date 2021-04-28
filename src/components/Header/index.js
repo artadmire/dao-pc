@@ -15,11 +15,7 @@ const chainMap = {
   128: 'HECO',
   56: 'BSC'
 }
-function address (account, chainId) {
-  if (!account) {return 'Unlock Wallet'}
-  if (account && (chainId !== 1 && chainId !== 56 && chainId !== 128)) {return 'Wrong NetWork'}
-  return account;
-}
+
 
 function Header (props) {
   const { account, chainId } = props
@@ -27,6 +23,11 @@ function Header (props) {
 
   function handlerHideModal (val) {
     setShow(val)
+  }
+  function address (account, chainId) {
+    if (!account) {return 'Unlock Wallet'}
+    if (chainId != 1 && chainId != 56 && chainId != 128) {return 'Wrong NetWork'}
+    return account;
   }
 
   const connectWallet = () => {
