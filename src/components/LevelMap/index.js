@@ -22,7 +22,7 @@ const currentLevel = {
 }
 
 export default function LevelMap (props) {
-  const {level = 0, account = '', balance, ANOTotalStakeAccount} = props
+  const {level = 0, account = '', balance, ANOTotalStakeAccount, wrong} = props
   return (
     <div className="my-levelMap">
       {level == 0 ? <p className="account-level-desc">
@@ -41,7 +41,7 @@ export default function LevelMap (props) {
                     Your Wallet :
             </label>
             <span>
-              &nbsp;{account}
+              &nbsp;{wrong ? '' : account}
             </span>
           </div>
           <div className="aa" style={{fontSize: '14px'}}>
