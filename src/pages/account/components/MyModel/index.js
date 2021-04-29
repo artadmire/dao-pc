@@ -40,7 +40,7 @@ function MyModal (props) {
                                           Max
                 </span>
                 {/* <img src={bronze}/> */}
-                                      USDC
+                                      DST
               </div>
             </div>
           </div>

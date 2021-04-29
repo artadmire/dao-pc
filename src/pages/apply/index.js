@@ -139,7 +139,7 @@ export default function Apply () {
             <Radio.Group>
               <Radio value="a">Ethereum</Radio>
               <Radio value="b">Binance Smart Chain</Radio>
-              <Radio value="c">Polkadot</Radio>
+              <Radio value="c">HECO</Radio>
               <Radio value="d">More than one</Radio>
             </Radio.Group>
           </Form.Item>
