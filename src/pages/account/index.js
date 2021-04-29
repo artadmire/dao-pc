@@ -20,12 +20,13 @@ import {updateAccount} from '../../events/contracts/accounts'
 
 
 function Account (props) {
-  const { account, balances, isApprove, ANOTotalStakeAccount } = props
+  const { account, balances, isApprove, ANOTotalStakeAccount, wrong } = props
   const [visible, setVisible] = useState(false)
   const [data, setData] = useState({})
   const [modalLeftBun, setModalLeftBun] = useState('APPROVE')
   const [active, setActive] = useState(true)
   const [value, setValue] = useState(0)
+  const [type, setType] = useState('')
 
   const balance = useMemo(() => (balances / 10000000000).toFixed(4) || 0, [balances])
 
@@ -87,12 +88,14 @@ function Account (props) {
 
   const lockIn = useCallback(() => {
     if (!data.root) {return}
+    setType('1')
     setVisible(true)
     setActive(true)
     isApprove ? setModalLeftBun('DEPOSITE') : setModalLeftBun('APPROVE')
   })
   const unlock = useCallback(() => {
     if (!data.root) {return}
+    setType('2')
     setVisible(true)
     setActive(!!ANOTotalStakeAccount)
     setModalLeftBun('UNLOCK')
@@ -133,7 +136,7 @@ function Account (props) {
             </div>
           </div> */}
         </div>
-        <LevelMap  ANOTotalStakeAccount={ANOTotalStakeAccount} balance={balance} account={account} level={data.userLv}/>
+        <LevelMap wrong={wrong} ANOTotalStakeAccount={ANOTotalStakeAccount} balance={balance} account={account} level={data.userLv}/>
         {/* data && data.kyc ? null : */}
         {
           data && data.kyc ? null : <div className="verified">
@@ -240,6 +243,8 @@ function Account (props) {
         active={active}
         onAction={handleAction}
         left={modalLeftBun}
+        type={type}
+        value={value}
         balance={balance}
         account={account}
         ANOTotalStakeAccount={ANOTotalStakeAccount}
@@ -248,5 +253,5 @@ function Account (props) {
     </div>
   )
 }
-export default connect(({account, balancesAccount, isApproveAccount, ANOTotalStakeAccount}) =>
-  ({account, balances: balancesAccount, isApprove: isApproveAccount, ANOTotalStakeAccount}))(Account)
+export default connect(({account, balancesAccount, isApproveAccount, ANOTotalStakeAccount, wrong}) =>
+  ({account, balances: balancesAccount, isApprove: isApproveAccount, ANOTotalStakeAccount, wrong}))(Account)
