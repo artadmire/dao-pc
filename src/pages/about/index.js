@@ -136,11 +136,11 @@ function About () {
       </div>
       <div>
         <div className="investors">
-          <div className="title">
+          {/* <div className="title">
                     investors
-          </div>
+          </div>*/}
 
-          <div className='investors-content'>
+          {/* <div className='investors-content'>
             {
               list2.map((index, item) => (
                 <a href="javascript:;" key={index} className="wrap-investors-item" >
@@ -153,7 +153,7 @@ function About () {
                 </a>
               ))
             }
-          </div>
+          </div>*/}
 
         </div>
       </div>
