@@ -67,9 +67,12 @@ function Home (props) {
         <div className="title1">The Booster for Crypto Projects</div>
         <div className="title2">Providing the access to funding blockchain projects</div>
       </div>
-      {upComingList && upComingList.length ? <UpcomingProject list={upComingList} /> : null}
+      <UpcomingProject list={upComingList} />
+      <PreviousProject list={inProgressList} account={account} />
+      <OverProjects list={previousList} account={account} />
+      {/* {upComingList && upComingList.length ? <UpcomingProject list={upComingList} /> : null}
       {inProgressList && inProgressList.length ? <PreviousProject list={inProgressList} account={account} /> : null}
-      {previousList && previousList.length ? <OverProjects list={previousList} account={account} /> : null}
+      {previousList && previousList.length ? <OverProjects list={previousList} account={account} /> : null}*/}
       <div className="user-applay">
         <div className="title">
           Start your dream on

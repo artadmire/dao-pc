@@ -184,7 +184,6 @@ export const withdraw = async (number) => {
   try {
     let res = await pool.withdraw(
       convertByEth(number) + '',
-      convertByEth(number) + '',
       {
         from: chainAccount
       }
@@ -196,7 +195,6 @@ export const withdraw = async (number) => {
     ctx.event.emit('hideLoading');
   }
 };
-
 // 提取本金
 export const withdrawV2 = async (number) => {
   const { GofPoolContractV2 = {at: () => {}}, chainAccount } = ctx.data;

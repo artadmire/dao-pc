@@ -22,11 +22,11 @@ const currentLevel = {
 }
 
 export default function LevelMap (props) {
-  const {level = 0, account = '', balance, ANOTotalStakeAccount, wrong} = props
+  const {level = 0, account = '', balance, ANOTotalStakeAccount} = props
   return (
     <div className="my-levelMap">
       {level == 0 ? <p className="account-level-desc">
-        You don’t have a DuckSTARTER Tier yet. Please upgrade your level.
+        You don’t have a DAOSTARTER Tier yet. Please upgrade your level.
       </p> : null}
       <div className="wrap-levelMap">
         <div className="left">
@@ -41,7 +41,7 @@ export default function LevelMap (props) {
                     Your Wallet :
             </label>
             <span>
-              &nbsp;{wrong ? '' : account}
+              &nbsp;{account}
             </span>
           </div>
           <div className="aa" style={{fontSize: '14px'}}>

@@ -20,13 +20,12 @@ import {updateAccount} from '../../events/contracts/accounts'
 
 
 function Account (props) {
-  const { account, balances, isApprove, ANOTotalStakeAccount, wrong } = props
+  const { account, balances, isApprove, ANOTotalStakeAccount } = props
   const [visible, setVisible] = useState(false)
   const [data, setData] = useState({})
   const [modalLeftBun, setModalLeftBun] = useState('APPROVE')
   const [active, setActive] = useState(true)
   const [value, setValue] = useState(0)
-  const [type, setType] = useState('')
 
   const balance = useMemo(() => (balances / 10000000000).toFixed(4) || 0, [balances])
 
@@ -88,14 +87,12 @@ function Account (props) {
 
   const lockIn = useCallback(() => {
     if (!data.root) {return}
-    setType('1')
     setVisible(true)
     setActive(true)
     isApprove ? setModalLeftBun('DEPOSITE') : setModalLeftBun('APPROVE')
   })
   const unlock = useCallback(() => {
     if (!data.root) {return}
-    setType('2')
     setVisible(true)
     setActive(!!ANOTotalStakeAccount)
     setModalLeftBun('UNLOCK')
@@ -136,7 +133,7 @@ function Account (props) {
             </div>
           </div> */}
         </div>
-        <LevelMap wrong={wrong} ANOTotalStakeAccount={ANOTotalStakeAccount} balance={balance} account={account} level={data.userLv}/>
+        <LevelMap  ANOTotalStakeAccount={ANOTotalStakeAccount} balance={balance} account={account} level={data.userLv}/>
         {/* data && data.kyc ? null : */}
         {
           data && data.kyc ? null : <div className="verified">
@@ -161,18 +158,18 @@ function Account (props) {
                 <ul>
                   <li>
                     <span>
-                                    less than 7 days ago
+                                    less than 10 days ago
                     </span>
                     <span>
-                                    40%
+                                    30%
                     </span>
                   </li>
                   <li>
                     <span>
-                                    less than 15 days ago
+                                    less than 20 days ago
                     </span>
                     <span>
-                                    30%
+                                    25%
                     </span>
                   </li>
                   <li>
@@ -211,16 +208,15 @@ function Account (props) {
               </div>
               <div className="stars">
                 <div>
-                            your stats：
+                            your stars：
                 </div>
                 <ul>
                   <li>
                     <span>
-                                    Current penalty
-
+                                    less than 10 days ago
                     </span>
                     <span>
-                                    0%
+                                    30%
                     </span>
                   </li>
                   <li>
@@ -243,8 +239,6 @@ function Account (props) {
         active={active}
         onAction={handleAction}
         left={modalLeftBun}
-        type={type}
-        value={value}
         balance={balance}
         account={account}
         ANOTotalStakeAccount={ANOTotalStakeAccount}
@@ -253,5 +247,5 @@ function Account (props) {
     </div>
   )
 }
-export default connect(({account, balancesAccount, isApproveAccount, ANOTotalStakeAccount, wrong}) =>
-  ({account, balances: balancesAccount, isApprove: isApproveAccount, ANOTotalStakeAccount, wrong}))(Account)
+export default connect(({account, balancesAccount, isApproveAccount, ANOTotalStakeAccount}) =>
+  ({account, balances: balancesAccount, isApprove: isApproveAccount, ANOTotalStakeAccount}))(Account)

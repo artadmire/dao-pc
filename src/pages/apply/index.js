@@ -31,7 +31,7 @@ export default function Apply () {
         return isLt20M;
       },
       name: 'file',
-      action: 'http://www.daostarter.pro/api/starter/upload',
+      action: 'https://www.daostarter.pro/api/starter/upload',
       onChange (info) {
         console.info(info, 'info')
         if (info.file.status === 'done') {
@@ -137,10 +137,11 @@ export default function Apply () {
             className="aa"
             rules={[{ required: true, message: 'Please selset your Content!' }]}>
             <Radio.Group>
-              <Radio value="a">Ethereum</Radio>
-              <Radio value="b">Binance Smart Chain</Radio>
-              <Radio value="c">HECO</Radio>
-              <Radio value="d">More than one</Radio>
+              <Radio value="ETH">Ethereum</Radio>
+              <Radio value="BSC">BSC</Radio>
+              <Radio value="HECO">HECO</Radio>
+              <Radio value="HSC">HSC</Radio>
+              <Radio value="OTHER">More than one</Radio>
             </Radio.Group>
           </Form.Item>
           <Form.Item name="startTime"  label="When would you like to do a Token Launch on DAOStarter? "

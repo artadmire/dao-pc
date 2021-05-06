@@ -6,38 +6,34 @@ import ctx, { mapData, unmapActions } from '../../events';
 import { showInfo } from '../Modal';
 import { connect} from 'react-redux'
 import { store } from '@/store'
-import {accountAction, wrongAction} from '@/store/actions'
+import {accountAction} from '@/store/actions'
 import ComingModel from '../ComingModel'
 import {changeNetwork} from '../../events/contracts/accounts'
 
 const chainMap = {
   1: 'ETH',
   128: 'HECO',
-  56: 'BSC'
+  56: 'BSC',
+  70: 'HSC'
 }
 
 
 function Header (props) {
-  const { account, chainId, wrong } = props
+  const { account, chainId } = props
   const [show, setShow] = useState(false)
-
-  useEffect(() => {
-    const wrong = !chainMap[chainId]
-    store.dispatch(wrongAction(wrong))
-  }, [chainId])
 
   function handlerHideModal (val) {
     setShow(val)
   }
   function address (account, chainId) {
     if (!account) {return 'Unlock Wallet'}
-    if (chainId != 1 && chainId != 56 && chainId != 128) {return 'Wrong NetWork'}
+    if (chainId != 1 && chainId != 56 && chainId != 128 && chainId != 70) {return 'Wrong Network'}
     return account;
   }
 
   const connectWallet = () => {
     const { chainAccount } = ctx.data;
-    if (chainAccount && !wrong) {
+    if (chainAccount) {
       showInfo({
         content: `Your wallet address is already connected:\n${chainAccount}`
       });
@@ -75,8 +71,8 @@ function Header (props) {
           <NavLink className="navtab" to='/account'>ACCOUNT</NavLink>
         </div>
         <div className="h-right">
-          <span className={`${chainMap[chainId] ? '' : 'wrong'}`}>{chainMap[chainId] || 'Wrong NetWork'}</span>
-          <p onClick={connectWallet} className={`unlock-wallet ${address(account, chainId) === 'Wrong NetWork' && 'wrong'}`} >{address(account, chainId)}</p>
+          <span className={`${chainMap[chainId] ? '' : 'wrong'}`}>{chainMap[chainId] || 'Wrong Network'}</span>
+          <p onClick={connectWallet} className={`unlock-wallet ${address(account, chainId) === 'Wrong Network' && 'wrong'}`} >{address(account, chainId)}</p>
         </div>
       </div>
       {show ? <ComingModel  hideModal={handlerHideModal}/> : null}
@@ -84,4 +80,4 @@ function Header (props) {
   );
 }
 
-export default connect(({account, chainId, wrong}) => ({account, chainId, wrong}))(Header);
+export default connect(({account, chainId}) => ({account, chainId}))(Header);

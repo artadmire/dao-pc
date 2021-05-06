@@ -47,7 +47,3 @@ export const chainIdAction = (chainId) => ({
   type: 'CHAINID',
   payload: chainId
 })
-export const wrongAction = (bol) => ({
-  type: 'WRONG',
-  payload: bol
-})

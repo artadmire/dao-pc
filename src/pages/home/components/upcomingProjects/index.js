@@ -7,7 +7,8 @@ function UpcomingProject (props) {
     <div className="upcoming-projects">
       <span className="mainTitle">Upcoming Projects</span>
       <div className="upcoming-projects-content">
-        <div className="first-item">
+        <br/><br/><br/><br/>
+        {/* <div className="first-item">
           <UpcomingProjectItem  data={list[0]} />
         </div>
         <div className="second-item">
@@ -17,7 +18,7 @@ function UpcomingProject (props) {
           {
             list.slice(2).map((item, index) => <UpcomingProjectItem key={index} data={item}/>)
           }
-        </div>
+        </div>*/}
       </div>
     </div>
   )
