@@ -6,7 +6,7 @@ import ctx, { mapData, unmapActions } from '../../events';
 import { showInfo } from '../Modal';
 import { connect} from 'react-redux'
 import { store } from '@/store'
-import {accountAction} from '@/store/actions'
+import {accountAction, wrongAction} from '@/store/actions'
 import ComingModel from '../ComingModel'
 import {changeNetwork} from '../../events/contracts/accounts'
 
@@ -19,8 +19,13 @@ const chainMap = {
 
 
 function Header (props) {
-  const { account, chainId } = props
+  const { account, chainId, wrong } = props
   const [show, setShow] = useState(false)
+
+  useEffect(() => {
+    const wrong = !chainMap[chainId]
+    store.dispatch(wrongAction(wrong))
+  }, [chainId])
 
   function handlerHideModal (val) {
     setShow(val)
@@ -33,7 +38,7 @@ function Header (props) {
 
   const connectWallet = () => {
     const { chainAccount } = ctx.data;
-    if (chainAccount) {
+    if (chainAccount && !wrong) {
       showInfo({
         content: `Your wallet address is already connected:\n${chainAccount}`
       });
@@ -80,4 +85,4 @@ function Header (props) {
   );
 }
 
-export default connect(({account, chainId}) => ({account, chainId}))(Header);
+export default connect(({account, chainId, wrong}) => ({account, chainId, wrong}))(Header);
