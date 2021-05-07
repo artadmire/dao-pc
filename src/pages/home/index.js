@@ -65,13 +65,19 @@ function Home (props) {
       <div className="des">
         <div className="title">DAOStarter</div>
         <div className="title1">The Booster for Crypto Projects</div>
-        <div className="title2">Providing the access to funding blockchain projects</div>
+        <div className="title2">Providing the access to funding blockchain projects</div><br/><br/>
+        <div className="title3">Powered by<br/><br/>
+          <img className="logo" src={'https://daostarter.oss-cn-hangzhou.aliyuncs.com/poweredby/binance.png'}/>&nbsp;
+          <img className="logo" src={'https://daostarter.oss-cn-hangzhou.aliyuncs.com/ETH_logo%282%29.png'}/>
+          <br/><br/>
+          <img className="logo" src={'https://daostarter.oss-cn-hangzhou.aliyuncs.com/HECO_logo.svg'}/>&nbsp;
+          <img className="logo" src={'https://daostarter.oss-cn-hangzhou.aliyuncs.com/HSC_logo.svg'}/>
+        </div>
       </div>
       {upComingList && upComingList.length ? <UpcomingProject list={upComingList} /> : null}
       <PreviousProject list={inProgressList} account={account} />
       <OverProjects list={previousList} account={account} />
-      {/* {upComingList && upComingList.length ? <UpcomingProject list={upComingList} /> : null}
-      {inProgressList && inProgressList.length ? <PreviousProject list={inProgressList} account={account} /> : null}
+      {/* {inProgressList && inProgressList.length ? <PreviousProject list={inProgressList} account={account} /> : null}
       {previousList && previousList.length ? <OverProjects list={previousList} account={account} /> : null}*/}
       <div className="user-applay">
         <div className="title">

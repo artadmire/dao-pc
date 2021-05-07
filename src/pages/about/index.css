@@ -64,6 +64,9 @@
   align-items: center;
   padding: 0 45px;
   box-sizing: border-box;
+  box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.1);
+
+
 }
 .my-about .character-item img{
   width:100px;
@@ -72,7 +75,7 @@
 }
 .my-about .investors{
   margin-top: 280px;
- 
+
 }
 
 .my-about .investors .title{
@@ -183,7 +186,7 @@
 }
 .my-about .level-bottom strong {
   white-space: nowrap;
-} 
+}
 .my-about .level-bottom li span {
   white-space: nowrap;
   position: absolute;

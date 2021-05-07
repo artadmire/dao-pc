@@ -2,6 +2,12 @@ p{
   margin:0;
   padding: 0;
 }
+.logo {
+  width: 220px;
+  height: 60px;
+  margin-left: 20px;
+
+}
 .home {
   margin-top: 236px;
   padding-left: 95px;
@@ -33,6 +39,15 @@ p{
   font-weight: 400;
   color: #B1B7CE;
   line-height: 30px;
+}
+.des .title3 {
+  font-size: 25px;
+  font-family: Poppins Medium  ;
+  font-weight: Medium;
+  color: #000000;
+  line-height: 64px;
+  margin-top: 35px;
+  margin-bottom: 56px;
 }
 
 .home .start {
