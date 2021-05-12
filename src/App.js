@@ -34,7 +34,7 @@ function App () {
             <Route exact path="/" component={Home}></Route>
             <Route path="/about" component={About}></Route>
             <Route path="/account" component={Account}></Route>
-            <Route path="/parameter" component={Parameter}></Route>
+            <Route path="/parameter/:ID" component={Parameter}></Route>
             <Route path="/apply" component={Apply}></Route>
             <Route path="/project-list" component={PreviousProjects}></Route>
             <Redirect to="/" ></Redirect>

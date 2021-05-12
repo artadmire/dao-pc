@@ -40,7 +40,7 @@ export default function Level (props) {
         EXPERIENCED
           </strong>
           <span>
-                2,000 DSTs
+                1,000 DSTs
           </span>
           {/* <img  src={gold}/> */}
         </li>
@@ -49,7 +49,7 @@ export default function Level (props) {
         OLD-BIRD
           </strong>
           <span>
-          5,000 DSTs
+          3,000 DSTs
           </span>
           {/* <img  src={sliver}/> */}
         </li>
@@ -58,7 +58,7 @@ export default function Level (props) {
         EXPERT
           </strong>
           <span>
-                10,000 DSTs
+                6,000 DSTs
           </span>
           {/* <img  src={platinum}/> */}
         </li>
@@ -67,7 +67,7 @@ export default function Level (props) {
         WEALTH
           </strong>
           <span>
-                20,000 DSTs
+                12,000 DSTs
           </span>
           {/* <img  src={Wealth}/> */}
         </li>

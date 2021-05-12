@@ -4,13 +4,14 @@ import {NavLink} from 'react-router-dom'
 
 export default function PreviousProjectItem (props) {
   const { data = {}, account } = props;
-  const { name = '', logo = '', offerAddress = '', dtokenAddress = '', method = '', deposit = '', earn = '', totalDeposited = '', avaliable = '', status, poolId = ''} = data || {}
+  const { name = '', logo = '', offerAddress = '', dtokenAddress = '', method = '', deposit = '', earn = '', totalDeposited = '', available = '', status, poolID = ''} = data || {}
   function handleClick () {
     window.offerAddress = offerAddress
     window.dtokenAddress = dtokenAddress
   }
   return (
-    <NavLink to='/parameter' onClick={handleClick} className="previous-project-item" style={{'marginRight': props.styles.marginRight || '', 'marginBottom': props.styles.marginBottom || ''}}>
+  // eslint-disable-next-line max-len
+    <NavLink to={'/parameter/' + poolID}  onClick={handleClick} className="previous-project-item" style={{'marginRight': props.styles.marginRight || '', 'marginBottom': props.styles.marginBottom || ''}}>
       <div className="section1">
         <img alt="oo"  src={logo}/>
         <span>{name}</span>
@@ -38,7 +39,7 @@ export default function PreviousProjectItem (props) {
         </li>
         <li>
           <div>ethbox tokens available</div>
-          <div>{avaliable}</div>
+          <div>{available}</div>
         </li>
         <li>
           <div>status</div>

@@ -78,6 +78,7 @@ export const approve = async () => {
       }
     );
     console.log(res)
+    ctx.data.stakeStatus = true;
   } catch (err) {
     ctx.event.emit('hideLoading');
   }
@@ -133,7 +134,6 @@ export const stakeV2 = async (number) => {
         from: chainAccount
       }
     );
-    alert('success')
     return res;
   } catch (err) {
     console.info(err.message);
@@ -153,7 +153,6 @@ export const offer = async (number) => {
         from: chainAccount
       }
     );
-    alert('success')
     return res;
   } catch (err) {
     console.info(err.message);
@@ -188,7 +187,6 @@ export const withdraw = async (number) => {
         from: chainAccount
       }
     );
-    alert('success')
     return res;
   } catch (err) {
     console.info(err.message)
@@ -298,7 +296,7 @@ export const totalSupply = async () => {
 export const claimedOf = async () => {
   const { GofPoolContract = {at: () => {}}, chainAccount } = ctx.data;
   const pool = await GofPoolContract.at(window.offerAddress);
-  const total = typeof pool.claimedOf === 'function' && await pool.claimedOf(chainAccount);
+  const total = typeof pool.offeredOf === 'function' && await pool.offeredOf(chainAccount);
   ctx.data.claimedOf =  convertByWei(total);
   store.dispatch(claimedOfAction(ctx.data.claimedOf))
 

@@ -14,7 +14,7 @@ export default function PreviousProject (props) {
         </div> */}
       </div>
       <br/><br/><br/><br/>
-      {/* <div className="previous-projects-content">
+      <div className="previous-projects-content">
         <div style={{display: 'flex'}} className="previous-projects-content-top">
           {
             list.slice(0, 3).map((item, index) =>  <PreviousProjectItem account={account} key={index} data={item} styles={{'marginRight': '16px'}}/>)
@@ -28,7 +28,7 @@ export default function PreviousProject (props) {
           </div>
         }
 
-      </div>*/}
+      </div>
     </div>
   )
 }
