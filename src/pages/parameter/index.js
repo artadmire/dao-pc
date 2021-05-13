@@ -18,12 +18,10 @@ function Parameter (props) {
   const [minutes, setMins] = useState('00')
   const [seconds, setSeconds] = useState('00')
   const [value, setValue] = useState(100)
-
-  const { isApprove: _approve, account, balances = 0,
+  const { isApprove, account, balances = 0,
     totalSupply = 0, claimed = 0 } = props
   const balance = ((balances || 0) / 10000000000).toFixed(4) || 0
   const poolID = props.match.params.ID;
-  console.log('poolID=' + poolID);
   useEffect(() => {
     // 初始化区块链库
     ctx.event.emit('initEthereum');
@@ -50,7 +48,7 @@ function Parameter (props) {
 
   useEffect(async () => {
     account && fetchData(account)
-  }, [account, _approve])
+  }, [account, isApprove, balances, totalSupply])
 
   function changeValue (e) {
     setValue(e.target.value)
@@ -72,14 +70,14 @@ function Parameter (props) {
 
   // 授权
   async function handleApprove () {
-    if (_approve || !data.hasRoot) {return}
+    if (isApprove || !data.hasRoot) {return}
     const res = await approve();
-    res && store.dispatch({type: 'ISAPPROVE', payload: true})
+    store.dispatch({type: 'ISAPPROVE', payload: true})
   }
 
   // 质押
   async function handleDeposit () {
-    if (!_approve || !data.hasRoot || data.deposited > 0)  {return}
+    if (!isApprove || !data.hasRoot || data.deposited > 0)  {return}
     await offer(value);
     updateAccount()
     fetchData(account)
@@ -105,7 +103,6 @@ function Parameter (props) {
     setMins(_minutes)
     let _seconds = parseInt(_leftTime / 1000 % 60);
     setSeconds(_seconds)
-
   }
 
 
@@ -228,10 +225,10 @@ function Parameter (props) {
                 <div>TOTAL: {balance || 0} {data.depositToken}</div>
               </div>
               <div className="handler">
-                <span className={(!_approve && data.hasRoot) ? 'active' : ''} onClick={handleApprove}  >
+                <span className={(!isApprove && data.hasRoot) ? 'active' : ''} onClick={handleApprove}  >
                   approve
                 </span>
-                <span className={(_approve && data.hasRoot && !data.deposited) ? 'active' : ''} onClick={handleDeposit}  >
+                <span className={(isApprove && data.hasRoot && !data.deposited) ? 'active' : ''} onClick={handleDeposit}  >
                    Deposit
                 </span>
               </div>

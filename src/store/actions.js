@@ -26,6 +26,7 @@ export const ANOTotalStakeAction = (tatol) => ({
   type: 'TOTALSTATE',
   payload: tatol
 })
+
 export const ANOTotalStakeActionV2 = (tatol) => ({
   type: 'TOTALSTATEV2',
   payload: tatol
