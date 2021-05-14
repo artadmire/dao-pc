@@ -22,6 +22,7 @@ function Parameter (props) {
     totalSupply = 0, claimed = 0 } = props
   const balance = ((balances || 0) / 10000000000).toFixed(4) || 0
   const poolID = props.match.params.ID;
+
   useEffect(() => {
     // 初始化区块链库
     ctx.event.emit('initEthereum');
@@ -48,7 +49,7 @@ function Parameter (props) {
 
   useEffect(async () => {
     account && fetchData(account)
-  }, [account, isApprove, balances, totalSupply])
+  }, [account, isApprove])
 
   function changeValue (e) {
     setValue(e.target.value)
@@ -105,7 +106,6 @@ function Parameter (props) {
     setSeconds(_seconds)
   }
 
-
   const now = data.nowDate;
   const perid =  (data.endDate * 1 - data.startDate * 1) || 0
   const diff = data.endDate * 1 - now
@@ -130,7 +130,7 @@ function Parameter (props) {
                     {data.totalRewards || 0} {` ${data.earnToken || '-'}`} Token
                   </span>
                   <span>
-                    Total USDC deposited
+                    Total USDT deposited
                   </span>
                   <span>
                     {data.totalDeposited || 0}
@@ -144,7 +144,7 @@ function Parameter (props) {
                     {` ${data.depositToken || '-'}`}
                   </span>
                   <span>
-                  Max. deposit available
+                  Max deposit available
                   </span>
                   <span>
                     {data.maxDepositAvailable || 0}
@@ -158,7 +158,7 @@ function Parameter (props) {
                     {data.depositPeriod || 0} minutes
                   </span>
                   <span>
-                  Your Share
+                  Your share
                   </span>
                   <span>
                     {data.yourShare || 0}%
@@ -202,7 +202,7 @@ function Parameter (props) {
           <div className="parameter-detail-bottom">
             <div className="deposited-availale">
               <div className="title">
-                       YOU HAVE <span>{totalSupply / (data.ratio || 1) || 0}</span> {data.depositToken} DEPOSITED from <span>{balance || 0} </span>available for your TIER
+                       YOU HAVE <span>{totalSupply / (data.ratio || 1) || 0}</span> {data.depositToken} DEPOSITED  {/* from <span>{balance || 0} </span>available for your TIER*/}
               </div>
               <div className="cont">
                 <div className="cont-first">
@@ -220,13 +220,13 @@ function Parameter (props) {
                   </div>
                 </div>
               </div>
-              <div className="sum">
+              {/* <div className="sum">
                 <div>{totalSupply / (data.ratio || 1)} Deposited</div>
                 <div>TOTAL: {balance || 0} {data.depositToken}</div>
-              </div>
+              </div>*/}
               <div className="handler">
                 <span className={(!isApprove && data.hasRoot) ? 'active' : ''} onClick={handleApprove}  >
-                  approve
+                  Approve
                 </span>
                 <span className={(isApprove && data.hasRoot && !data.deposited) ? 'active' : ''} onClick={handleDeposit}  >
                    Deposit
@@ -257,7 +257,7 @@ function Parameter (props) {
               </ul>
               <div className="sum">
                 <div>
-                             Reward ({claimed} while calculating)
+                             Reward {totalSupply - claimed} {` ${data.earnToken || '-'}`}
                 </div>
                 {/* <div>
                   {data.totalRewards || 0} EBOX Token

@@ -37,7 +37,7 @@
 }
 
 .deposited ul li  span:nth-of-type(1){
-  
+
   font-family: Poppins-Regular, Poppins;
   font-weight: 400;
   margin-bottom: 12px;
@@ -183,9 +183,10 @@ line-height: 25px;
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
-  
+
 }
 .deposited-availale .handler span {
+  font-size: 20px;
   background: #D2D2D2;
   cursor: pointer;
   border-radius: 4px;
@@ -222,6 +223,7 @@ line-height: 25px;
 }
 .reward-tokens .cont li span:nth-of-type(1){
   margin-bottom: 25px;
+  font-size: 15px;
 }
 .reward-tokens .sum{
   display: flex;
@@ -229,7 +231,7 @@ line-height: 25px;
   margin-top: 34px;
 }
 .reward-tokens .sum div:nth-of-type(1){
- 
+
 font-size: 13px;
 font-family: Poppins-Regular, Poppins;
 font-weight: 400;
@@ -319,6 +321,7 @@ line-height: 20px;
   margin-left: 83px;
 }
 .reward-tokens .Harvest {
+  font-size: 20px;
   display: inline-block;
   background: #D2D2D2;
   cursor: pointer;

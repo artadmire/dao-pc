@@ -251,6 +251,7 @@ export const balanceOf = async () => {
   const ano = await GofContract.at(window.dtokenAddress);
   const ANOBalance = ano && await ano.balanceOf(chainAccount);
   ctx.data.ANOBalance =  convertByAnoWei(ANOBalance);
+  console.log('更新余额' + ctx.data.ANOBalance);
   store.dispatch(ANOBalanceAction(ctx.data.ANOBalance))
 };
 
@@ -296,7 +297,7 @@ export const totalSupply = async () => {
 export const claimedOf = async () => {
   const { GofPoolContract = {at: () => {}}, chainAccount } = ctx.data;
   const pool = await GofPoolContract.at(window.offerAddress);
-  const total = typeof pool.offeredOf === 'function' && await pool.offeredOf(chainAccount);
+  const total = typeof pool.claimedOf === 'function' && await pool.claimedOf(chainAccount);
   ctx.data.claimedOf =  convertByWei(total);
   store.dispatch(claimedOfAction(ctx.data.claimedOf))
 
