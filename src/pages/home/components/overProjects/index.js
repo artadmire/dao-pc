@@ -13,7 +13,7 @@ export default function PreviousProject (props) {
           <NavLink to='project-list' className="left">Show all previous projects</NavLink><img className="arrow-pre" src={arrow}/>
         </div>*/}
       </div>
-      {/* <div className="previous-projects-content">
+      <div className="previous-projects-content">
         <div style={{display: 'flex'}} className="previous-projects-content-top">
           {
             list.slice(0, 3).map((item, index) =>  <PreviousProjectItem account={account} key={index} data={item} styles={{'marginRight': '16px'}}/>)
@@ -27,7 +27,7 @@ export default function PreviousProject (props) {
           </div>
         }
 
-      </div>*/}
+      </div>
     </div>
   )
 }
