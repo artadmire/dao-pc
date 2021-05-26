@@ -30,7 +30,7 @@ function Parameter (props) {
       window.offerAddress = ''
       window.dtokenAddress = ''
     }
-  }, []);
+  }, [account]);
 
   useEffect(() => {
     let timer = setInterval(() => {
@@ -62,6 +62,13 @@ function Parameter (props) {
     try {
       const res = await getDeposit({account, poolID});
       if (!res || !res.data || !res.data.data) {throw new Error('')}
+
+      /* window.offerAddress = res.data.data.offerAddress
+      window.dtokenAddress = res.data.data.dtokenAddress*/
+      window.offerAddress = res.data.data.offerAddress
+      window.dtokenAddress = res.data.data.dAddress
+
+      ctx.event.emit('initEthereum');
       setData(res.data.data)
       setLeftTime(res.data.data.harvestDate)
     } catch (error) {
@@ -263,7 +270,7 @@ function Parameter (props) {
                   {data.totalRewards || 0} EBOX Token
                 </div> */}
               </div>
-              <span className={`Harvest ${(leftTime <= 0 && data.hasRoot) ? 'active' : ''}`}  onClick={handleHarvest}  >
+              <span className={`Harvest ${(leftTime <= 0 && data.hasRoot && claimed == 0) ? 'active' : ''}`}  onClick={handleHarvest}  >
               Harvest
               </span>
             </div>

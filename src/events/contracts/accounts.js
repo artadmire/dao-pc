@@ -78,12 +78,11 @@ export const initChain = async () => {
 
 // 更新账号信息
 export const updateAccount = async (account) => {
-
   if (account && account.length) {
     const chainAccount = account[0];
     ctx.data.chainAccount = chainAccount;
     if (window.offerAddress && window.dtokenAddress) {
-      console.log('updateAccount ......');
+      console.log('updateAccount');
       balanceOf();
       isApprove();
       totalStake();

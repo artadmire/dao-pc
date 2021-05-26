@@ -11,6 +11,7 @@ export default function PreviousProjectItem (props) {
   const { data = {}, account } = props;
   const { name = '', logo = '', offerAddress = '', dtokenAddress = '', method = '', deposit = '', earn = '', totalDeposited = '', available = '', status, poolID = '', chainID = ''} = data || {}
   function handleClick () {
+
     window.offerAddress = offerAddress
     window.dtokenAddress = dtokenAddress
   }

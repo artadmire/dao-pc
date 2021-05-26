@@ -251,7 +251,6 @@ export const balanceOf = async () => {
   const ano = await GofContract.at(window.dtokenAddress);
   const ANOBalance = ano && await ano.balanceOf(chainAccount);
   ctx.data.ANOBalance =  convertByAnoWei(ANOBalance);
-  console.log('更新余额' + ctx.data.ANOBalance);
   store.dispatch(ANOBalanceAction(ctx.data.ANOBalance))
 };
 
