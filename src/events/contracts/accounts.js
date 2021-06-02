@@ -89,7 +89,7 @@ export const updateAccount = async (account) => {
       totalSupply();
       claimedOf()
     }
-    balanceOfV2()
+    balanceOfV2();
     isApproveV2();
     totalStakeV2();
   }
